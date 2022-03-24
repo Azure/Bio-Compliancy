@@ -1,4 +1,4 @@
-# Project
+# BIO Compliancy initiative template
 
 > This repo has been populated by an initial template to help get you started. Please
 > make sure to update the content to build a great experience for community-building.
@@ -20,7 +20,7 @@ Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overh
 
 Voor de leesbaarheid en technische implementatie zijn de titels van de controls in deze template herschreven. Voor een volledige beschrijving van deze controls wordt verwezen naar de bovenstaande link op de website van het CIP overheid.
 
-![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "Bio compliancy example")
+![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
 
 
 As the maintainer of this project, please make a few updates:
