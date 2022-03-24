@@ -20,7 +20,7 @@ Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overh
 
 Voor de leesbaarheid en technische implementatie zijn de titels van de controls in deze template herschreven. Voor een volledige beschrijving van deze controls wordt verwezen naar de bovenstaande link op de website van het CIP overheid.
 
-
+![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "Bio compliancy example")
 
 
 As the maintainer of this project, please make a few updates:
