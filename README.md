@@ -32,22 +32,21 @@ As the maintainer of this project, please make a few updates:
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet u akkoord gaan met 
+een Licentieovereenkomst voor donateurs (CLA) waarin wordt verklaard dat u het recht hebt om ons het 
+recht te geven om uw bijdrage te gebruiken en dat ook daadwerkelijk doet. Ga voor meer informatie 
+naar https://cla.opensource.microsoft.com.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Wanneer u een pull-verzoek indient, zal een CLA-bot automatisch bepalen of u een CLA moet verstrekken 
+en het pull-verzoek op de juiste manier moet versieren (bijv. Statuscontrole, opmerking). Volg gewoon 
+de instructies van de bot. U hoeft dit slechts één keer te doen over alle repo's met behulp van onze CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) aangenomen. Zie voor meer informatie de Veelgestelde 
+vragen over de [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact met [opencode@microsoft.com](mailto:opencode@microsoft.com) op met eventuele aanvullende vragen of opmerkingen.
 
+## implementeren op Azure
 
-## Deploying
-
-| Version | Button |
+| Versie | Implementeer |
 |---|---|
 | 2.1.0 | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
 
