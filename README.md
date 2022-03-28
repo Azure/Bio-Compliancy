@@ -1,8 +1,5 @@
 # BIO Compliancy initiative template
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
-
 Dit project omvat een intiative policy template welke ingeladen kan worden in Microsoft Azure en in combinatie met Defender for Cloud kan auditen of de resources in de Azure omgeving voldoen aan de BIO compliany.
 
 De Baseline informatiebeveiliging Overheid (BIO) is het basisnormenkader voor informatiebeveiliging binnen alle overheidslagen.
@@ -22,15 +19,7 @@ Voor de leesbaarheid en technische implementatie zijn de titels van de controls 
 
 ![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
 
-
-As the maintainer of this project, please make a few updates:
-
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
-
-## Contributing
+## Bijdragen
 
 Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet u akkoord gaan met 
 een Licentieovereenkomst voor donateurs (CLA) waarin wordt verklaard dat u het recht hebt om ons het 
@@ -42,9 +31,9 @@ en het pull-verzoek op de juiste manier moet versieren (bijv. Statuscontrole, op
 de instructies van de bot. U hoeft dit slechts één keer te doen over alle repo's met behulp van onze CLA.
 
 Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) aangenomen. Zie voor meer informatie de Veelgestelde 
-vragen over de [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact met [opencode@microsoft.com](mailto:opencode@microsoft.com) op met eventuele aanvullende vragen of opmerkingen.
+vragen over de [Code of Conduct](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact met [opencode@microsoft.com](mailto:opencode@microsoft.com) op met eventuele aanvullende vragen of opmerkingen.
 
-## implementeren op Azure
+## Implementeren op Azure
 
 | Versie | Implementeer |
 |---|---|
@@ -54,10 +43,9 @@ vragen over de [Code of Conduct FAQ](https://opensource.microsoft.com/codeofcond
 
 Deze template dient als hulpmiddel te worden gezien om een status van compliancy op het gebied van BIO te bereiken. Onder geen enkele voorwaarde garandeert Microsoft dat deze template direct leidt tot een volledige BIO compliancy ten aanzien van resources in de Microsoft Azure omgeving.
 
-## Trademarks
+## Handelsmerken
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+Dit project kan handelsmerken of logo's bevatten voor projecten, producten of diensten. Geautoriseerd gebruik van Microsoft 
+handelsmerken of logo's zijn onderworpen aan en moeten [Handelsmerk- en merkrichtlijnen van Microsoft] (https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen.
+Het gebruik van handelsmerken of logo's van Microsoft in gewijzigde versies van dit project mag geen verwarring veroorzaken of sponsoring door Microsoft impliceren.
+Elk gebruik van handelsmerken of logo's van derden is onderworpen aan het beleid van die derden.
