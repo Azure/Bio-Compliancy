@@ -46,6 +46,6 @@ Deze template dient als hulpmiddel te worden gezien om een status van compliancy
 ## Handelsmerken
 
 Dit project kan handelsmerken of logo's bevatten voor projecten, producten of diensten. Geautoriseerd gebruik van Microsoft 
-handelsmerken of logo's zijn onderworpen aan en moeten [Handelsmerk- en merkrichtlijnen van Microsoft] (https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen.
+handelsmerken of logo's zijn onderworpen aan en moeten [Handelsmerk- en merkrichtlijnen van Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general) volgen.
 Het gebruik van handelsmerken of logo's van Microsoft in gewijzigde versies van dit project mag geen verwarring veroorzaken of sponsoring door Microsoft impliceren.
 Elk gebruik van handelsmerken of logo's van derden is onderworpen aan het beleid van die derden.
