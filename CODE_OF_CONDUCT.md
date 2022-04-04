@@ -1,9 +1,9 @@
-# Microsoft Open Source Code of Conduct
+# Microsoft Open Source Gedragscode
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) aangenomen.
 
-Resources:
+Bronnen:
 
 - [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
 - [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-- Contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with questions or concerns
+- Neem contact met [opencode@microsoft.com](mailto:opencode@microsoft.com) op met vragen of opmerkingen
