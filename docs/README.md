@@ -8,8 +8,6 @@ Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overh
 
 Voor de leesbaarheid en technische implementatie zijn de titels van de controls in deze template herschreven. Voor een volledige beschrijving van deze controls wordt verwezen naar de bovenstaande link op de website van het CIP overheid.
 
-'![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
-
 ## Implementeren op Azure
 
 | Versie | Doel | Implementeer |
@@ -17,9 +15,16 @@ Voor de leesbaarheid en technische implementatie zijn de titels van de controls 
 | 2.1.0 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
 | 2.1.0 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
 
-## Toevoegen policy in Defender for Cloud
+## Toevoegen nalevingsbeleid in Defender for Cloud
 
-Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet u akkoord gaan met 
-een Licentieovereenkomst voor donateurs (CLA) waarin wordt verklaard dat u het recht hebt om ons het 
-recht te geven om uw bijdrage te gebruiken en dat ook daadwerkelijk doet. Ga voor meer informatie 
-naar https://cla.opensource.microsoft.com.
+Het dashboard voor naleving van regelgeving toont uw geselecteerde nalevingsstandaarden met alle vereisten, waarbij ondersteunde vereisten worden toegepast op toepasselijke beveiligingsevaluaties. De status van deze evaluaties weerspiegelt uw naleving van de standaard.
+
+Gebruik het dashboard voor naleving van regelgeving om uw aandacht te richten op de hiaten in de naleving van uw gekozen standaarden en voorschriften. Deze gerichte weergave stelt u ook in staat om uw naleving gedurende een periode continu te bewaken binnen dynamische cloud- en hybride omgevingen.
+
+Selecteer naleving van regelgeving in het menu van Defender for Cloud.
+
+Bovenaan het scherm ziet u een dashboard met een overzicht van uw nalevingsstatus en de set ondersteunde nalevingsvoorschriften. U ziet uw algemene nalevingsscore en het aantal door te geven versus mislukte evaluaties die aan elke standaard zijn gekoppeld.
+
+Selecteer een tabblad voor een nalevingsstandaard die voor u relevant is (1). U ziet op welke abonnementen de standaard wordt toegepast (2) en de lijst met alle besturingselementen voor die standaard (3). Voor de toepasselijke besturingselementen kunt u de details bekijken van het doorgeven en mislukken van evaluaties die zijn gekoppeld aan dat besturingselement (4) en het aantal betrokken resources (5). Sommige besturingselementen zijn grijs weergegeven. Aan deze besturingselementen zijn geen Evaluaties van Defender for Cloud gekoppeld. Controleer hun vereisten en beoordeel ze in uw omgeving. Sommige hiervan kunnen procesgerelateerd zijn in plaats van technisch.
+
+![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
