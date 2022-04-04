@@ -1,6 +1,6 @@
 <!-- BEGIN MICROSOFT SECURITY.MD V0.0.5 BLOCK -->
 
-## Security
+## Beveiliging
 
 Microsoft neemt de beveiliging van onze softwareproducten en -services serieus, waaronder alle broncoderepository's die worden beheerd via onze GitHub-organisaties, waaronder [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet), [Xamarin](https://github.com/xamarin) en onze [GitHub organizations](https://opensource.microsoft.com/).
 
