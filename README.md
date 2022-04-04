@@ -35,9 +35,9 @@ vragen over de [Code of Conduct](https://opensource.microsoft.com/codeofconduct/
 
 ## Implementeren op Azure
 
-| Versie | Implementeer |
-|---|---|
-| 2.1.0 | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
+| Versie | Info | Implementeer |
+|---|---|---|
+| 2.1.0 | [Documentatie](https://github.com/Azure/Bio-Compliancy/blob/main/docs/README.md) |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
 
 ## Disclaimer
 
