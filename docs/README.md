@@ -30,9 +30,8 @@ Dit gebeurt automatisch indien gekoppeld door een Management group of handmatig 
 
 Het dashboard voor naleving van regelgeving toont uw geselecteerde nalevingsstandaarden met alle vereisten, waarbij ondersteunde vereisten worden toegepast op toepasselijke beveiligingsevaluaties. De status van deze evaluaties weerspiegelt uw naleving van de standaard.
 
-!!Na het toevoegen van initiative template en het koppelen aan de subscriptions kan het tot 24 uur duren voordat deze in het dashboard voor naleving van regelgeving wordt getoond.
-[17:18] Pieterbas Nagengast
-> **_NOTE:_**
+> **_NOTE:_** ⚠️ Na het toevoegen van initiative template en het koppelen aan de subscriptions kan het tot 24 uur duren voordat deze in het dashboard voor naleving van regelgeving wordt getoond.
+
 Gebruik het dashboard voor naleving van regelgeving om uw aandacht te richten op de hiaten in de naleving van uw gekozen standaarden en voorschriften. Deze gerichte weergave stelt u ook in staat om uw naleving gedurende een periode continu te bewaken binnen dynamische cloud- en hybride omgevingen.
 
 Selecteer naleving van regelgeving in het menu van Defender for Cloud.
