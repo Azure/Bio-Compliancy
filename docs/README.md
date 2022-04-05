@@ -19,7 +19,7 @@ Meer informatie hierover vind u op: [Toegang verhogen](https://docs.microsoft.co
 | Versie | Doel | Implementeer |
 |---|---|---|
 | 2.1.0 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
-| 2.1.0 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
+| 2.1.0 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |
 
 Na de implementatie van de initiative template die deze toegewezen te worden aan een Azure abonnement.
 Dit gebeurt automatisch indien gekoppeld door een Management group of handmatig door toewijzing aan een Azure abonnement.
