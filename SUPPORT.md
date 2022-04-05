@@ -1,25 +1,11 @@
-# TODO: The maintainer of this repo has not yet edited this file
-
-**REPO OWNER**: Do you want Customer Service & Support (CSS) support for this product/project?
-
-- **No CSS support:** Fill out this template with information about how to file issues and get help.
-- **Yes CSS support:** Fill out an intake form at [aka.ms/spot](https://aka.ms/spot). CSS will work with/help you to determine next steps. More details also available at [aka.ms/onboardsupport](https://aka.ms/onboardsupport).
-- **Not sure?** Fill out a SPOT intake as though the answer were "Yes". CSS will help you decide.
-
-*Then remove this first heading from this SUPPORT.MD file before publishing your repo.*
-
 # Support
 
-## How to file issues and get help  
+## Hulp krijgen en ondersteuning bij problemen  
 
-This project uses GitHub Issues to track bugs and feature requests. Please search the existing 
-issues before filing new issues to avoid duplicates.  For new issues, file your bug or 
-feature request as a new Issue.
+Dit project maakt gebruik van GitHub Issues om bugs en functieverzoeken bij te houden. Zoek in bestaande problemen voordat u een nieuw probleem indient om duplicaten te voorkomen. Voor nieuwe problemen dient u uw bug- of functieverzoek in als een nieuw probleem.
 
-For help and questions about using this project, please **REPO MAINTAINER: INSERT INSTRUCTIONS HERE 
-FOR HOW TO ENGAGE REPO OWNERS OR COMMUNITY FOR HELP. COULD BE A STACK OVERFLOW TAG OR OTHER
-CHANNEL. WHERE WILL YOU HELP PEOPLE?**.
+Voor hulp en vragen over het gebruik van dit project, gelieve een issue aan te maken.
 
-## Microsoft Support Policy  
+## Microsoft Support Policy 
 
-Support for this **PROJECT or PRODUCT** is limited to the resources listed above.
+Ondersteuning voor dit **PROJECT or PRODUCT** is gelimiteerd aan de bovenstaand genoemde vorm.
