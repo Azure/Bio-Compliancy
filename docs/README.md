@@ -24,13 +24,11 @@ Meer informatie hierover vind u op: [Toegang verhogen](https://docs.microsoft.co
 Na de implementatie van de initiative template die deze toegewezen te worden aan een Azure abonnement.
 Dit gebeurt automatisch indien gekoppeld door een Management group of handmatig door toewijzing aan een Azure abonnement.
 
-
-
 ## Toevoegen nalevingsbeleid in Defender for Cloud
 
 Het dashboard voor naleving van regelgeving toont uw geselecteerde nalevingsstandaarden met alle vereisten, waarbij ondersteunde vereisten worden toegepast op toepasselijke beveiligingsevaluaties. De status van deze evaluaties weerspiegelt uw naleving van de standaard.
 
-> **_NOTE:_** ⚠️ Na het toevoegen van initiative template en het koppelen aan de subscriptions kan het tot 24 uur duren voordat deze in het dashboard voor naleving van regelgeving wordt getoond.
+> ⚠️ Na het toevoegen van initiative template en het koppelen aan de subscriptions kan het tot 24 uur duren voordat deze in het dashboard voor naleving van regelgeving wordt getoond.
 
 Gebruik het dashboard voor naleving van regelgeving om uw aandacht te richten op de hiaten in de naleving van uw gekozen standaarden en voorschriften. Deze gerichte weergave stelt u ook in staat om uw naleving gedurende een periode continu te bewaken binnen dynamische cloud- en hybride omgevingen.
 
