@@ -1,8 +1,8 @@
-# BIO Compliancy initiative template
+# BIO Compliance initiative template
 
 > As this project is specific for the Dutch government the rest of this article will be in Dutch.
 
-Dit project omvat een intiative policy template welke ingeladen kan worden in Microsoft Azure en in combinatie met Defender for Cloud kan auditen of de resources in de Azure omgeving voldoen aan de BIO compliany.
+Dit project omvat een intiative policy template welke ingeladen kan worden in Microsoft Azure en in combinatie met Defender for Cloud kan auditen of de resources in de Azure omgeving voldoen aan de BIO compliance.
 
 De Baseline informatiebeveiliging Overheid (BIO) is het basisnormenkader voor informatiebeveiliging binnen alle overheidslagen.
 De BIO is van toepassing op de volgende bestuursorganen:
