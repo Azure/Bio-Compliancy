@@ -4,8 +4,8 @@ De template is opgebouwd door controls uit het Cloud thema BIO te mappen naar Az
 
 De mapping van de Azure policies die gebruikt voor deze template zijn beschikbaar in [BIO Control Policy mapping excel](https://github.com/Azure/Bio-Compliancy/blob/main/docs/Data-policy-mapping%20v2.1.0.xlsx)
 
-Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.1.
-Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorie%C3%ABn-en-worshops/producten/bio-en-thema-uitwerkingen/#Clouddiensten/) 
+Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.1 en het KPMG BIO coverage - Final report document number A2000019790 report.
+Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorie%C3%ABn-en-worshops/producten/bio-en-thema-uitwerkingen/#Clouddiensten/) of op verzoek bij u Microsoft contact persoon.
 
 ## Implementeren op Azure
 
