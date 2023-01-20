@@ -1710,7 +1710,7 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "StorageAccountsShouldHaveInfrastructureEncryption",
+                        "policyDefinitionReferenceId": "TempDisksAndCacheForAgentNodePoolsInAzureKubernetesServiceClustersShouldBeEncryptedAtHost",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/41425d9f-d1a5-499a-9932-f8ed8453932c",
                         "parameters": {},
                         "groupNames": [
@@ -1954,8 +1954,8 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "EnsureProtectionOfYourAzureVirtualMachinesByEnablingAzureBackup",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/013e242c-8828-4970-87b3-ab247555486d",
+                        "policyDefinitionReferenceId": "ConfigureBackupOnVirtualMachinesWithoutAGivenTagToANewRecoveryServicesVaultWithADefaultPolicy",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86",
                         "parameters": {},
                         "groupNames": [
                             "U.03.1 - Redundantie",

@@ -1999,15 +1999,19 @@
                             "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
                         }
                     },
-                    "effect-013e242c-8828-4970-87b3-ab247555486d": {
+                    "effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
                         "type": "String",
                         "defaultValue": "AuditIfNotExists",
                         "allowedValues": [
+                            "auditIfNotExists",
                             "AuditIfNotExists",
+                            "deployIfNotExists",
+                            "DeployIfNotExists",
+                            "disabled",
                             "Disabled"
                         ],
                         "metadata": {
-                            "displayName": "Effect for policy: Azure Backup should be enabled for Virtual Machines",
+                            "displayName": "Effect for policy: Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
                             "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
                         }
                     },
@@ -4455,7 +4459,7 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "StorageAccountsShouldHaveInfrastructureEncryption",
+                        "policyDefinitionReferenceId": "TempDisksAndCacheForAgentNodePoolsInAzureKubernetesServiceClustersShouldBeEncryptedAtHost",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/41425d9f-d1a5-499a-9932-f8ed8453932c",
                         "parameters": {
                             "effect": {
@@ -4782,11 +4786,11 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "EnsureProtectionOfYourAzureVirtualMachinesByEnablingAzureBackup",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/013e242c-8828-4970-87b3-ab247555486d",
+                        "policyDefinitionReferenceId": "ConfigureBackupOnVirtualMachinesWithoutAGivenTagToANewRecoveryServicesVaultWithADefaultPolicy",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86",
                         "parameters": {
                             "effect": {
-                                "value": "[[parameters('effect-013e242c-8828-4970-87b3-ab247555486d')]"
+                                "value": "[[parameters('effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
                             }
                         },
                         "groupNames": [
