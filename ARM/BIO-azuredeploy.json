@@ -4791,13 +4791,23 @@
                         "parameters": {
                             "effect": {
                                 "value": "[[parameters('effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
-                            }
+                            },
+                            "exclusionTagName": {
+                                "value": "excludeBackup"
+                            },
+                            "exclusionTagValue": {
+                               "value": [
+                                    "Yes",
+                                    "yes",
+                                    "YES"
+                                ]
                         },
                         "groupNames": [
                             "U.03.1 - Redundantie",
                             "U.03.2 - Continuïteitseisen",
                             "U.17.1 - Versleuteld"
                         ]
+                        }
                     },
                     {
                         "policyDefinitionReferenceId": "VulnerabilityAssessmentShouldBeEnabledOnYourSynapseWorkspaces",
