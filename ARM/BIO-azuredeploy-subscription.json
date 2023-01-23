@@ -1033,6 +1033,38 @@
                     }
                 ],
                 "parameters": {
+                    "effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
+                        "type": "String",
+                        "defaultValue": "AuditIfNotExists",
+                        "allowedValues": [
+                            "auditIfNotExists",
+                            "AuditIfNotExists",
+                            "deployIfNotExists",
+                            "DeployIfNotExists",
+                            "disabled",
+                            "Disabled"
+                        ],
+                        "metadata": {
+                            "displayName": "Effect for policy: Configure backup on virtual machines without a given tag to a new recovery services vault with a default policy",
+                            "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+                        }
+                    },
+                    "exclusionTagName-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
+                        "type": "String",
+                        "defaultValue": "",
+                        "metadata": {
+                            "displayName": "Exclusion Tag Name",
+                            "description": "Name of the tag to use for excluding VMs from the scope of this policy. This should be used along with the Exclusion Tag Value parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+                        }
+                    },
+                    "exclusionTagValue-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
+                        "type": "Array",
+                        "defaultValue": [],
+                        "metadata": {
+                            "displayName": "Exclusion Tag Values",
+                            "description": "Value of the tag to use for excluding VMs from the scope of this policy (in case of multiple values, use a comma-separated list). This should be used along with the Exclusion Tag Name parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+                        }
+                    },
                     "listOfAllowedLocations": {
                         "type": "array",
                         "defaultValue": [
