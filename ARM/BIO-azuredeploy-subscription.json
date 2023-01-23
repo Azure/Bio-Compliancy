@@ -1957,15 +1957,14 @@
                         "policyDefinitionReferenceId": "ConfigureBackupOnVirtualMachinesWithoutAGivenTagToANewRecoveryServicesVaultWithADefaultPolicy",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86",
                         "parameters": {
+                            "effect": {
+                                "value": "[[parameters('effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
+                            },
                             "exclusionTagName": {
-                                "value": "excludeBackup"
+                                "value": "[[parameters('exclusionTagName-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
                             },
                             "exclusionTagValue": {
-                               "value": [
-                                    "Yes",
-                                    "yes",
-                                    "YES"
-                                ]
+                                "value": "[[parameters('exclusionTagValue-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
                             }
                         },
                         "groupNames": [

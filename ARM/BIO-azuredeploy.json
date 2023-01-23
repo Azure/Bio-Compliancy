@@ -2015,6 +2015,22 @@
                             "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
                         }
                     },
+                    "exclusionTagName-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
+                        "type": "String",
+                        "defaultValue": "",
+                        "metadata": {
+                            "displayName": "Exclusion Tag Name",
+                            "description": "Name of the tag to use for excluding VMs from the scope of this policy. This should be used along with the Exclusion Tag Value parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+                        }
+                    },
+                    "exclusionTagValue-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86": {
+                        "type": "Array",
+                        "defaultValue": [],
+                        "metadata": {
+                            "displayName": "Exclusion Tag Values",
+                            "description": "Value of the tag to use for excluding VMs from the scope of this policy (in case of multiple values, use a comma-separated list). This should be used along with the Exclusion Tag Name parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
+                        }
+                    },
                     "effect-0049a6b3-a662-4f3e-8635-39cf44ace45a": {
                         "type": "String",
                         "defaultValue": "AuditIfNotExists",
@@ -4793,21 +4809,17 @@
                                 "value": "[[parameters('effect-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
                             },
                             "exclusionTagName": {
-                                "value": "excludeBackup"
+                                "value": "[[parameters('exclusionTagName-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
                             },
                             "exclusionTagValue": {
-                               "value": [
-                                    "Yes",
-                                    "yes",
-                                    "YES"
-                                ]
+                                "value": "[[parameters('exclusionTagValue-98d0b9f8-fd90-49c9-88e2-d3baf3b0dd86')]"
+                            }
                         },
                         "groupNames": [
                             "U.03.1 - Redundantie",
                             "U.03.2 - Continuïteitseisen",
                             "U.17.1 - Versleuteld"
                         ]
-                        }
                     },
                     {
                         "policyDefinitionReferenceId": "VulnerabilityAssessmentShouldBeEnabledOnYourSynapseWorkspaces",
