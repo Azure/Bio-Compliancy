@@ -1598,6 +1598,7 @@
                         ]
                     },
                     {
+                        "policyDefinitionReferenceId": "AzureEdgeHardwareCenterDevicesShouldHaveDoubleEncryptionSupportEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08a6b96f-576e-47a2-8511-119a212d344d",
                         "parameters": {},
                         "groupNames": [
@@ -1607,6 +1608,8 @@
                         ]
                     },
                     {
+
+                        "policyDefinitionReferenceId": "AzureBatchPoolsShouldHaveDiskEncryptionEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1760f9d4-7206-436e-a28f-d9f3a5c8a227",
                         "parameters": {},
                         "groupNames": [
@@ -1643,6 +1646,7 @@
                         ]
                     },
                     {
+                        "policyDefinitionReferenceId": "VirtualMachinesAndVirtualMachineScaleSetsShouldHaveEncryptionAtHostEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fc4d8e41-e223-45ea-9bf5-eada37891d87",
                         "parameters": {},
                         "groupNames": [
