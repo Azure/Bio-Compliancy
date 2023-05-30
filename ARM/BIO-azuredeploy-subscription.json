@@ -1247,7 +1247,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "PreviewAuditAccountsWithOwnerPermissionsWhoAreNotMfaEnabledOnASubscription",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/aa633080-8b72-40c4-a2d7-d00c03e80bed",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e3e008c3-56b9-4133-8fd7-d3347377402a",
                         "parameters": {},
                         "groupNames": [
                             "U.10.2 - Beheerders",
@@ -1257,7 +1257,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "PreviewAuditAccountsWithReadPermissionsWhoAreNotMfaEnabledOnASubscription",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e3576e28-8b17-4677-84c3-db2990658d64",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/81b3ccb4-e6e8-4e4a-8d05-5df25cd29fd4",
                         "parameters": {},
                         "groupNames": [
                             "U.10.2 - Beheerders",
@@ -1267,7 +1267,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "PreviewAuditAccountsWithWritePermissionsWhoAreNotMfaEnabledOnASubscription",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9297c21d-2ed6-4474-b48f-163f75654ce3",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/931e118d-50a1-4457-a5e4-78550e086c52",
                         "parameters": {},
                         "groupNames": [
                             "U.10.2 - Beheerders",
@@ -1303,16 +1303,6 @@
                     {
                         "policyDefinitionReferenceId": "WebApplicationShouldOnlyBeAccessibleOverHTTPS",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a4af4a39-4135-47fb-b175-47fbdf85311d",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.05.1 - Cryptografische maatregelen",
-                            "U.11.1 - Beleid",
-                            "U.11.2 - Cryptografische maatregelen"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "APIAppShouldOnlyBeAccessibleOverHTTPS",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b7ddfbdc-1260-477d-91fd-98bd9be789a6",
                         "parameters": {},
                         "groupNames": [
                             "U.05.1 - Cryptografische maatregelen",
@@ -1608,7 +1598,6 @@
                         ]
                     },
                     {
-
                         "policyDefinitionReferenceId": "AzureBatchPoolsShouldHaveDiskEncryptionEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1760f9d4-7206-436e-a28f-d9f3a5c8a227",
                         "parameters": {},
@@ -1723,15 +1712,6 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "cc9835f2-9f6b-4cc8-ab4a-f8ef615eb349",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cc9835f2-9f6b-4cc8-ab4a-f8ef615eb349",
-                        "parameters": {},
-                        "groupNames": [
-                            "B.09.1 - Beveiligingsaspecten en -stadia",
-                            "U.07.3 - Beheerfuncties"
-                        ]
-                    },
-                    {
                         "policyDefinitionReferenceId": "fb74e86f-d351-4b8d-b034-93da7391c01f",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fb74e86f-d351-4b8d-b034-93da7391c01f",
                         "parameters": {},
@@ -1763,7 +1743,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "identityRemoveDeprecatedAccountMonitoring",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6b1cbf55-e8b6-442f-ba4c-7246b6381474",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8d7e1fde-fe26-4b5f-8108-f8e432cbc2be",
                         "parameters": {},
                         "groupNames": [
                             "U.07.3 - Beheerfuncties",
@@ -1785,7 +1765,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "identityRemoveDeprecatedAccountWithOwnerPermissionsMonitoring",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ebb62a0c-3560-49e1-89ed-27e074e9f8ad",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0cfea604-3201-4e14-88fc-fae4c427a6c5",
                         "parameters": {},
                         "groupNames": [
                             "U.07.3 - Beheerfuncties",
@@ -1818,7 +1798,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "identityRemoveExternalAccountWithOwnerPermissionsMonitoring",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f8456c1c-aa66-4dfb-861a-25d127b775c9",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/339353f6-2387-4a45-abe4-7f529d121046",
                         "parameters": {},
                         "groupNames": [
                             "U.07.3 - Beheerfuncties",
@@ -1840,18 +1820,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "identityRemoveExternalAccountWithReadPermissionsMonitoring",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5f76cf89-fbf2-47fd-a3f4-b891fa780b60",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.07.3 - Beheerfuncties",
-                            "U.10.2 - Beheerders",
-                            "U.10.3 - Gebruik van geauthenticeerde apparatuur",
-                            "U.10.5 - Toegangsbeperking"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "c4d441f8-f9d9-4a9e-9cef-e82117cb3eef",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c4d441f8-f9d9-4a9e-9cef-e82117cb3eef",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e9ac8f8e-ce22-4355-8f04-99b911d6be52",
                         "parameters": {},
                         "groupNames": [
                             "U.07.3 - Beheerfuncties",
@@ -1862,7 +1831,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "identityRemoveExternalAccountWithWritePermissionsMonitoring",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5c607a2e-c700-4744-8254-d77e7c9eb5e4",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/94e1c2ac-cbbe-4cac-a2b5-389c812dee87",
                         "parameters": {},
                         "groupNames": [
                             "U.07.3 - Beheerfuncties",
@@ -2033,26 +2002,6 @@
                     {
                         "policyDefinitionReferenceId": "WindowsWebServersShouldBeConfiguredToUseSecureCommunicationProtocols",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5752e6d6-1206-46d8-8ab1-ecc2f71a8112",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.05.1 - Cryptografische maatregelen",
-                            "U.11.1 - Beleid",
-                            "U.11.2 - Cryptografische maatregelen"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "LatestTLSVersionShouldBeUsedInYourAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.05.1 - Cryptografische maatregelen",
-                            "U.11.1 - Beleid",
-                            "U.11.2 - Cryptografische maatregelen"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "FTPSOnlyShouldBeRequiredInYourAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9a1b8c48-453a-4044-86c3-d8bfd823e4f5",
                         "parameters": {},
                         "groupNames": [
                             "U.05.1 - Cryptografische maatregelen",
@@ -2502,7 +2451,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "AzureMachineLearningWorkspacesShouldUsePrivateLink",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/40cec1dd-a100-4920-b15b-3024fe8901ab",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/45e05259-1eb5-4f70-9574-baf73e9d219b",
                         "parameters": {},
                         "groupNames": [
                             "U.07.1 - Isolatie"
@@ -2526,7 +2475,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "AzureWebPubsubServiceShouldUsePrivateLink",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/52630df9-ca7e-442b-853b-c6ce548b31a2",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/eb907f70-7514-460d-92b3-a5ae93b4f917",
                         "parameters": {},
                         "groupNames": [
                             "U.07.1 - Isolatie"
@@ -2534,7 +2483,7 @@
                     },
                     {
                         "policyDefinitionReferenceId": "AzureSignalrServiceShouldUsePrivateLink",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/53503636-bcc9-4748-9663-5348217f160f",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2393d2cf-a342-44cd-a2e2-fe0188fd1234",
                         "parameters": {},
                         "groupNames": [
                             "U.07.1 - Isolatie"
@@ -2568,8 +2517,8 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "PreviewPrivateEndpointShouldBeConfiguredForKeyVault",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5f0bc445-3935-4915-9981-011aa2b46147",
+                        "policyDefinitionReferenceId": "AzureKeyVaultsShouldUsePrivateLink",
+                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6abeaec-4d90-4a02-805f-6b26c4d3fbe9",
                         "parameters": {},
                         "groupNames": [
                             "U.07.1 - Isolatie"
@@ -3035,14 +2984,6 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "ResourceLogsInVirtualMachineScaleSetsShouldBeEnabled",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7c1b1214-f927-48bf-8882-84f0af6588b1",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.15.1 - Registratie"
-                        ]
-                    },
-                    {
                         "policyDefinitionReferenceId": "ResourceLogsInEventHubShouldBeEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a214f7-d01a-484b-91a9-ed54470c9a6a",
                         "parameters": {},
@@ -3085,14 +3026,6 @@
                     {
                         "policyDefinitionReferenceId": "ResourceLogsInSearchServicesShouldBeEnabled",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b4330a05-a843-4bc8-bf9a-cacce50c67f4",
-                        "parameters": {},
-                        "groupNames": [
-                            "U.15.1 - Registratie"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "DiagnosticLogsInAppServicesShouldBeEnabled",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b607c5de-e7d9-4eee-9e5c-83f1bcee4fa0",
                         "parameters": {},
                         "groupNames": [
                             "U.15.1 - Registratie"
@@ -3155,16 +3088,6 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "EnsureThatPHPVersionIsTheLatestIfUsedAsAPartOfTheAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba",
-                        "parameters": {},
-                        "groupNames": [
-                            "C.04.3 - Tijdslijnen",
-                            "C.04.6 - Patchmanagement",
-                            "C.04.7 - Evaluatie"
-                        ]
-                    },
-                    {
                         "policyDefinitionReferenceId": "EnsureThatJavaVersionIsTheLatestIfUsedAsAPartOfTheWebApp",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/496223c3-ad65-4ecd-878a-bae78737e9ed",
                         "parameters": {},
@@ -3205,38 +3128,8 @@
                         ]
                     },
                     {
-                        "policyDefinitionReferenceId": "EnsureThatPythonVersionIsTheLatestIfUsedAsAPartOfTheAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/74c3584d-afae-46f7-a20a-6f8adba71a16",
-                        "parameters": {},
-                        "groupNames": [
-                            "C.04.3 - Tijdslijnen",
-                            "C.04.6 - Patchmanagement",
-                            "C.04.7 - Evaluatie"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "EnsureThatJavaVersionIsTheLatestIfUsedAsAPartOfTheAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/88999f4c-376a-45c8-bcb3-4058f713cf39",
-                        "parameters": {},
-                        "groupNames": [
-                            "C.04.3 - Tijdslijnen",
-                            "C.04.6 - Patchmanagement",
-                            "C.04.7 - Evaluatie"
-                        ]
-                    },
-                    {
                         "policyDefinitionReferenceId": "EnsureThatHTTPVersionIsTheLatestIfUsedToRunTheWebApp",
                         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8c122334-9d20-4eb8-89ea-ac9a705b74ae",
-                        "parameters": {},
-                        "groupNames": [
-                            "C.04.3 - Tijdslijnen",
-                            "C.04.6 - Patchmanagement",
-                            "C.04.7 - Evaluatie"
-                        ]
-                    },
-                    {
-                        "policyDefinitionReferenceId": "EnsureThatHTTPVersionIsTheLatestIfUsedToRunTheAPIApp",
-                        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/991310cd-e9f3-47bc-b7b6-f57b557d07db",
                         "parameters": {},
                         "groupNames": [
                             "C.04.3 - Tijdslijnen",
