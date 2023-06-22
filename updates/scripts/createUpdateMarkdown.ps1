@@ -120,11 +120,6 @@ foreach ($group in $inputGroups) {
         $markdown += "`nSee for our update process [here](../updates/README.md)."  
         $markdown += "`n"
         $markdown += "`n"
-        $markdown += " {:toc}"
-        $markdown += "`n"
-        $markdown += "`n"
-        
-
         $markdown += "## Version $($group.RevisionDateMMYY)"
         $markdown += "`n"
         $markdown += "`n"
