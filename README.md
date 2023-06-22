@@ -5,6 +5,7 @@
 Dit project omvat een Initiative Policy Template, welke ingeladen kan worden in Microsoft Azure. In combinatie met Defender for Cloud kan men auditen of resources in een Azure omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
 
 De BIO is het basisnormenkader voor informatiebeveiliging binnen alle overheidslagen. De BIO is van toepassing voor de volgende bestuursorganen:
+
 - Rijksdienst
 - Provincies
 - Waterschappen
@@ -13,15 +14,15 @@ De BIO is het basisnormenkader voor informatiebeveiliging binnen alle overheidsl
 Dit template is het startpunt om BIO-compliant te worden in een Microsoft cloud omgeving. De template kan worden aangepast aan de eisen en wensen van een specifieke organisatie. De template omvat uitsluitend technische controls. Procesmatige controls dienen binnen de organisatie ingevoerd te worden om tot een volledig dekkende BIO compliancy te komen.
 
 Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.1.
-Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorie%C3%ABn-en-worshops/producten/bio-en-thema-uitwerkingen/#Clouddiensten/) 
+Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorie%C3%ABn-en-worshops/producten/bio-en-thema-uitwerkingen/#Clouddiensten/).
 
 Voor de leesbaarheid en technische implementatie zijn de titels van de controls in deze template herschreven. Voor een volledige beschrijving van deze controls wordt verwezen naar de bovenstaande link op de website van het CIP Overheid.
 
-![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
+![alt text](./media/BIO-compliancy-example.png?raw=true "BIO compliancy example")
 
 ## Bijdragen
 
-Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet je akkoord gaan met een Licentieovereenkomst voor Donateurs (CLA) waarin wordt verklaard dat je het recht hebt om ons het recht te geven om je bijdrage te gebruiken en dat je dat ook daadwerkelijk doet. Ga voor meer informatie naar https://cla.opensource.microsoft.com.
+Dit project verwelkomt bijdragen en suggesties. Voor de meeste bijdragen moet je akkoord gaan met een Licentieovereenkomst voor Donateurs (CLA) waarin wordt verklaard dat je het recht hebt om ons het recht te geven om je bijdrage te gebruiken en dat je dat ook daadwerkelijk doet. Ga voor meer informatie naar [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com).
 
 Wanneer je een pull-verzoek indient, zal een CLA-bot automatisch bepalen of je een CLA moet verstrekken en hoe je het pull-verzoek op de juiste manier afhandelt (bijv. Statuscontrole, opmerking). Volg gewoon de instructies van de bot. Je hoeft dit slechts één keer te doen over alle repo's met behulp van onze CLA.
 
@@ -31,7 +32,7 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 
 | Versie | Implementeer |
 |---|---|
-| 2.1.0 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://github.com/Azure/Bio-Compliancy/blob/main/docs/README.md) |
+| 2.1.0 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
 
 ## Disclaimer
 
