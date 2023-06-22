@@ -32,7 +32,11 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 
 | Versie | Implementeer |
 |---|---|
-| 2.1.0 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
+| 2.2.1 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
+
+## Updates van policies definities
+
+Het policy-initiatief houdt ook bij welke policies zijn verwijderd door hun parameters nog steeds op te nemen in het initiatief, maar met de aanduiding 'deprecated'. Hierdoor is het mogelijk om het policy-set bij te werken zonder dat de toewijzingen veranderen, waardoor er geen extra actie nodig is dan het implementeren van dit policy-initiatief op dezelfde managementgroep of abonnement waar het oude policy-initiatief ook was geïmplementeerd.
 
 ## Disclaimer
 
