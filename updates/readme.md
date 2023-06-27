@@ -17,4 +17,4 @@ We want only audit, deny or disabled policies in the policy initiative this to p
 9. When tested copy the files .\updates\results\BIO-azuredeploy.json, .\updates\results\BIO-azuredeploy-subscription.json to .\ARM and .\updates\results\update.md to the folder .\docs.
 10. Commit the changes to the repository make sure test it and create a pull request. Testing with hardcoded "portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%" can be done by copy the url and modify only the repository and branch.
 
-[back to main page](../readme.md).
+[back to main page](../README.md).
