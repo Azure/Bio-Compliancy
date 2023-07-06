@@ -13,8 +13,8 @@ De BIO is het basisnormenkader voor informatiebeveiliging binnen alle overheidsl
 
 Dit template is het startpunt om BIO-compliant te worden in een Microsoft cloud omgeving. De template kan worden aangepast aan de eisen en wensen van een specifieke organisatie. De template omvat uitsluitend technische controls. Procesmatige controls dienen binnen de organisatie ingevoerd te worden om tot een volledig dekkende BIO compliancy te komen.
 
-Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.1.
-Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorie%C3%ABn-en-worshops/producten/bio-en-thema-uitwerkingen/#Clouddiensten/).
+Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.2.
+Meer informatie hierover vind je op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorieen-en-workshops/producten?product=Clouddiensten).
 
 Voor de leesbaarheid en technische implementatie zijn de titels van de controls in deze template herschreven. Voor een volledige beschrijving van deze controls wordt verwezen naar de bovenstaande link op de website van het CIP Overheid.
 
