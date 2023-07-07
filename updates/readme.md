@@ -1,0 +1,20 @@
+# Folder with files to update the policy initiative
+
+This folder is used to update the policy initiative periodically. This will be done based on issues and pull requests and compared with new and deprecated policies. The deprecated policies will be removed, but parameters will be kept in the initiative with metadata deprecated.
+
+We want only audit, deny or disabled policies in the policy initiative this to prevent that we require a managed identity for the policy initiative. This is not required for audit,deny or disabled policies, result in we will not have deploy if not exist policies in this policy initiative.
+
+## Workflow
+
+1. Create a compare file from the latest BIO with the Microsoft Security Baseline. Use the script ```.\scripts\comparePolicies.ps1``` to generate the compare file. The result file will be placed in the folder ```results``` called ```PolicyCompareAzureSecurityCenter.xlsx```. The current script use the URI of the Microsoft Security Baseline and the URI for the BIO these can be changed as parameters. Also the scrip ```createPolicyChecklist.ps1 ``` can be used to quickly generate a checklist of the policies in the current BIO to see what policies are deprecated.
+2. Update the ```results\data.xlsx``` by creating a new tab and copy the old content.
+3. Use the column deprecated with TRUE when a policy is deprecated. Do not remove as these parameters these should still be in the definitionset as else the policy can not be updated. Add missing policies or updated policies. Update the remark when needed and fill in the version of the policy.
+4. If required use the ```.\paramaterOverRide\policyparameterOverRide.json``` to override parameters. This can be used to override parameters and provide default values. Look when generated for Deny in default value.
+5. Update the ```.\templateFiles\policyDeployTemplate-managementgroup.json``` and ```.\templateFiles\policyDeployTemplate-subscription.json```with the new version of the policy initiative example 2.3.2.
+6. Run the script ```.\scripts\updatePolicyInitiative.ps1``` to update the policy initiative. This the policy based on the information from ```results\data.xlsx``` please either provide the parameter of the correct sheet or update the script with the correct excel sheet. This will create ```.\results\BIODeploy.json``` based on the template file and the information in the excel sheet.
+7. Test the new file ```.\results\BIODeploy.json``` by deploying the policy initiative. This can be done by using the script ```.\scripts\deployPolicyInitiative.ps1```. This will deploy the policy initiative to the subscription. Validate the correct update from old to the new version.
+8. Create the update.md by running the ```createUpdateMarkdown.ps1``` this wil create in the result folder also the update.md.
+9. When tested copy the files .\updates\results\BIO-azuredeploy.json, .\updates\results\BIO-azuredeploy-subscription.json to .\ARM and .\updates\results\update.md to the folder .\docs.
+10. Commit the changes to the repository make sure test it and create a pull request. Testing with hardcoded "portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%" can be done by copy the url and modify only the repository and branch.
+
+[back to main page](../README.md).
