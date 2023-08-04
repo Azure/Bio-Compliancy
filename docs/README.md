@@ -17,11 +17,12 @@ Het implementeren van de template kan op 2 niveaus:
 Om de template te implementeren op management group niveau kunnen additionele rechten vereist zijn.
 Meer informatie hierover vind u op: [Toegang verhogen](https://docs.microsoft.com/nl-nl/azure/role-based-access-control/elevate-access-global-admin)
 
-| Versie | Doel | Implementeer |
-|---|---|---|
-| 2.2.1 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) |
-| 2.2.1 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |
+| Versie | Doel | Implementeer | Update bestaande policy |
+|---|---|---|---|
+| 2.2.1 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-update.json) |
+| 2.2.1 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription-update.json) |
 
+Gebruik de eerste button onder `Implementeer` voor de eerste keer deployments en de `Update bestaande policy` button om reeds deployde oudere versies te updaten. De laatste is ivm met bestaande vervallen parameters te kunnen updaten.
 Zie voor updates de [release notes](./updates.md)
 
 Na de implementatie van de initiative template die deze toegewezen te worden aan een Azure abonnement.

@@ -41,6 +41,7 @@ Param (
  
 
 )
+$root = $PSScriptRoot
 $resultFolder = "$root\..\results\"
 $payload = "$resultFolder\$outputJsonFileSub"
 

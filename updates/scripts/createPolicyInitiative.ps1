@@ -37,9 +37,17 @@ Param (
     [Parameter(Mandatory = $false)]
     [string]$outputJsonFileSub = "BIO-azuredeploy-subscription.json",
     
-     #parameter for the output json file
-     [Parameter(Mandatory = $false)]
-     [string]$outputJsonFileMng = "BIO-azuredeploy.json"
+    #parameter for the output json file
+    [Parameter(Mandatory = $false)]
+    [string]$outputJsonFileMng = "BIO-azuredeploy.json",
+
+    #parameter for the output json file
+    [Parameter(Mandatory = $false)]
+    [string]$outputJsonFileSubUpdate = "BIO-azuredeploy-subscription-update.json",
+    
+    #parameter for the output json file
+    [Parameter(Mandatory = $false)]
+    [string]$outputJsonFileMngUpdate = "BIO-azuredeploy-update.json"
     
 
 )
@@ -129,8 +137,10 @@ $policyInfoFile = "$resultFolder\$inputExcelFile"
 $TemplateFile = "$root\..\templateFiles\policyDeployTemplate-subscription.json"
 $parameterOverRideFile = "$root\..\parameterOverride\policyparameterOverRide.json"
 $resultfile = "$resultFolder\$outputJsonFileSub"
+$resultfileUpdate = "$resultFolder\$outputJsonFileSubUpdate"
 $TemplateFileMng = "$root\..\templateFiles\policyDeployTemplate-managementgroup.json"
 $resultfileMng = "$resultFolder\$outputJsonFileMng"
+$resultfileMngUpdate = "$resultFolder\$outputJsonFileMngUpdate"
 
 
 
@@ -162,9 +172,13 @@ if (!(Test-Path $TemplateFileMng)) {
 $policyInfo = @()
 #read the template file and convert to json
 $TemplateFileContent = Get-Content $TemplateFile  | ConvertFrom-Json 
+$TemplateFileContentUpdate = Get-Content $TemplateFile  | ConvertFrom-Json 
+
 $TemplateFileContentMng = Get-Content $TemplateFileMng  | ConvertFrom-Json 
+$TemplateFileContentMngUpdate = Get-Content $TemplateFileMng  | ConvertFrom-Json 
 #read the parameter override file and convert to json
 $ParameterOverRide = Get-Content $parameterOverRideFile  | ConvertFrom-Json 
+
 
 
 # Read the Excel file and create a object with the data
@@ -190,7 +204,10 @@ foreach ( $groups in $inputGroups ) {
     
 $PolicyRefs = @()
 $policyPar = @()
+$policyParUpdate = @()
 $policyPar = $policyParameters |  ConvertFrom-Json 
+$policyParUpdate = $policyParameters |  ConvertFrom-Json 
+
 
 # Select only the unique PolicyID's
 $policyDefinitionReferenceId = $inputExcelFile  | Select-Object @{Label = "policyRefId"; Expression = { "$($_.'PolicyId')" } }, policyDefinitionReferenceId , deprecated -Unique
@@ -273,14 +290,32 @@ foreach ($policy in $policyDefinitionReferenceId) {
                 }
             }
 
-            if ($policyPar.($parameterName) -eq $null) {
 
-                if ($null -ne $parameterName ) {
-                    if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
-                        $policyPar | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force            
+            if ($policy.deprecated -eq "TRUE") {
+                if ($policyParUpdate.($parameterName) -eq $null) {
+
+                    if ($null -ne $parameterName ) {
+                        if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
+                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force            
+                        }
+                        else {
+                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                        }
                     }
-                    else {
-                        $policyPar | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                }
+            }
+            else {
+                if ($policyPar.($parameterName) -eq $null) {
+
+                    if ($null -ne $parameterName ) {
+                        if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
+                            $policyPar | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force         
+                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force               
+                        }
+                        else {
+                            $policyPar | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                        }
                     }
                 }
             }
@@ -321,6 +356,16 @@ $TemplateFileContent.resources.properties.parameters = $policyPar
 
 $TemplateFileContent |  ConvertTo-Json  -Depth 100 | out-file $resultfile 
 
+# Add to the template file the policyDefinitionGroups, policyDefinitions and parameters for Updates with Pararameters
+          
+$TemplateFileContentUpdate.resources.properties.policyDefinitionGroups = $definitionGroupObject  | Sort-Object -Property name
+$TemplateFileContentUpdate.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
+$TemplateFileContentUpdate.resources.properties.parameters = $policyParUpdate 
+
+#create outputfile for subscription
+
+$TemplateFileContentUpdate |  ConvertTo-Json  -Depth 100 | out-file $resultfileUpdate 
+
 
 #create outputfile for Managementgroup
 
@@ -330,3 +375,12 @@ $TemplateFileContentMng.resources.properties.parameters = $policyPar
 
 
 $TemplateFileContentMng |  ConvertTo-Json  -Depth 100 | out-file $resultfileMng
+
+#create outputfile for ManagementgroupUpdate
+
+$TemplateFileContentMngUpdate.resources.properties.policyDefinitionGroups = $definitionGroupObject 
+$TemplateFileContentMngUpdate.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
+$TemplateFileContentMngUpdate.resources.properties.parameters = $policyParUpdate
+
+
+$TemplateFileContentMngUpdate |  ConvertTo-Json  -Depth 100 | out-file $resultfileMngUpdate

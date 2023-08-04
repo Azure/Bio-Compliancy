@@ -1093,6 +1093,19 @@
             ],
             "defaultValue": "Audit"
           },
+          "effect-cc9835f2-9f6b-4cc8-ab4a-f8ef615eb349": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Sensitive data in your SQL databases should be classified",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-09024ccc-0c5f-475e-9457-b7c0d9ed487b": {
             "type": "String",
             "metadata": {
@@ -1158,6 +1171,19 @@
             },
             "defaultValue": ""
           },
+          "effect-991310cd-e9f3-47bc-b7b6-f57b557d07db": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Ensure that 'HTTP Version' is the latest, if used to run the API app",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-8c122334-9d20-4eb8-89ea-ac9a705b74ae": {
             "type": "String",
             "metadata": {
@@ -1194,6 +1220,32 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
+          "effect-88999f4c-376a-45c8-bcb3-4058f713cf39": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Ensure that 'Java version' is the latest, if used as a part of the API app",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-74c3584d-afae-46f7-a20a-6f8adba71a16": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: API apps that use Python should use the latest 'Python version'",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-7261b898-8a84-4db8-9e04-18527132abb3": {
             "type": "String",
             "metadata": {
@@ -1222,6 +1274,19 @@
               "description": "Specify a supported PHP version for App Service"
             },
             "defaultValue": ""
+          },
+          "effect-1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Ensure that 'PHP version' is the latest, if used as a part of the API app",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
           },
           "effect-c3f317a7-a95c-4547-b7e7-11017ebdf2fe": {
             "type": "String",
@@ -1599,6 +1664,19 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
+          "effect-9a1b8c48-453a-4044-86c3-d8bfd823e4f5": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: FTPS only should be required in your API App",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-399b2637-a50f-4f95-96f8-3a145476eb15": {
             "type": "String",
             "metadata": {
@@ -1740,6 +1818,32 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "effect-b7ddfbdc-1260-477d-91fd-98bd9be789a6": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: API App should only be accessible over HTTPS",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Latest TLS version should be used in your API App",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
           },
           "effect-e802a67a-daf5-4436-9ea6-f6d821dd0c5d": {
             "type": "String",
@@ -2511,6 +2615,20 @@
             ],
             "defaultValue": "Audit"
           },
+          "effect-52630df9-ca7e-442b-853b-c6ce548b31a2": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Azure Web PubSub Service should use private link",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
           "effect-e71308d3-144b-4262-b144-efdc3cc90517": {
             "type": "String",
             "metadata": {
@@ -2721,6 +2839,20 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
+          "effect-40cec1dd-a100-4920-b15b-3024fe8901ab": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Azure Machine Learning workspaces should use private link",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
           "effect-df39c015-56a4-45de-b4a3-efe77bed320d": {
             "type": "String",
             "metadata": {
@@ -2869,6 +3001,20 @@
             ],
             "defaultValue": "Audit"
           },
+          "effect-5f0bc445-3935-4915-9981-011aa2b46147": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Private endpoint should be configured for Key Vault",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
           "effect-9daedab3-fb2d-461e-b861-71790eead4f6": {
             "type": "String",
             "metadata": {
@@ -2880,6 +3026,20 @@
               "Disabled"
             ],
             "defaultValue": "AuditIfNotExists"
+          },
+          "effect-53503636-bcc9-4748-9663-5348217f160f": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Azure SignalR Service should use private link",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
           },
           "effect-b0f33259-77d7-4c9e-aac6-3aabcfae693c": {
             "type": "String",
@@ -3096,11 +3256,37 @@
             ],
             "defaultValue": "Audit"
           },
+          "effect-ebb62a0c-3560-49e1-89ed-27e074e9f8ad": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Deprecated accounts with owner permissions should be removed from your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-1f314764-cb73-4fc9-b863-8eca98ac36e9": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:An Azure Active Directory administrator should be provisioned for SQL servers",
               "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-c4d441f8-f9d9-4a9e-9cef-e82117cb3eef": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Managed identity should be used in your API App",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -3134,11 +3320,37 @@
             ],
             "defaultValue": "Audit"
           },
+          "effect-5f76cf89-fbf2-47fd-a3f4-b891fa780b60": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: External accounts with read permissions should be removed from your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
           "effect-0da106f2-4ca3-48e8-bc85-c638fe6aea8f": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Function apps should use managed identity",
               "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-5c607a2e-c700-4744-8254-d77e7c9eb5e4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: External accounts with write permissions should be removed from your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -3158,6 +3370,19 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "effect-f8456c1c-aa66-4dfb-861a-25d127b775c9": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: External accounts with owner permissions should be removed from your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
           },
           "effect-fb74e86f-d351-4b8d-b034-93da7391c01f": {
             "type": "String",
@@ -3182,6 +3407,19 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "effect-6b1cbf55-e8b6-442f-ba4c-7246b6381474": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Deprecated accounts should be removed from your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
           },
           "effect-abfb4388-5bf4-4ad7-ba82-2cd2f41ceae9": {
             "type": "String",
@@ -3272,6 +3510,45 @@
             "metadata": {
               "displayName": "Effect for policy:Running container images should have vulnerability findings resolved",
               "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-e3576e28-8b17-4677-84c3-db2990658d64": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: MFA should be enabled on accounts with read permissions on your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-9297c21d-2ed6-4474-b48f-163f75654ce3": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: MFA should be enabled for accounts with write permissions on your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-aa633080-8b72-40c4-a2d7-d00c03e80bed": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: MFA should be enabled on accounts with owner permissions on your subscription",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -3427,6 +3704,28 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
+          "effect-7c1b1214-f927-48bf-8882-84f0af6588b1": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Resource logs in Virtual Machine Scale Sets should be enabled",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "includeAKSClusters": {
+            "type": "Boolean",
+            "metadata": {
+              "displayName": "Include AKS Clusters",
+              "description": "Whether to include AKS Clusters to resource logs extension - True or False",
+              "deprecated": true
+            },
+            "defaultValue": false
+          },
           "effect-f9be5368-9bf5-4b84-9e0a-7850da98bb46": {
             "type": "String",
             "metadata": {
@@ -3552,6 +3851,19 @@
             "metadata": {
               "displayName": "Effect for policy:Resource logs in Search services should be enabled",
               "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-b607c5de-e7d9-4eee-9e5c-83f1bcee4fa0": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Deprecated]: Diagnostic logs in App Services should be enabled",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
