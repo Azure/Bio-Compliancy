@@ -13,7 +13,7 @@
         "policyType": "Custom",
         "description": "This initiative includes policies that address the Dutch Baseline Informatiebeveiliging (BIO) controls specifically for the 'thema-uitwerking Clouddiensten' and include policies covered under the SOC2 and ISO 27001:2013 controls.",
         "metadata": {
-          "version": "2.2.1",
+          "version": "2.2.2",
           "category": "Regulatory Compliance",
           "ASC": "true"
         },
@@ -1117,18 +1117,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-308fbb08-4ab8-4e67-9b29-592e93fb94fa": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Microsoft Defender for Storage (Classic) should be enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc": {
             "type": "String",
             "metadata": {
@@ -1357,18 +1345,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-bdc59948-5574-49b3-bb91-76b7c986428d": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Azure Defender for DNS should be enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-2913021d-f2fd-4f3d-b958-22354e2bdbcb": {
             "type": "String",
             "metadata": {
@@ -1567,7 +1543,7 @@
             "type": "String",
             "metadata": {
               "displayName": "Minimum TLS version",
-              "description": "The minimum TLS protocol version that should be enabled. Windows web servers with lower TLS versions will be marked as non-compliant."
+              "description": "The minimum TLS protocol version that should be enabled. Windows machines with lower TLS versions will be marked as non-compliant."
             },
             "allowedValues": [
               "1.1",
@@ -1578,7 +1554,7 @@
           "effect-5752e6d6-1206-46d8-8ab1-ecc2f71a8112": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Windows web servers should be configured to use secure communication protocols",
+              "displayName": "Effect for policy:Windows machines should be configured to use secure communication protocols",
               "description": "Enable or disable the execution of this policy"
             },
             "allowedValues": [
@@ -2093,6 +2069,23 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "excludedKinds": {
+            "type": "Array",
+            "metadata": {
+              "displayName": "Excluded Kinds",
+              "description": "The list of excluded API kinds for customer-managed key, default is the list of API kinds that don't have data stored in Cognitive Services"
+            },
+            "defaultValue": [
+              "CognitiveServices",
+              "Knowledge",
+              "LUIS",
+              "QnAMaker",
+              "TextAnalytics",
+              "ComputerVision",
+              "HealthDecisionSupport",
+              "ImmersiveReader"
+            ]
           },
           "effect-83cef61d-dbd1-4b20-a4fc-5fbc7da10833": {
             "type": "String",
@@ -4788,7 +4781,7 @@
           "effect-ac4a19c2-fa67-49b4-8ae5-0b2e78c49457": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Role-Based Access Control (RBAC) should be used on Kubernetes Services",
+              "displayName": "Effect for policy:Azure Role-Based Access Control (RBAC) should be used on Kubernetes Services",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -4850,30 +4843,6 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:App Service apps should not have CORS configured to allow every resource to access your apps",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-6ba6d016-e7c3-4842-b8f2-4992ebc0d72d": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:SQL servers on machines should have vulnerability findings resolved",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-e8cbc669-f12d-49eb-93e7-9273119e9933": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Vulnerabilities in container security configurations should be remediated",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -4954,30 +4923,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-5bb220d9-2698-4ee4-8404-b9c30c9df609": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:App Service apps should have 'Client Certificates (Incoming client certificates)' enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "Audit",
-              "Disabled"
-            ],
-            "defaultValue": "Audit"
-          },
-          "effect-eaebaea7-8013-4ceb-9d14-7eb32271373c": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Function apps should have 'Client Certificates (Incoming client certificates)' enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "Audit",
-              "Disabled"
-            ],
-            "defaultValue": "Audit"
-          },
           "effect-89099bee-89e0-4b26-a5f4-165451757743": {
             "type": "String",
             "metadata": {
@@ -5011,6 +4956,133 @@
             },
             "allowedValues": [
               "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-19dd1db6-f442-49cf-a838-b0786b4401ef": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:App Service apps should have Client Certificates (Incoming client certificates) enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-797b37f7-06b8-444c-b1ad-fc62867f335a": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Cosmos DB should disable public network access",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-9dfea752-dd46-4766-aed1-c355fa93fb91": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Managed Instances should disable public network access",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-32e6bbec-16b6-44c2-be37-c5b672d103cf": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Database should be running TLS version 1.2 or newer",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-21a6bc25-125e-4d13-b82d-2e19b7208ab7": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Storage accounts should prevent shared key access",
+              "description": "The effect determines what happens when the policy rule is evaluated to match"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-8a04f872-51e9-4313-97fb-fc1c35430fd8": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Front Door should have Resource logs enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-cd906338-3453-47ba-9334-2d654bf845af": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-dfc212af-17ea-423a-9dcb-91e2cb2caa6b": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-679da822-78a7-4eff-8fff-a899454a9970": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Front Door Standard and Premium should be running minimum TLS version of 1.2",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
               "Disabled"
             ],
             "defaultValue": "Audit"
@@ -5104,22 +5176,6 @@
               "U.10.3 - Gebruik van geauthenticeerde apparatuur",
               "U.10.5 - Toegangsbeperking",
               "U.17.1 - Versleuteld"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/308fbb08-4ab8-4e67-9b29-592e93fb94fa",
-            "policyDefinitionReferenceId": "AzureDefenderForStorageShouldBeEnabled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-308fbb08-4ab8-4e67-9b29-592e93fb94fa')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel",
-              "U.15.1 - Registratie"
             ]
           },
           {
@@ -5363,22 +5419,6 @@
               "C.04.3 - Tijdslijnen",
               "C.04.6 - Patchmanagement",
               "C.04.7 - Evaluatie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bdc59948-5574-49b3-bb91-76b7c986428d",
-            "policyDefinitionReferenceId": "AzureDefenderForDNSShouldBeEnabled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-bdc59948-5574-49b3-bb91-76b7c986428d')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel",
-              "U.15.1 - Registratie"
             ]
           },
           {
@@ -6069,6 +6109,9 @@
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-67121cc7-ff39-4ab8-b7e3-95b84dab487d')]"
+              },
+              "excludedKinds": {
+                "value": "[[parameters('excludedKinds')]"
               }
             },
             "groupNames": [
@@ -7750,7 +7793,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/45e05259-1eb5-4f70-9574-baf73e9d219b",
-            "policyDefinitionReferenceId": "AzurePrivateLinkLetsYouConnectYourVirtualNetworkToAzureServicesWithoutAPublicIpAddressAtTheSourceOrDestinationThePrivateLinkPlatformHandlesTheConnectivityBetweenTheConsumerAndServicesOverTheAzureBackboneNetworkByMappingPrivateEndpointsToAzureMachineLearningWorkspacesDataLeakageRisksAreReducedLearnMoreAboutPrivateLinksAtHttpsDocsMicrosoftComAzureMachineLearningHowToConfigurePrivateLink",
+            "policyDefinitionReferenceId": "AzureMachineLearningworkspacesshoulduseprivatelink",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-45e05259-1eb5-4f70-9574-baf73e9d219b')]"
@@ -7762,7 +7805,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2393d2cf-a342-44cd-a2e2-fe0188fd1234",
-            "policyDefinitionReferenceId": "AzurePrivateLinkLetsYouConnectYourVirtualNetworkToAzureServicesWithoutAPublicIpAddressAtTheSourceOrDestinationThePrivateLinkPlatformHandlesTheConnectivityBetweenTheConsumerAndServicesOverTheAzureBackboneNetworkByMappingPrivateEndpointsToYourAzureSignalRServiceResourceInsteadOfTheEntireServiceYouLlReduceYourDataLeakageRisksLearnMoreAboutPrivateLinksAtHttpsAkaMsAsrsPrivatelink",
+            "policyDefinitionReferenceId": "AzureSignalRServiceshoulduseprivatelink",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-2393d2cf-a342-44cd-a2e2-fe0188fd1234')]"
@@ -7876,7 +7919,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c30f9cd-b84c-49cc-aa2c-9288447cc3b3",
-            "policyDefinitionReferenceId": "EnableVirtualTpmDeviceOnSupportedVirtualMachinesToFacilitateMeasuredBootAndOtherOsSecurityFeaturesThatRequireATpmOnceEnabledVTpmCanBeUsedToAttestBootIntegrityThisAssessmentOnlyAppliesToTrustedLaunchEnabledVirtualMachines",
+            "policyDefinitionReferenceId": "PreviewvTPMshouldbeenabledonsupportedvirtualmachines",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-1c30f9cd-b84c-49cc-aa2c-9288447cc3b3')]"
@@ -7889,7 +7932,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/97566dd7-78ae-4997-8b36-1c7bfe0d8121",
-            "policyDefinitionReferenceId": "EnableSecureBootOnSupportedWindowsVirtualMachinesToMitigateAgainstMaliciousAndUnauthorizedChangesToTheBootChainOnceEnabledOnlyTrustedBootloadersKernelAndKernelDriversWillBeAllowedToRunThisAssessmentAppliesToTrustedLaunchAndConfidentialWindowsVirtualMachines",
+            "policyDefinitionReferenceId": "PreviewSecureBootshouldbeenabledonsupportedWindowsvirtualmachines",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-97566dd7-78ae-4997-8b36-1c7bfe0d8121')]"
@@ -7902,7 +7945,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/672fe5a1-2fcd-42d7-b85d-902b6e28c6ff",
-            "policyDefinitionReferenceId": "InstallGuestAttestationExtensionOnSupportedLinuxVirtualMachinesToAllowAzureSecurityCenterToProactivelyAttestAndMonitorTheBootIntegrityOnceInstalledBootIntegrityWillBeAttestedViaRemoteAttestationThisAssessmentAppliesToTrustedLaunchAndConfidentialLinuxVirtualMachines",
+            "policyDefinitionReferenceId": "PreviewGuestAttestationextensionshouldbeinstalledonsupportedLinuxvirtualmachines",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-672fe5a1-2fcd-42d7-b85d-902b6e28c6ff')]"
@@ -7915,7 +7958,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a21f8c92-9e22-4f09-b759-50500d1d2dda",
-            "policyDefinitionReferenceId": "InstallGuestAttestationExtensionOnSupportedLinuxVirtualMachinesScaleSetsToAllowAzureSecurityCenterToProactivelyAttestAndMonitorTheBootIntegrityOnceInstalledBootIntegrityWillBeAttestedViaRemoteAttestationThisAssessmentAppliesToTrustedLaunchAndConfidentialLinuxVirtualMachineScaleSets",
+            "policyDefinitionReferenceId": "PreviewGuestAttestationextensionshouldbeinstalledonsupportedLinuxvirtualmachinesscalesets",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-a21f8c92-9e22-4f09-b759-50500d1d2dda')]"
@@ -7928,7 +7971,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1cb4d9c2-f88f-4069-bee0-dba239a57b09",
-            "policyDefinitionReferenceId": "InstallGuestAttestationExtensionOnSupportedVirtualMachinesToAllowAzureSecurityCenterToProactivelyAttestAndMonitorTheBootIntegrityOnceInstalledBootIntegrityWillBeAttestedViaRemoteAttestationThisAssessmentAppliesToTrustedLaunchAndConfidentialWindowsVirtualMachines",
+            "policyDefinitionReferenceId": "PreviewGuestAttestationextensionshouldbeinstalledonsupportedWindowsvirtualmachines",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-1cb4d9c2-f88f-4069-bee0-dba239a57b09')]"
@@ -7941,7 +7984,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f655e522-adff-494d-95c2-52d4f6d56a42",
-            "policyDefinitionReferenceId": "InstallGuestAttestationExtensionOnSupportedVirtualMachinesScaleSetsToAllowAzureSecurityCenterToProactivelyAttestAndMonitorTheBootIntegrityOnceInstalledBootIntegrityWillBeAttestedViaRemoteAttestationThisAssessmentAppliesToTrustedLaunchAndConfidentialWindowsVirtualMachineScaleSets",
+            "policyDefinitionReferenceId": "PreviewGuestAttestationextensionshouldbeinstalledonsupportedWindowsvirtualmachinesscalesets",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-f655e522-adff-494d-95c2-52d4f6d56a42')]"
@@ -7954,7 +7997,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/245fc9df-fa96-4414-9a0b-3738c2f7341c",
-            "policyDefinitionReferenceId": "AzureKubernetesServiceSResourceLogsCanHelpRecreateActivityTrailsWhenInvestigatingSecurityIncidentsEnableItToMakeSureTheLogsWillExistWhenNeeded",
+            "policyDefinitionReferenceId": "ResourcelogsinAzureKubernetesServiceshouldbeenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-245fc9df-fa96-4414-9a0b-3738c2f7341c')]"
@@ -7969,7 +8012,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/438c38d2-3772-465a-a9cc-7a6666a275ce",
-            "policyDefinitionReferenceId": "DisablingPublicNetworkAccessImprovesSecurityByEnsuringThatTheMachineLearningWorkspacesArenTExposedOnThePublicInternetYouCanControlExposureOfYourWorkspacesByCreatingPrivateEndpointsInsteadLearnMoreAtHttpsLearnMicrosoftComAzureMachineLearningHowToConfigurePrivateLinkViewAzuremlApi_2TabsAzurePortal",
+            "policyDefinitionReferenceId": "AzureMachineLearningWorkspacesshoulddisablepublicnetworkaccess",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-438c38d2-3772-465a-a9cc-7a6666a275ce')]"
@@ -7981,7 +8024,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7804b5c7-01dc-4723-969b-ae300cc07ff1",
-            "policyDefinitionReferenceId": "AzureVirtualNetworksProvideEnhancedSecurityAndIsolationForYourAzureMachineLearningComputeClustersAndInstancesAsWellAsSubnetsAccessControlPoliciesAndOtherFeaturesToFurtherRestrictAccessWhenAComputeIsConfiguredWithAVirtualNetworkItIsNotPubliclyAddressableAndCanOnlyBeAccessedFromVirtualMachinesAndApplicationsWithinTheVirtualNetwork",
+            "policyDefinitionReferenceId": "AzureMachineLearningComputesshouldbeinavirtualnetwork",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-7804b5c7-01dc-4723-969b-ae300cc07ff1')]"
@@ -7993,7 +8036,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0e7849de-b939-4c50-ab48-fc6b0f5eeba2",
-            "policyDefinitionReferenceId": "DisablingPublicNetworkAccessImprovesSecurityByEnsuringThatTheResourceIsnTExposedOnThePublicInternetYouCanControlExposureOfYourResourcesByCreatingPrivateEndpointsInsteadLearnMoreAtHttpsLearnMicrosoftComAzureDatabricksAdministrationGuideCloudConfigurationsAzurePrivateLink",
+            "policyDefinitionReferenceId": "AzureDatabricksWorkspacesshoulddisablepublicnetworkaccess",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0e7849de-b939-4c50-ab48-fc6b0f5eeba2')]"
@@ -8005,7 +8048,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/51c1490f-3319-459c-bbbc-7f391bbed753",
-            "policyDefinitionReferenceId": "DisablingPublicIpOfClustersInAzureDatabricksWorkspacesImprovesSecurityByEnsuringThatTheClustersArenTExposedOnThePublicInternetLearnMoreAtHttpsLearnMicrosoftComAzureDatabricksSecuritySecureClusterConnectivity",
+            "policyDefinitionReferenceId": "AzureDatabricksClustersshoulddisablepublicIP",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-51c1490f-3319-459c-bbbc-7f391bbed753')]"
@@ -8017,7 +8060,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/258823f2-4595-4b52-b333-cc96192710d8",
-            "policyDefinitionReferenceId": "AzurePrivateLinkLetsYouConnectYourVirtualNetworksToAzureServicesWithoutAPublicIpAddressAtTheSourceOrDestinationThePrivateLinkPlatformHandlesTheConnectivityBetweenTheConsumerAndServicesOverTheAzureBackboneNetworkByMappingPrivateEndpointsToAzureDatabricksWorkspacesYouCanReduceDataLeakageRisksLearnMoreAboutPrivateLinksAtHttpsAkaMsAdbpe",
+            "policyDefinitionReferenceId": "AzureDatabricksWorkspacesshoulduseprivatelink",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-258823f2-4595-4b52-b333-cc96192710d8')]"
@@ -8029,7 +8072,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0ec47710-77ff-4a3d-9181-6aa50af424d0",
-            "policyDefinitionReferenceId": "AzureDatabaseForMariaDbAllowsYouToChooseTheRedundancyOptionForYourDatabaseServerItCanBeSetToAGeoRedundantBackupStorageInWhichTheDataIsNotOnlyStoredWithinTheRegionInWhichYourServerIsHostedButIsAlsoReplicatedToAPairedRegionToProvideRecoveryOptionInCaseOfARegionFailureConfiguringGeoRedundantStorageForBackupIsOnlyAllowedDuringServerCreate",
+            "policyDefinitionReferenceId": "Geo-redundantbackupshouldbeenabledforAzureDatabaseforMariaDB",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0ec47710-77ff-4a3d-9181-6aa50af424d0')]"
@@ -8041,7 +8084,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/48af4db5-9b8b-401c-8e74-076be876a430",
-            "policyDefinitionReferenceId": "AzureDatabaseForPostgreSqlAllowsYouToChooseTheRedundancyOptionForYourDatabaseServerItCanBeSetToAGeoRedundantBackupStorageInWhichTheDataIsNotOnlyStoredWithinTheRegionInWhichYourServerIsHostedButIsAlsoReplicatedToAPairedRegionToProvideRecoveryOptionInCaseOfARegionFailureConfiguringGeoRedundantStorageForBackupIsOnlyAllowedDuringServerCreate",
+            "policyDefinitionReferenceId": "Geo-redundantbackupshouldbeenabledforAzureDatabaseforPostgreSQL",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-48af4db5-9b8b-401c-8e74-076be876a430')]"
@@ -8053,7 +8096,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82339799-d096-41ae-8538-b108becf0970",
-            "policyDefinitionReferenceId": "AzureDatabaseForMySqlAllowsYouToChooseTheRedundancyOptionForYourDatabaseServerItCanBeSetToAGeoRedundantBackupStorageInWhichTheDataIsNotOnlyStoredWithinTheRegionInWhichYourServerIsHostedButIsAlsoReplicatedToAPairedRegionToProvideRecoveryOptionInCaseOfARegionFailureConfiguringGeoRedundantStorageForBackupIsOnlyAllowedDuringServerCreate",
+            "policyDefinitionReferenceId": "Geo-redundantbackupshouldbeenabledforAzureDatabaseforMySQL",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-82339799-d096-41ae-8538-b108becf0970')]"
@@ -8065,7 +8108,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a15ec92-a229-4763-bb14-0ea34a568f8d",
-            "policyDefinitionReferenceId": "AzurePolicyAddOnForKubernetesServiceAksExtendsGatekeeperV3AnAdmissionControllerWebhookForOpenPolicyAgentOpaToApplyAtScaleEnforcementsAndSafeguardsOnYourClustersInACentralizedConsistentManner",
+            "policyDefinitionReferenceId": "AzurePolicyAdd-onforKubernetesservice(AKS)shouldbeinstalledandenabledonyourclusters",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0a15ec92-a229-4763-bb14-0ea34a568f8d')]"
@@ -8077,7 +8120,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/febd0533-8e55-448f-b837-bd0e06f16469",
-            "policyDefinitionReferenceId": "UseImagesFromTrustedRegistriesToReduceTheKubernetesClusterSExposureRiskToUnknownVulnerabilitiesSecurityIssuesAndMaliciousImagesThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldonlyuseallowedimages",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-febd0533-8e55-448f-b837-bd0e06f16469')]"
@@ -8104,7 +8147,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/95edb821-ddaf-4404-9732-666045e056b4",
-            "policyDefinitionReferenceId": "DoNotAllowPrivilegedContainersCreationInAKubernetesClusterThisRecommendationIsPartOfCis_5_2_1WhichIsIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustershouldnotallowprivilegedcontainers",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-95edb821-ddaf-4404-9732-666045e056b4')]"
@@ -8131,7 +8174,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/233a2a17-77ca-4fb1-9b6b-69223d272a44",
-            "policyDefinitionReferenceId": "RestrictServicesToListenOnlyOnAllowedPortsToSecureAccessToTheKubernetesClusterThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclusterservicesshouldlistenonlyonallowedports",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-233a2a17-77ca-4fb1-9b6b-69223d272a44')]"
@@ -8155,7 +8198,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e345eecc-fa47-480f-9e88-67dcc122b164",
-            "policyDefinitionReferenceId": "EnforceContainerCpuAndMemoryResourceLimitsToPreventResourceExhaustionAttacksInAKubernetesClusterThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclustercontainersCPUandmemoryresourcelimitsshouldnotexceedthespecifiedlimits",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-e345eecc-fa47-480f-9e88-67dcc122b164')]"
@@ -8188,7 +8231,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f06ddb64-5fa3-4b77-b166-acb36f7f6042",
-            "policyDefinitionReferenceId": "ControlTheUserPrimaryGroupSupplementalGroupAndFileSystemGroupIDsThatPodsAndContainersCanUseToRunInAKubernetesClusterThisRecommendationIsPartOfPodSecurityPoliciesWhichAreIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclusterpodsandcontainersshouldonlyrunwithapproveduserandgroupIDs",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-f06ddb64-5fa3-4b77-b166-acb36f7f6042')]"
@@ -8239,7 +8282,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c6e92c9-99f0-4e55-9cf2-0c234dc48f99",
-            "policyDefinitionReferenceId": "DoNotAllowContainersToRunWithPrivilegeEscalationToRootInAKubernetesClusterThisRecommendationIsPartOfCis_5_2_5WhichIsIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustersshouldnotallowcontainerprivilegeescalation",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-1c6e92c9-99f0-4e55-9cf2-0c234dc48f99')]"
@@ -8266,7 +8309,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8",
-            "policyDefinitionReferenceId": "BlockPodContainersFromSharingTheHostProcessIdNamespaceAndHostIpcNamespaceInAKubernetesClusterThisRecommendationIsPartOfCis_5_2_2AndCis_5_2_3WhichAreIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclustercontainersshouldnotsharehostprocessIDorhostIPCnamespace",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8')]"
@@ -8290,7 +8333,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/df49d893-a74c-421d-bc95-c663042e5b80",
-            "policyDefinitionReferenceId": "RunContainersWithAReadOnlyRootFileSystemToProtectFromChangesAtRunTimeWithMaliciousBinariesBeingAddedToPathInAKubernetesClusterThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldrunwithareadonlyrootfilesystem",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-df49d893-a74c-421d-bc95-c663042e5b80')]"
@@ -8317,7 +8360,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c26596ff-4d70-4e6a-9a30-c2506bd2f80c",
-            "policyDefinitionReferenceId": "RestrictTheCapabilitiesToReduceTheAttackSurfaceOfContainersInAKubernetesClusterThisRecommendationIsPartOfCis_5_2_8AndCis_5_2_9WhichAreIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldonlyuseallowedcapabilities",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-c26596ff-4d70-4e6a-9a30-c2506bd2f80c')]"
@@ -8350,7 +8393,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/511f5417-5d12-434d-ab2e-816901e72a5e",
-            "policyDefinitionReferenceId": "ContainersShouldOnlyUseAllowedAppArmorProfilesInAKubernetesClusterThisRecommendationIsPartOfPodSecurityPoliciesWhichAreIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclustercontainersshouldonlyuseallowedAppArmorprofiles",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-511f5417-5d12-434d-ab2e-816901e72a5e')]"
@@ -8380,7 +8423,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82985f06-dc18-4a48-bc1c-b9f4f0098cfe",
-            "policyDefinitionReferenceId": "RestrictPodAccessToTheHostNetworkAndTheAllowableHostPortRangeInAKubernetesClusterThisRecommendationIsPartOfCis_5_2_4WhichIsIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndPreviewForAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclusterpodsshouldonlyuseapprovedhostnetworkandportrange",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-82985f06-dc18-4a48-bc1c-b9f4f0098cfe')]"
@@ -8416,7 +8459,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/098fc59e-46c7-4d99-9b16-64990e543d75",
-            "policyDefinitionReferenceId": "LimitPodHostPathVolumeMountsToTheAllowedHostPathsInAKubernetesClusterThisRecommendationIsPartOfPodSecurityPoliciesWhichAreIntendedToImproveTheSecurityOfYourKubernetesEnvironmentsThisPolicyIsGenerallyAvailableForKubernetesServiceAksAndAzureArcEnabledKubernetesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclusterpodhostPathvolumesshouldonlyuseallowedhostpaths",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-098fc59e-46c7-4d99-9b16-64990e543d75')]"
@@ -8446,7 +8489,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9f061a12-e40d-4183-a00e-171812443373",
-            "policyDefinitionReferenceId": "PreventUsageOfTheDefaultNamespaceInKubernetesClustersToProtectAgainstUnauthorizedAccessForConfigMapPodSecretServiceAndServiceAccountResourceTypesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "Kubernetesclustersshouldnotusethedefaultnamespace",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-9f061a12-e40d-4183-a00e-171812443373')]"
@@ -8467,7 +8510,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/423dd1ba-798e-40e4-9c4d-b6902674b423",
-            "policyDefinitionReferenceId": "DisableAutomountingApiCredentialsToPreventAPotentiallyCompromisedPodResourceToRunApiCommandsAgainstKubernetesClustersForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclustersshoulddisableautomountingAPIcredentials",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-423dd1ba-798e-40e4-9c4d-b6902674b423')]"
@@ -8491,7 +8534,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d2e7ea85-6b44-4317-a0be-1b951587f626",
-            "policyDefinitionReferenceId": "ToReduceTheAttackSurfaceOfYourContainersRestrictCapSysAdminLinuxCapabilitiesForMoreInformationSeeHttpsAkaMsKubepolicydoc",
+            "policyDefinitionReferenceId": "KubernetesclustersshouldnotgrantCAP_SYS_ADMINsecuritycapabilities",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-d2e7ea85-6b44-4317-a0be-1b951587f626')]"
@@ -8518,7 +8561,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ac4a19c2-fa67-49b4-8ae5-0b2e78c49457",
-            "policyDefinitionReferenceId": "ToProvideGranularFilteringOnTheActionsThatUsersCanPerformUseRoleBasedAccessControlRbacToManagePermissionsInKubernetesServiceClustersAndConfigureRelevantAuthorizationPolicies",
+            "policyDefinitionReferenceId": "Role-BasedAccessControl(RBAC)shouldbeusedonKubernetesServices",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-ac4a19c2-fa67-49b4-8ae5-0b2e78c49457')]"
@@ -8533,7 +8576,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9c25c9e4-ee12-4882-afd2-11fb9d87893f",
-            "policyDefinitionReferenceId": "AzureVirtualNetworksProvideEnhancedSecurityAndIsolationForYourAzureDatabricksWorkspacesAsWellAsSubnetsAccessControlPoliciesAndOtherFeaturesToFurtherRestrictAccessLearnMoreAtHttpsDocsMicrosoftComAzureDatabricksAdministrationGuideCloudConfigurationsAzureVnetInject",
+            "policyDefinitionReferenceId": "AzureDatabricksWorkspacesshouldbeinavirtualnetwork",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-9c25c9e4-ee12-4882-afd2-11fb9d87893f')]"
@@ -8545,7 +8588,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0e60b895-3786-45da-8377-9c6b4b6ac5f9",
-            "policyDefinitionReferenceId": "RemoteDebuggingRequiresInboundPortsToBeOpenedOnFunctionAppsRemoteDebuggingShouldBeTurnedOff",
+            "policyDefinitionReferenceId": "Functionappsshouldhaveremotedebuggingturnedoff",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0e60b895-3786-45da-8377-9c6b4b6ac5f9')]"
@@ -8557,7 +8600,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cb510bfd-1cba-4d9f-a230-cb0976f4bb71",
-            "policyDefinitionReferenceId": "RemoteDebuggingRequiresInboundPortsToBeOpenedOnAnAppServiceAppRemoteDebuggingShouldBeTurnedOff",
+            "policyDefinitionReferenceId": "AppServiceappsshouldhaveremotedebuggingturnedoff",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-cb510bfd-1cba-4d9f-a230-cb0976f4bb71')]"
@@ -8569,7 +8612,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0820b7b9-23aa-4725-a1ce-ae4558f718e5",
-            "policyDefinitionReferenceId": "CrossOriginResourceSharingCorsShouldNotAllowAllDomainsToAccessYourFunctionAppAllowOnlyRequiredDomainsToInteractWithYourFunctionApp",
+            "policyDefinitionReferenceId": "FunctionappsshouldnothaveCORSconfiguredtoalloweveryresourcetoaccessyourapps",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0820b7b9-23aa-4725-a1ce-ae4558f718e5')]"
@@ -8581,7 +8624,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5744710e-cc2f-4ee8-8809-3b11e89f4bc9",
-            "policyDefinitionReferenceId": "CrossOriginResourceSharingCorsShouldNotAllowAllDomainsToAccessYourAppAllowOnlyRequiredDomainsToInteractWithYourApp",
+            "policyDefinitionReferenceId": "AppServiceappsshouldnothaveCORSconfiguredtoalloweveryresourcetoaccessyourapps",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-5744710e-cc2f-4ee8-8809-3b11e89f4bc9')]"
@@ -8592,40 +8635,8 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6ba6d016-e7c3-4842-b8f2-4992ebc0d72d",
-            "policyDefinitionReferenceId": "SqlVulnerabilityAssessmentScansYourDatabaseForSecurityVulnerabilitiesAndExposesAnyDeviationsFromBestPracticesSuchAsMisconfigurationsExcessivePermissionsAndUnprotectedSensitiveDataResolvingTheVulnerabilitiesFoundCanGreatlyImproveYourDatabaseSecurityPosture",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-6ba6d016-e7c3-4842-b8f2-4992ebc0d72d')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "C.04.8 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e8cbc669-f12d-49eb-93e7-9273119e9933",
-            "policyDefinitionReferenceId": "AuditVulnerabilitiesInSecurityConfigurationOnMachinesWithDockerInstalledAndDisplayAsRecommendationsInAzureSecurityCenter",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-e8cbc669-f12d-49eb-93e7-9273119e9933')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "C.04.8 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7",
-            "policyDefinitionReferenceId": "ToEnsureTheRelevantPeopleInYourOrganizationAreNotifiedWhenThereIsAPotentialSecurityBreachInOneOfYourSubscriptionsSetASecurityContactToReceiveEmailNotificationsFromSecurityCenter",
+            "policyDefinitionReferenceId": "Subscriptionsshouldhaveacontactemailaddressforsecurityissues",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7')]"
@@ -8637,7 +8648,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6e2593d9-add6-4083-9c9b-4b7d2188c899",
-            "policyDefinitionReferenceId": "ToEnsureTheRelevantPeopleInYourOrganizationAreNotifiedWhenThereIsAPotentialSecurityBreachInOneOfYourSubscriptionsEnableEmailNotificationsForHighSeverityAlertsInSecurityCenter",
+            "policyDefinitionReferenceId": "Emailnotificationforhighseverityalertsshouldbeenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-6e2593d9-add6-4083-9c9b-4b7d2188c899')]"
@@ -8649,7 +8660,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0b15565f-aa9e-48ba-8619-45960f2c314d",
-            "policyDefinitionReferenceId": "ToEnsureYourSubscriptionOwnersAreNotifiedWhenThereIsAPotentialSecurityBreachInTheirSubscriptionSetEmailNotificationsToSubscriptionOwnersForHighSeverityAlertsInSecurityCenter",
+            "policyDefinitionReferenceId": "Emailnotificationtosubscriptionownerforhighseverityalertsshouldbeenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0b15565f-aa9e-48ba-8619-45960f2c314d')]"
@@ -8661,7 +8672,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/91a78b24-f231-4a8a-8da9-02c35b2b6510",
-            "policyDefinitionReferenceId": "AuditEnablingOfResourceLogsOnTheAppThisEnablesYouToRecreateActivityTrailsForInvestigationPurposesIfASecurityIncidentOccursOrYourNetworkIsCompromised",
+            "policyDefinitionReferenceId": "AppServiceappsshouldhaveresourcelogsenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-91a78b24-f231-4a8a-8da9-02c35b2b6510')]"
@@ -8676,7 +8687,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/afe0c3be-ba3b-4544-ba52-0c99672a8ad6",
-            "policyDefinitionReferenceId": "ResourceLogsEnableRecreatingActivityTrailsToUseForInvestigationPurposesWhenASecurityIncidentOccursOrWhenYourNetworkIsCompromised",
+            "policyDefinitionReferenceId": "ResourcelogsinAzureMachineLearningWorkspacesshouldbeenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-afe0c3be-ba3b-4544-ba52-0c99672a8ad6')]"
@@ -8691,7 +8702,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/138ff14d-b687-4faa-a81c-898c91a87fa2",
-            "policyDefinitionReferenceId": "ResourceLogsInAzureDatabricksWorkspacesShouldBeEnabled",
+            "policyDefinitionReferenceId": "ResourcelogsinAzureDatabricksWorkspacesshouldbeenabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-138ff14d-b687-4faa-a81c-898c91a87fa2')]"
@@ -8705,32 +8716,8 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5bb220d9-2698-4ee4-8404-b9c30c9df609",
-            "policyDefinitionReferenceId": "ClientCertificatesAllowForTheAppToRequestACertificateForIncomingRequestsOnlyClientsThatHaveAValidCertificateWillBeAbleToReachTheApp",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-5bb220d9-2698-4ee4-8404-b9c30c9df609')]"
-              }
-            },
-            "groupNames": [
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/eaebaea7-8013-4ceb-9d14-7eb32271373c",
-            "policyDefinitionReferenceId": "ClientCertificatesAllowForTheAppToRequestACertificateForIncomingRequestsOnlyClientsWithValidCertificatesWillBeAbleToReachTheApp",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-eaebaea7-8013-4ceb-9d14-7eb32271373c')]"
-              }
-            },
-            "groupNames": [
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/89099bee-89e0-4b26-a5f4-165451757743",
-            "policyDefinitionReferenceId": "ForIncidentInvestigationPurposesWeRecommendSettingTheDataRetentionForYourSqlServerAuditingToStorageAccountDestinationToAtLeast_90DaysConfirmThatYouAreMeetingTheNecessaryRetentionRulesForTheRegionsInWhichYouAreOperatingThisIsSometimesRequiredForComplianceWithRegulatoryStandards",
+            "policyDefinitionReferenceId": "SQLserverswithauditingtostorageaccountdestinationshouldbeconfiguredwith90daysretentionorhigher",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-89099bee-89e0-4b26-a5f4-165451757743')]"
@@ -8742,7 +8729,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f",
-            "policyDefinitionReferenceId": "DisablingLocalAuthenticationMethodsImprovesSecurityByEnsuringThatMachineLearningComputesRequireAzureActiveDirectoryIdentitiesExclusivelyForAuthenticationLearnMoreAtHttpsAkaMsAzureMlAadPolicy",
+            "policyDefinitionReferenceId": "AzureMachineLearningComputesshouldhavelocalauthenticationmethodsdisabled",
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f')]"
@@ -8756,7 +8743,7 @@
           },
           {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f110a506-2dcb-422e-bcea-d533fc8c35e2",
-            "policyDefinitionReferenceId": "EnsureAzureMachineLearningComputeInstancesRunOnTheLatestAvailableOperatingSystemSecurityIsImprovedAndVulnerabilitiesReducedByRunningWithTheLatestSecurityPatchesForMoreInformationVisitHttpAkaMsAzuremlCiUpdates",
+            "policyDefinitionReferenceId": "AzureMachineLearningcomputeinstancesshouldberecreatedtogetthelatestsoftwareupdates",
             "parameters": {
               "effects": {
                 "value": "[[parameters('effects')]"
@@ -8764,6 +8751,132 @@
             },
             "groupNames": [
               "C.04.6 - Patchmanagement"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/19dd1db6-f442-49cf-a838-b0786b4401ef",
+            "policyDefinitionReferenceId": "AppServiceappsshouldhaveClientCertificates(Incomingclientcertificates)enabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-19dd1db6-f442-49cf-a838-b0786b4401ef')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/797b37f7-06b8-444c-b1ad-fc62867f335a",
+            "policyDefinitionReferenceId": "AzureCosmosDBshoulddisablepublicnetworkaccess",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-797b37f7-06b8-444c-b1ad-fc62867f335a')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9dfea752-dd46-4766-aed1-c355fa93fb91",
+            "policyDefinitionReferenceId": "AzureSQLManagedInstancesshoulddisablepublicnetworkaccess",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-9dfea752-dd46-4766-aed1-c355fa93fb91')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/32e6bbec-16b6-44c2-be37-c5b672d103cf",
+            "policyDefinitionReferenceId": "AzureSQLDatabaseshouldberunningTLSversion1.2ornewer",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-32e6bbec-16b6-44c2-be37-c5b672d103cf')]"
+              }
+            },
+            "groupNames": [
+              "U.05.1 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/21a6bc25-125e-4d13-b82d-2e19b7208ab7",
+            "policyDefinitionReferenceId": "VPNgatewaysshoulduseonlyAzureActiveDirectory(AzureAD)authenticationforpoint-to-siteusers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-21a6bc25-125e-4d13-b82d-2e19b7208ab7')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.07.3 - Beheerfuncties",
+              "U.10.2 - Beheerders"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54",
+            "policyDefinitionReferenceId": "Storageaccountsshouldpreventsharedkeyaccess",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.07.3 - Beheerfuncties",
+              "U.10.2 - Beheerders"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/8a04f872-51e9-4313-97fb-fc1c35430fd8",
+            "policyDefinitionReferenceId": "AzureFrontDoorshouldhaveResourcelogsenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-8a04f872-51e9-4313-97fb-fc1c35430fd8')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cd906338-3453-47ba-9334-2d654bf845af",
+            "policyDefinitionReferenceId": "AzureFrontDoorStandardorPremium(PlusWAF)shouldhaveresourcelogsenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-cd906338-3453-47ba-9334-2d654bf845af')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/dfc212af-17ea-423a-9dcb-91e2cb2caa6b",
+            "policyDefinitionReferenceId": "AzureFrontDoorprofilesshouldusePremiumtierthatsupportsmanagedWAFrulesandprivatelink",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-dfc212af-17ea-423a-9dcb-91e2cb2caa6b')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/679da822-78a7-4eff-8fff-a899454a9970",
+            "policyDefinitionReferenceId": "AzureFrontDoorStandardandPremiumshouldberunningminimumTLSversionof1.2",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-679da822-78a7-4eff-8fff-a899454a9970')]"
+              }
+            },
+            "groupNames": [
+              "U.05.1 - Cryptografische maatregelen"
             ]
           }
         ]
