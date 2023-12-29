@@ -1965,7 +1965,7 @@
               "Deny",
               "Disabled"
             ],
-            "defaultValue": "Audit"
+            "defaultValue": "Disabled"
           },
           "effect-b5ec538c-daa0-4006-8596-35468b9148e8": {
             "type": "String",

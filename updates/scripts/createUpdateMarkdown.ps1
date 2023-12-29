@@ -138,9 +138,9 @@ foreach ($group in $inputGroups) {
 
       
         #select from inputAll where $group.RevisionDateMMYY is equal to the current group and deprecated is empty
-        $inputline = $inputAll | Where-Object { $_.RevisionDateMMYY -eq $group.RevisionDateMMYY -and ($_.deprecated -eq $null -or $_.deprecated -eq "" )} | Select-Object -Property PolicyName, policyDisplayName, GroupName -Unique  | Group-Object -Property policyName | Select-Object  Name  , @{Name="policyDisplayname";Expression={  $_.Group[0].policyDisplayName  } } ,  @{Name="Category";Expression={$_.Group.GroupName -join ","}}
+        $inputline = $inputAll | Where-Object { $_.RevisionDateMMYY -eq $group.RevisionDateMMYY -and ($_.deprecated -eq $null -or $_.deprecated -eq "" )} | Select-Object -Property PolicyName, policyDisplayName, Remarks, GroupName -Unique  | Group-Object -Property policyName | Select-Object  Name  , @{Name="policyDisplayname";Expression={  $_.Group[0].policyDisplayName  } } ,  @{Name="Category";Expression={$_.Group.GroupName -join ","}},  @{Name="Remarks";Expression={  $_.Group[0].Remarks  } } 
 
-        $markdown += ConvertTo-MarkdownTable -InputObject $inputline  -Heading "PolicyName|policyDisplayName|Category"
+        $markdown += ConvertTo-MarkdownTable -InputObject $inputline  -Heading "PolicyName|policyDisplayName|Category|Remarks"
         #markdown is markdown + new line 
         $markdown += "`n"
         $markdown += "`n"

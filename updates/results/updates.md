@@ -7,19 +7,19 @@ See for our update process [here](../updates/readme.md).
 
 ### New policies in version 2.2.2
 
-| PolicyName|policyDisplayName|Category |
-| --- | --- | --- |
-| 19dd1db6-f442-49cf-a838-b0786b4401ef | App Service apps should have Client Certificates (Incoming client certificates) enabled | U.10.3 - Gebruik van geauthenticeerde apparatuur |
-| 21a6bc25-125e-4d13-b82d-2e19b7208ab7 | VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users | U.10.2 - Beheerders,U.07.3 - Beheerfuncties,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.5 - Toegangsbeperking |
-| 32e6bbec-16b6-44c2-be37-c5b672d103cf | Azure SQL Database should be running TLS version 1.2 or newer | U.05.1 - Cryptografische maatregelen |
-| 679da822-78a7-4eff-8fff-a899454a9970 | Azure Front Door Standard and Premium should be running minimum TLS version of 1.2 | U.05.1 - Cryptografische maatregelen |
-| 797b37f7-06b8-444c-b1ad-fc62867f335a | Azure Cosmos DB should disable public network access | U.07.1 - Isolatie |
-| 8a04f872-51e9-4313-97fb-fc1c35430fd8 | Azure Front Door should have Resource logs enabled | U.15.1 - Registratie |
-| 8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54 | Storage accounts should prevent shared key access | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |
-| 9dfea752-dd46-4766-aed1-c355fa93fb91 | Azure SQL Managed Instances should disable public network access | U.07.1 - Isolatie |
-| ba769a63-b8cc-4b2d-abf6-ac33c7204be8 | Azure Machine Learning workspaces should be encrypted with a customer-managed key | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| cd906338-3453-47ba-9334-2d654bf845af | Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled | U.15.1 - Registratie |
-| dfc212af-17ea-423a-9dcb-91e2cb2caa6b | Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link | U.07.1 - Isolatie |
+| PolicyName|policyDisplayName|Category|Remarks |
+| --- | --- | --- | --- |
+| 19dd1db6-f442-49cf-a838-b0786b4401ef | App Service apps should have Client Certificates (Incoming client certificates) enabled | U.10.3 - Gebruik van geauthenticeerde apparatuur |  |
+| 21a6bc25-125e-4d13-b82d-2e19b7208ab7 | VPN gateways should use only Azure Active Directory (Azure AD) authentication for point-to-site users | U.10.2 - Beheerders,U.07.3 - Beheerfuncties,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.5 - Toegangsbeperking |  |
+| 32e6bbec-16b6-44c2-be37-c5b672d103cf | Azure SQL Database should be running TLS version 1.2 or newer | U.05.1 - Cryptografische maatregelen |  |
+| 679da822-78a7-4eff-8fff-a899454a9970 | Azure Front Door Standard and Premium should be running minimum TLS version of 1.2 | U.05.1 - Cryptografische maatregelen |  |
+| 797b37f7-06b8-444c-b1ad-fc62867f335a | Azure Cosmos DB should disable public network access | U.07.1 - Isolatie |  |
+| 8a04f872-51e9-4313-97fb-fc1c35430fd8 | Azure Front Door should have Resource logs enabled | U.15.1 - Registratie |  |
+| 8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54 | Storage accounts should prevent shared key access | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |  |
+| 9dfea752-dd46-4766-aed1-c355fa93fb91 | Azure SQL Managed Instances should disable public network access | U.07.1 - Isolatie |  |
+| ba769a63-b8cc-4b2d-abf6-ac33c7204be8 | Azure Machine Learning workspaces should be encrypted with a customer-managed key | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen | Changed default to disabled as these result in a non compliant on monitoring see https://github.com/Azure/Bio-Compliancy/issues/23 |
+| cd906338-3453-47ba-9334-2d654bf845af | Azure Front Door Standard or Premium (Plus WAF) should have resource logs enabled | U.15.1 - Registratie |  |
+| dfc212af-17ea-423a-9dcb-91e2cb2caa6b | Azure Front Door profiles should use Premium tier that supports managed WAF rules and private link | U.07.1 - Isolatie |  |
 
 ### Deprecated policies in version 2.2.2
 
@@ -36,67 +36,67 @@ See for our update process [here](../updates/readme.md).
 
 ### New policies in version 2.2.1
 
-| PolicyName|policyDisplayName|Category |
-| --- | --- | --- |
-| 0820b7b9-23aa-4725-a1ce-ae4558f718e5 | Function apps should not have CORS configured to allow every resource to access your apps | C.04.7 - Evaluatie |
-| 098fc59e-46c7-4d99-9b16-64990e543d75 | Kubernetes cluster pod hostPath volumes should only use allowed host paths | C.04.7 - Evaluatie |
-| 0a15ec92-a229-4763-bb14-0ea34a568f8d | Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters | C.04.7 - Evaluatie |
-| 0b15565f-aa9e-48ba-8619-45960f2c314d | Email notification to subscription owner for high severity alerts should be enabled | C.05.5 - Monitoring en rapportage |
-| 0cfea604-3201-4e14-88fc-fae4c427a6c5 | Blocked accounts with owner permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |
-| 0e60b895-3786-45da-8377-9c6b4b6ac5f9 | Function apps should have remote debugging turned off | C.04.7 - Evaluatie |
-| 0e7849de-b939-4c50-ab48-fc6b0f5eeba2 | Azure Databricks Workspaces should disable public network access | U.07.1 - Isolatie |
-| 0ec47710-77ff-4a3d-9181-6aa50af424d0 | Geo-redundant backup should be enabled for Azure Database for MariaDB | U.03 - Business Continuity services |
-| 138ff14d-b687-4faa-a81c-898c91a87fa2 | Resource logs in Azure Databricks Workspaces should be enabled | U.15.1 - Registratie |
-| 1c30f9cd-b84c-49cc-aa2c-9288447cc3b3 | [Preview]: vTPM should be enabled on supported virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| 1c6e92c9-99f0-4e55-9cf2-0c234dc48f99 | Kubernetes clusters should not allow container privilege escalation | C.04.7 - Evaluatie |
-| 1cb4d9c2-f88f-4069-bee0-dba239a57b09 | [Preview]: Guest Attestation extension should be installed on supported Windows virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| 233a2a17-77ca-4fb1-9b6b-69223d272a44 | Kubernetes cluster services should listen only on allowed ports | C.04.7 - Evaluatie |
-| 2393d2cf-a342-44cd-a2e2-fe0188fd1234 | Azure SignalR Service should use private link | U.07.1 - Isolatie |
-| 245fc9df-fa96-4414-9a0b-3738c2f7341c | Resource logs in Azure Kubernetes Service should be enabled | U.15.1 - Registratie |
-| 258823f2-4595-4b52-b333-cc96192710d8 | Azure Databricks Workspaces should use private link | U.07.1 - Isolatie |
-| 339353f6-2387-4a45-abe4-7f529d121046 | Guest accounts with owner permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |
-| 423dd1ba-798e-40e4-9c4d-b6902674b423 | Kubernetes clusters should disable automounting API credentials | C.04.7 - Evaluatie |
-| 438c38d2-3772-465a-a9cc-7a6666a275ce | Azure Machine Learning Workspaces should disable public network access | U.07.1 - Isolatie |
-| 45e05259-1eb5-4f70-9574-baf73e9d219b | Azure Machine Learning workspaces should use private link | U.07.1 - Isolatie |
-| 47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8 | Kubernetes cluster containers should not share host process ID or host IPC namespace | C.04.7 - Evaluatie |
-| 48af4db5-9b8b-401c-8e74-076be876a430 | Geo-redundant backup should be enabled for Azure Database for PostgreSQL | U.03 - Business Continuity services |
-| 4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7 | Subscriptions should have a contact email address for security issues | C.05.5 - Monitoring en rapportage |
-| 511f5417-5d12-434d-ab2e-816901e72a5e | Kubernetes cluster containers should only use allowed AppArmor profiles | C.04.7 - Evaluatie |
-| 51c1490f-3319-459c-bbbc-7f391bbed753 | Azure Databricks Clusters should disable public IP | U.07.1 - Isolatie |
-| 5744710e-cc2f-4ee8-8809-3b11e89f4bc9 | App Service apps should not have CORS configured to allow every resource to access your apps | C.04.7 - Evaluatie |
-| 672fe5a1-2fcd-42d7-b85d-902b6e28c6ff | [Preview]: Guest Attestation extension should be installed on supported Linux virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| 6e2593d9-add6-4083-9c9b-4b7d2188c899 | Email notification for high severity alerts should be enabled | C.05.5 - Monitoring en rapportage |
-| 7804b5c7-01dc-4723-969b-ae300cc07ff1 | Azure Machine Learning Computes should be in a virtual network | U.07.1 - Isolatie |
-| 81b3ccb4-e6e8-4e4a-8d05-5df25cd29fd4 | Accounts with read permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |
-| 82339799-d096-41ae-8538-b108becf0970 | Geo-redundant backup should be enabled for Azure Database for MySQL | U.03 - Business Continuity services |
-| 82985f06-dc18-4a48-bc1c-b9f4f0098cfe | Kubernetes cluster pods should only use approved host network and port range | C.04.7 - Evaluatie |
-| 89099bee-89e0-4b26-a5f4-165451757743 | SQL servers with auditing to storage account destination should be configured with 90 days retention or higher | U.10.3 - Gebruik van geauthenticeerde apparatuur |
-| 8d7e1fde-fe26-4b5f-8108-f8e432cbc2be | Blocked accounts with read and write permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.2 - Beheerders,U.07.3 - Beheerfuncties,U.10.3 - Gebruik van geauthenticeerde apparatuur |
-| 91a78b24-f231-4a8a-8da9-02c35b2b6510 | App Service apps should have resource logs enabled | U.15.1 - Registratie |
-| 931e118d-50a1-4457-a5e4-78550e086c52 | Accounts with write permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.11.1 - Beleid,U.11.2 - Cryptografische maatregelen,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |
-| 94e1c2ac-cbbe-4cac-a2b5-389c812dee87 | Guest accounts with write permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.07.3 - Beheerfuncties,U.10.2 - Beheerders,U.10.3 - Gebruik van geauthenticeerde apparatuur |
-| 95edb821-ddaf-4404-9732-666045e056b4 | Kubernetes cluster should not allow privileged containers | C.04.7 - Evaluatie |
-| 97566dd7-78ae-4997-8b36-1c7bfe0d8121 | [Preview]: Secure Boot should be enabled on supported Windows virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| 9c25c9e4-ee12-4882-afd2-11fb9d87893f | Azure Databricks Workspaces should be in a virtual network | U.07.1 - Isolatie |
-| 9f061a12-e40d-4183-a00e-171812443373 | Kubernetes clusters should not use the default namespace | C.04.7 - Evaluatie |
-| a21f8c92-9e22-4f09-b759-50500d1d2dda | [Preview]: Guest Attestation extension should be installed on supported Linux virtual machines scale sets | U.05.2 - Cryptografische maatregelen,U.11.3 - Versleuteld |
-| a3a6ea0c-e018-4933-9ef0-5aaa1501449b | Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring | U.15.1 - Registratie |
-| a6abeaec-4d90-4a02-805f-6b26c4d3fbe9 | Azure Key Vaults should use private link | U.07.1 - Isolatie |
-| ac4a19c2-fa67-49b4-8ae5-0b2e78c49457 | Role-Based Access Control (RBAC) should be used on Kubernetes Services | U.10.2 - Beheerders,U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties |
-| afe0c3be-ba3b-4544-ba52-0c99672a8ad6 | Resource logs in Azure Machine Learning Workspaces should be enabled | U.15.1 - Registratie |
-| c26596ff-4d70-4e6a-9a30-c2506bd2f80c | Kubernetes cluster containers should only use allowed capabilities | C.04.7 - Evaluatie |
-| cb510bfd-1cba-4d9f-a230-cb0976f4bb71 | App Service apps should have remote debugging turned off | C.04.7 - Evaluatie |
-| d2e7ea85-6b44-4317-a0be-1b951587f626 | Kubernetes clusters should not grant CAP_SYS_ADMIN security capabilities | C.04.7 - Evaluatie |
-| df49d893-a74c-421d-bc95-c663042e5b80 | Kubernetes cluster containers should run with a read only root file system | C.04.7 - Evaluatie |
-| e345eecc-fa47-480f-9e88-67dcc122b164 | Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits | C.04.7 - Evaluatie |
-| e3e008c3-56b9-4133-8fd7-d3347377402a | Accounts with owner permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |
-| e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f | Azure Machine Learning Computes should have local authentication methods disabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |
-| e9ac8f8e-ce22-4355-8f04-99b911d6be52 | Guest accounts with read permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.07.3 - Beheerfuncties,U.10.2 - Beheerders,U.10.3 - Gebruik van geauthenticeerde apparatuur |
-| eb907f70-7514-460d-92b3-a5ae93b4f917 | Azure Web PubSub Service should use private link | U.07.1 - Isolatie |
-| f06ddb64-5fa3-4b77-b166-acb36f7f6042 | Kubernetes cluster pods and containers should only run with approved user and group IDs | C.04.7 - Evaluatie |
-| f110a506-2dcb-422e-bcea-d533fc8c35e2 | Azure Machine Learning compute instances should be recreated to get the latest software updates | C.04.6 - Patchmanagement |
-| f655e522-adff-494d-95c2-52d4f6d56a42 | [Preview]: Guest Attestation extension should be installed on supported Windows virtual machines scale sets | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |
-| febd0533-8e55-448f-b837-bd0e06f16469 | Kubernetes cluster containers should only use allowed images | C.04.7 - Evaluatie |
+| PolicyName|policyDisplayName|Category|Remarks |
+| --- | --- | --- | --- |
+| 0820b7b9-23aa-4725-a1ce-ae4558f718e5 | Function apps should not have CORS configured to allow every resource to access your apps | C.04.7 - Evaluatie |  |
+| 098fc59e-46c7-4d99-9b16-64990e543d75 | Kubernetes cluster pod hostPath volumes should only use allowed host paths | C.04.7 - Evaluatie |  |
+| 0a15ec92-a229-4763-bb14-0ea34a568f8d | Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters | C.04.7 - Evaluatie |  |
+| 0b15565f-aa9e-48ba-8619-45960f2c314d | Email notification to subscription owner for high severity alerts should be enabled | C.05.5 - Monitoring en rapportage |  |
+| 0cfea604-3201-4e14-88fc-fae4c427a6c5 | Blocked accounts with owner permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |  |
+| 0e60b895-3786-45da-8377-9c6b4b6ac5f9 | Function apps should have remote debugging turned off | C.04.7 - Evaluatie |  |
+| 0e7849de-b939-4c50-ab48-fc6b0f5eeba2 | Azure Databricks Workspaces should disable public network access | U.07.1 - Isolatie |  |
+| 0ec47710-77ff-4a3d-9181-6aa50af424d0 | Geo-redundant backup should be enabled for Azure Database for MariaDB | U.03 - Business Continuity services |  |
+| 138ff14d-b687-4faa-a81c-898c91a87fa2 | Resource logs in Azure Databricks Workspaces should be enabled | U.15.1 - Registratie |  |
+| 1c30f9cd-b84c-49cc-aa2c-9288447cc3b3 | [Preview]: vTPM should be enabled on supported virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |  |
+| 1c6e92c9-99f0-4e55-9cf2-0c234dc48f99 | Kubernetes clusters should not allow container privilege escalation | C.04.7 - Evaluatie |  |
+| 1cb4d9c2-f88f-4069-bee0-dba239a57b09 | [Preview]: Guest Attestation extension should be installed on supported Windows virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |  |
+| 233a2a17-77ca-4fb1-9b6b-69223d272a44 | Kubernetes cluster services should listen only on allowed ports | C.04.7 - Evaluatie |  |
+| 2393d2cf-a342-44cd-a2e2-fe0188fd1234 | Azure SignalR Service should use private link | U.07.1 - Isolatie |  |
+| 245fc9df-fa96-4414-9a0b-3738c2f7341c | Resource logs in Azure Kubernetes Service should be enabled | U.15.1 - Registratie |  |
+| 258823f2-4595-4b52-b333-cc96192710d8 | Azure Databricks Workspaces should use private link | U.07.1 - Isolatie |  |
+| 339353f6-2387-4a45-abe4-7f529d121046 | Guest accounts with owner permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties,U.10.2 - Beheerders |  |
+| 423dd1ba-798e-40e4-9c4d-b6902674b423 | Kubernetes clusters should disable automounting API credentials | C.04.7 - Evaluatie |  |
+| 438c38d2-3772-465a-a9cc-7a6666a275ce | Azure Machine Learning Workspaces should disable public network access | U.07.1 - Isolatie |  |
+| 45e05259-1eb5-4f70-9574-baf73e9d219b | Azure Machine Learning workspaces should use private link | U.07.1 - Isolatie |  |
+| 47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8 | Kubernetes cluster containers should not share host process ID or host IPC namespace | C.04.7 - Evaluatie |  |
+| 48af4db5-9b8b-401c-8e74-076be876a430 | Geo-redundant backup should be enabled for Azure Database for PostgreSQL | U.03 - Business Continuity services |  |
+| 4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7 | Subscriptions should have a contact email address for security issues | C.05.5 - Monitoring en rapportage |  |
+| 511f5417-5d12-434d-ab2e-816901e72a5e | Kubernetes cluster containers should only use allowed AppArmor profiles | C.04.7 - Evaluatie |  |
+| 51c1490f-3319-459c-bbbc-7f391bbed753 | Azure Databricks Clusters should disable public IP | U.07.1 - Isolatie |  |
+| 5744710e-cc2f-4ee8-8809-3b11e89f4bc9 | App Service apps should not have CORS configured to allow every resource to access your apps | C.04.7 - Evaluatie |  |
+| 672fe5a1-2fcd-42d7-b85d-902b6e28c6ff | [Preview]: Guest Attestation extension should be installed on supported Linux virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |  |
+| 6e2593d9-add6-4083-9c9b-4b7d2188c899 | Email notification for high severity alerts should be enabled | C.05.5 - Monitoring en rapportage |  |
+| 7804b5c7-01dc-4723-969b-ae300cc07ff1 | Azure Machine Learning Computes should be in a virtual network | U.07.1 - Isolatie |  |
+| 81b3ccb4-e6e8-4e4a-8d05-5df25cd29fd4 | Accounts with read permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |  |
+| 82339799-d096-41ae-8538-b108becf0970 | Geo-redundant backup should be enabled for Azure Database for MySQL | U.03 - Business Continuity services |  |
+| 82985f06-dc18-4a48-bc1c-b9f4f0098cfe | Kubernetes cluster pods should only use approved host network and port range | C.04.7 - Evaluatie |  |
+| 89099bee-89e0-4b26-a5f4-165451757743 | SQL servers with auditing to storage account destination should be configured with 90 days retention or higher | U.10.3 - Gebruik van geauthenticeerde apparatuur |  |
+| 8d7e1fde-fe26-4b5f-8108-f8e432cbc2be | Blocked accounts with read and write permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.10.2 - Beheerders,U.07.3 - Beheerfuncties,U.10.3 - Gebruik van geauthenticeerde apparatuur |  |
+| 91a78b24-f231-4a8a-8da9-02c35b2b6510 | App Service apps should have resource logs enabled | U.15.1 - Registratie |  |
+| 931e118d-50a1-4457-a5e4-78550e086c52 | Accounts with write permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.11.1 - Beleid,U.11.2 - Cryptografische maatregelen,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |  |
+| 94e1c2ac-cbbe-4cac-a2b5-389c812dee87 | Guest accounts with write permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.07.3 - Beheerfuncties,U.10.2 - Beheerders,U.10.3 - Gebruik van geauthenticeerde apparatuur |  |
+| 95edb821-ddaf-4404-9732-666045e056b4 | Kubernetes cluster should not allow privileged containers | C.04.7 - Evaluatie |  |
+| 97566dd7-78ae-4997-8b36-1c7bfe0d8121 | [Preview]: Secure Boot should be enabled on supported Windows virtual machines | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |  |
+| 9c25c9e4-ee12-4882-afd2-11fb9d87893f | Azure Databricks Workspaces should be in a virtual network | U.07.1 - Isolatie |  |
+| 9f061a12-e40d-4183-a00e-171812443373 | Kubernetes clusters should not use the default namespace | C.04.7 - Evaluatie |  |
+| a21f8c92-9e22-4f09-b759-50500d1d2dda | [Preview]: Guest Attestation extension should be installed on supported Linux virtual machines scale sets | U.05.2 - Cryptografische maatregelen,U.11.3 - Versleuteld |  |
+| a3a6ea0c-e018-4933-9ef0-5aaa1501449b | Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring | U.15.1 - Registratie |  |
+| a6abeaec-4d90-4a02-805f-6b26c4d3fbe9 | Azure Key Vaults should use private link | U.07.1 - Isolatie |  |
+| ac4a19c2-fa67-49b4-8ae5-0b2e78c49457 | Role-Based Access Control (RBAC) should be used on Kubernetes Services | U.10.2 - Beheerders,U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.07.3 - Beheerfuncties |  |
+| afe0c3be-ba3b-4544-ba52-0c99672a8ad6 | Resource logs in Azure Machine Learning Workspaces should be enabled | U.15.1 - Registratie |  |
+| c26596ff-4d70-4e6a-9a30-c2506bd2f80c | Kubernetes cluster containers should only use allowed capabilities | C.04.7 - Evaluatie |  |
+| cb510bfd-1cba-4d9f-a230-cb0976f4bb71 | App Service apps should have remote debugging turned off | C.04.7 - Evaluatie |  |
+| d2e7ea85-6b44-4317-a0be-1b951587f626 | Kubernetes clusters should not grant CAP_SYS_ADMIN security capabilities | C.04.7 - Evaluatie |  |
+| df49d893-a74c-421d-bc95-c663042e5b80 | Kubernetes cluster containers should run with a read only root file system | C.04.7 - Evaluatie |  |
+| e345eecc-fa47-480f-9e88-67dcc122b164 | Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits | C.04.7 - Evaluatie |  |
+| e3e008c3-56b9-4133-8fd7-d3347377402a | Accounts with owner permissions on Azure resources should be MFA enabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |  |
+| e96a9a5f-07ca-471b-9bc5-6a0f33cbd68f | Azure Machine Learning Computes should have local authentication methods disabled | U.10.5 - Toegangsbeperking,U.10.3 - Gebruik van geauthenticeerde apparatuur,U.10.2 - Beheerders |  |
+| e9ac8f8e-ce22-4355-8f04-99b911d6be52 | Guest accounts with read permissions on Azure resources should be removed | U.10.5 - Toegangsbeperking,U.07.3 - Beheerfuncties,U.10.2 - Beheerders,U.10.3 - Gebruik van geauthenticeerde apparatuur |  |
+| eb907f70-7514-460d-92b3-a5ae93b4f917 | Azure Web PubSub Service should use private link | U.07.1 - Isolatie |  |
+| f06ddb64-5fa3-4b77-b166-acb36f7f6042 | Kubernetes cluster pods and containers should only run with approved user and group IDs | C.04.7 - Evaluatie |  |
+| f110a506-2dcb-422e-bcea-d533fc8c35e2 | Azure Machine Learning compute instances should be recreated to get the latest software updates | C.04.6 - Patchmanagement |  |
+| f655e522-adff-494d-95c2-52d4f6d56a42 | [Preview]: Guest Attestation extension should be installed on supported Windows virtual machines scale sets | U.11.3 - Versleuteld,U.05.2 - Cryptografische maatregelen |  |
+| febd0533-8e55-448f-b837-bd0e06f16469 | Kubernetes cluster containers should only use allowed images | C.04.7 - Evaluatie |  |
 
 ### Deprecated policies in version 2.2.1
 
