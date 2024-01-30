@@ -124,6 +124,18 @@ foreach ($group in $inputGroups) {
         $markdown += "`n"
         $markdown += "`n"
 
+        $otherupdatesfile = "$resultFolder/otherUpdates.$($group.RevisionDateMMYY).md"
+        if ((Test-Path $otherupdatesfile)) {
+            
+            $markdown += "### Minor updates `n"
+            $markdown += "`n"
+            $markdown +=  Get-Content -path $otherupdatesfile -Encoding UTF8 -Raw
+            $markdown += "`n"
+            $markdown += "`n"
+
+
+        }
+
 
 
         $inputAll = $inputExcelFile | Where-Object { ($_.RevisionDateMMYY -ne "") -and ($_.RevisionDateMMYY -ne $null)  }  | Sort-Object -Property RevisionDateMMYY  -Descending 

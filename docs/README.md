@@ -53,3 +53,12 @@ Sommige besturingselementen zijn grijs weergegeven. Aan deze besturingselementen
 Meer informatie hierover vind u op: [Uw regelnaleving verbeteren](https://docs.microsoft.com/nl-nl/azure/defender-for-cloud/regulatory-compliance-dashboard)
 
 ![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-12345.png?raw=true "BIO compliancy steps")
+
+## Andere topics
+
+De BIO policy is ook build beschikbaar deze is het engels en kan afwijken van deze repository. Het de planning dat de build policy deze repository gaat vervangen, nu is de keuze nog tussen de NL versie deze repository en de Engelse nuild in versie.
+
+Voor het maken van rapportages kijk naar bijv [azure-compliance-workbooks](https://github.com/Eurofiber-CloudInfra/azure-compliance-workbooks/) gemaakt door een partner.
+
+
+
