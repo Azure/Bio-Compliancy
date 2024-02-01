@@ -11,10 +11,20 @@ We want only audit, deny or disabled policies in the policy initiative this to p
 3. Use the column deprecated with TRUE when a policy is deprecated. Do not remove as these parameters these should still be in the definitionset as else the policy can not be updated. Add missing policies or updated policies. Update the remark when needed and fill in the version of the policy.
 4. If required use the ```.\paramaterOverRide\policyparameterOverRide.json``` to override parameters. This can be used to override parameters and provide default values. Look when generated for Deny in default value.
 5. Update the ```.\templateFiles\policyDeployTemplate-managementgroup.json``` and ```.\templateFiles\policyDeployTemplate-subscription.json```with the new version of the policy initiative example 2.3.2.
-6. Run the script ```.\scripts\updatePolicyInitiative.ps1``` to update the policy initiative. This the policy based on the information from ```results\data.xlsx``` please either provide the parameter of the correct sheet or update the script with the correct excel sheet. This will create ```.\results\BIODeploy.json``` based on the template file and the information in the excel sheet.
+6. Edit and Run the script ```.\scripts\createPolicyInitiative.ps1``` to update the policy initiative change version of tab to be used to generate the file. This the policy based on the information from ```results\data.xlsx``` please either provide the parameter of the correct sheet or update the script with the correct excel sheet. This will create ```.\results\BIODeploy.json``` based on the template file and the information in the excel sheet. Look at error in target json like not allow charachers.
 7. Test the new file ```.\results\BIODeploy.json``` by deploying the policy initiative. This can be done by using the script ```.\scripts\deployPolicyInitiative.ps1```. This will deploy the policy initiative to the subscription. Validate the correct update from old to the new version.
-8. Create the update.md by running the ```createUpdateMarkdown.ps1``` this wil create in the result folder also the update.md.
+8. Edit and run running the ```createUpdateMarkdown.ps1```  to create the update.md. This wil create in the result folder also the update.md. Do a DIF of files and create in the result folder a file otherUpdates.<version>.md to dcument any other changes.
 9. When tested copy the files .\updates\results\BIO-azuredeploy.json, .\updates\results\BIO-azuredeploy-subscription.json to .\ARM and .\updates\results\update.md to the folder .\docs.
-10. Commit the changes to the repository make sure test it and create a pull request. Testing with hardcoded "portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%" can be done by copy the url and modify only the repository and branch.
+10. Commit the changes to the repository make sure test it and create a pull request. Testing with hardcoded "portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMathieuRietmanr%2FBio-Compliancy%2Fmain%" can be done by copy the url and modify only the repository and branch.
 
 [back to main page](../README.md).
+
+
+some links to test deployments please edit with the right github repository where you test from and the branch.
+
+
+
+| Versie | Doel | Implementeer | Update bestaande policy |
+|---|---|---|---|
+| 2.2.1 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMathieuRietman%2FBio-Compliancy%2FupdatesDec2023%2Fupdates%2Fresults%2FBIO-azuredeploy.json) | [![Deploy result test to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMathieuRietman%2FBio-Compliancy%2FupdatesDec2023%2Fupdates%2Fresults%2FBIO-azuredeploy-update.json) |
+| 2.2.1 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMathieuRietman%2FBio-Compliancy%2Fmain%2FupdatesDec2023%2Fresults%2FBIO-azuredeploy-subscription.json) |  [![Deploy result test to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMathieuRietman%2FBio-Compliancy%2FupdatesDec2023%2Fupdates%2Fresults%2FBIO-azuredeploy-subscription-update.json) |

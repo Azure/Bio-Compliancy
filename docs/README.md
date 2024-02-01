@@ -19,8 +19,8 @@ Meer informatie hierover vind u op: [Toegang verhogen](https://docs.microsoft.co
 
 | Versie | Doel | Implementeer | Update bestaande policy |
 |---|---|---|---|
-| 2.2.1 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-update.json) |
-| 2.2.1 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription-update.json) |
+| 2.2.2 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-update.json) |
+| 2.2.2 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription-update.json) |
 
 Gebruik de eerste button onder `Implementeer` voor de eerste keer deployments en de `Update bestaande policy` button om reeds deployde oudere versies te updaten. De laatste is ivm met bestaande vervallen parameters te kunnen updaten.
 Zie voor updates de [release notes](./updates.md)
@@ -53,3 +53,12 @@ Sommige besturingselementen zijn grijs weergegeven. Aan deze besturingselementen
 Meer informatie hierover vind u op: [Uw regelnaleving verbeteren](https://docs.microsoft.com/nl-nl/azure/defender-for-cloud/regulatory-compliance-dashboard)
 
 ![alt text](https://github.com/Azure/Bio-Compliancy/blob/main/media/BIO-compliancy-12345.png?raw=true "BIO compliancy steps")
+
+## Andere topics
+
+De BIO policy is ook build beschikbaar deze is het engels en kan afwijken van deze repository. Het de planning dat de build policy deze repository gaat vervangen, nu is de keuze nog tussen de NL versie deze repository en de Engelse nuild in versie.
+
+Voor het maken van rapportages kijk naar bijv [azure-compliance-workbooks](https://github.com/Eurofiber-CloudInfra/azure-compliance-workbooks/) gemaakt door een partner.
+
+
+
