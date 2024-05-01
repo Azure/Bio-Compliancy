@@ -13,7 +13,7 @@
         "policyType": "Custom",
         "description": "This initiative includes policies that address the Dutch Baseline Informatiebeveiliging (BIO) controls specifically for the 'thema-uitwerking Clouddiensten' and include policies covered under the SOC2 and ISO 27001:2013 controls.",
         "metadata": {
-          "version": "2.2.2",
+          "version": "2.2.3",
           "category": "Regulatory Compliance",
           "ASC": "true"
         },
@@ -1039,6 +1039,9 @@
             "defaultValue": [
               "europe",
               "global",
+              "swedencentral",
+              "germanynorth",
+              "germanywestcentral",
               "westeurope",
               "northeurope"
             ],
@@ -1056,6 +1059,7 @@
               "norwayeast",
               "norwaywest",
               "swedencentral",
+              "swedensouth",
               "switzerland",
               "switzerlandnorth",
               "switzerlandwest",
@@ -1417,18 +1421,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-26a828e1-e88f-464e-bbb3-c134a282b9de": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Endpoint protection solution should be installed on virtual machine scale sets",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15": {
             "type": "String",
             "metadata": {
@@ -1579,18 +1571,6 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Function apps should require FTPS only",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-0961003e-5a0a-4549-abde-af6a37f2724d": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -2594,7 +2574,7 @@
           "effect-037eea7a-bd0a-46c5-9a66-03aea78705d3": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Cognitive Services accounts should restrict network access",
+              "displayName": "Effect for policy:Azure AI Services resources should restrict network access",
               "description": "The effect determines what happens when the policy rule is evaluated to match"
             },
             "allowedValues": [
@@ -2615,19 +2595,6 @@
               "Disabled"
             ],
             "defaultValue": "AuditIfNotExists"
-          },
-          "effect-0725b4dd-7e76-479c-a735-68e7ee23d5ca": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Cognitive Services accounts should disable public network access",
-              "description": "The effect determines what happens when the policy rule is evaluated to match"
-            },
-            "allowedValues": [
-              "Audit",
-              "Deny",
-              "Disabled"
-            ],
-            "defaultValue": "Audit"
           },
           "effect-08e6af2d-db70-460a-bfe9-d5bd474ba9d6": {
             "type": "String",
@@ -3104,7 +3071,7 @@
           "effect-71ef260a-8f18-47b7-abcb-62d0673d94dc": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Cognitive Services accounts should have local authentication methods disabled",
+              "displayName": "Effect for policy:Azure AI Services resources should have key access disabled (disable local authentication)",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -3212,18 +3179,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-5f0f936f-2f01-4bf5-b6be-d423792fa562": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Container registry images should have vulnerability findings resolved",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-1b7aa243-30e4-4c9e-bca8-d0d3022b634a": {
             "type": "String",
             "metadata": {
@@ -3251,19 +3206,7 @@
           "effect-a7aca53f-2ed4-4466-a25e-0b45ade68efd": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Azure DDoS Protection Standard should be enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-0fc39691-5a3f-4e3e-94ee-2e6447309ad9": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Running container images should have vulnerability findings resolved",
+              "displayName": "Effect for policy:Azure DDoS Protection should be enabled",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -3283,19 +3226,6 @@
               "Disabled"
             ],
             "defaultValue": "AuditIfNotExists"
-          },
-          "effect-1d84d5fb-01f6-4d12-ba4f-4a26081d403d": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Virtual machines should be migrated to new Azure Resource Manager resources",
-              "description": "The effect determines what happens when the policy rule is evaluated to match"
-            },
-            "allowedValues": [
-              "Audit",
-              "Deny",
-              "Disabled"
-            ],
-            "defaultValue": "Audit"
           },
           "effect-ea53dbee-c6c9-4f0e-9f9e-de0039b78023": {
             "type": "String",
@@ -3408,18 +3338,6 @@
             },
             "defaultValue": "NetworkWatcherRG"
           },
-          "effect-475aae12-b88a-4572-8b36-9b712b2b3a17": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Auto provisioning of the Log Analytics agent should be enabled on your subscription",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-f9be5368-9bf5-4b84-9e0a-7850da98bb46": {
             "type": "String",
             "metadata": {
@@ -3444,34 +3362,10 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-842c54e8-c2f9-4d79-ae8d-38d8b8019373": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:[Preview]: Log Analytics extension should be installed on your Linux Azure Arc machines",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-f8d36e2f-389b-4ee4-898d-21aeb69a0f45": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Resource logs in Service Bus should be enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-d69b1763-b96d-40b8-a2d9-ca31e9fd0d3e": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:[Preview]: Log Analytics extension should be installed on your Windows Azure Arc machines",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -3713,34 +3607,6 @@
             ],
             "defaultValue": true
           },
-          "listOfImageIdToInclude_windows": {
-            "type": "Array",
-            "metadata": {
-              "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
-              "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
-            },
-            "defaultValue": []
-          },
-          "listOfImageIdToInclude_linux": {
-            "type": "Array",
-            "metadata": {
-              "displayName": "Optional: List of virtual machine images that have supported Linux OS to add to scope",
-              "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
-            },
-            "defaultValue": []
-          },
-          "effect-32133ab0-ee4b-4b44-98d6-042180979d50": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:[Preview]: Log Analytics Extension should be enabled for listed virtual machine images",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9": {
             "type": "String",
             "metadata": {
@@ -3764,22 +3630,26 @@
             ],
             "defaultValue": "enabled"
           },
+          "listOfImageIdToInclude_windows": {
+            "type": "Array",
+            "metadata": {
+              "displayName": "Optional: List of virtual machine images that have supported Windows OS to add to scope",
+              "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
+            },
+            "defaultValue": []
+          },
+          "listOfImageIdToInclude_linux": {
+            "type": "Array",
+            "metadata": {
+              "displayName": "Optional: List of virtual machine images that have supported Linux OS to add to scope",
+              "description": "Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
+            },
+            "defaultValue": []
+          },
           "effect-e2dd799a-a932-4e9d-ac17-d473bc3c6c10": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Dependency agent should be enabled in virtual machine scale sets for listed virtual machine images",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-5c3bc7b8-a64c-4e08-a9cd-7ff0f31e1138": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Log Analytics extension should be enabled in virtual machine scale sets for listed virtual machine images",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -4164,6 +4034,18 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "warn": {
+            "type": "Boolean",
+            "metadata": {
+              "displayName": "Warn",
+              "description": "Whether or not to return warnings back to the user in the kubectl cli"
+            },
+            "allowedValues": [
+              true,
+              false
+            ],
+            "defaultValue": false
           },
           "effect-febd0533-8e55-448f-b837-bd0e06f16469": {
             "type": "String",
@@ -5086,6 +4968,292 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "effect-090c7b07-b4ed-4561-ad20-e9075f3ccaff": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure registry container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-17f4b1cc-c55c-4d94-b1f9-2978f6ac2957": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure running container images should have vulnerabilities resolved (powered by Microsoft Defender Vulnerability Management)",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-47a6b606-51aa-4496-8bb7-64b11cf66adc": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Adaptive application controls for defining safe applications should be enabled on your machines",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-123a3936-f020-408a-ba0c-47873faf1534": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Allowlist rules in your adaptive application control policy should be updated",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-d31e5c31-63b2-4f12-887b-e49456834fa1": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Microsoft Defender for SQL should be enabled for unprotected Synapse workspaces",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-d38668f5-d155-42c7-ab3d-9b57b50f8fbf": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Defender for SQL should be enabled for unprotected PostgreSQL flexible servers",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-b4dec045-250a-48c2-b5cc-e0c4eec8b5b4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:A Microsoft Entra administrator should be provisioned for PostgreSQL servers",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-abda6d70-9778-44e7-84a8-06713e6db027": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Database should have Microsoft Entra-only authentication enabled during creation",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-b3a22bc9-66de-45fb-98fa-00f5df42f41a": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Database should have Microsoft Entra-only authentication enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-78215662-041e-49ed-a9dd-5385911b3a1f": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Managed Instances should have Microsoft Entra-only authentication enabled during creation",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-0c28c3fb-c244-42d5-a9bf-f35f2999577b": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure SQL Managed Instance should have Microsoft Entra-only authentication enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-2158ddbe-fefa-408e-b43f-d4faef8ff3b8": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Synapse Workspaces should use only Microsoft Entra identities for authentication during workspace creation",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-6ea81a52-5ca7-4575-9669-eaa910b7edf8": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Synapse Workspaces should have Microsoft Entra-only authentication enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-f17d891d-ff20-46f2-bad3-9e0a5403a4d3": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Linux Arc-enabled machines should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-32ade945-311e-4249-b8a4-a549924234d7": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Linux virtual machine scale sets should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "scopeToSupportedImages": {
+            "type": "Boolean",
+            "metadata": {
+              "displayName": "Scope Policy to Azure Monitor Agent-Supported Operating Systems",
+              "description": "If set to true, the policy will apply only to virtual machine scale sets with supported operating systems. Otherwise, the policy will apply to all virtual machine scale set resources in the assignment scope. For supported operating systems, see https://aka.ms/AMAOverview."
+            },
+            "allowedValues": [
+              true,
+              false
+            ],
+            "defaultValue": true
+          },
+          "listOfLinuxImageIdToInclude": {
+            "type": "Array",
+            "metadata": {
+              "displayName": "Additional Virtual Machine Images",
+              "description": "List of virtual machine images that have supported Linux OS to add to scope. Example values: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
+            },
+            "defaultValue": []
+          },
+          "effect-1afdc4b6-581a-45fb-b630-f1e6051e3e7a": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Linux virtual machines should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-ec621e21-8b48-403d-a549-fc9023d4747f": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Windows Arc-enabled machines should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-3672e6f7-a74d-4763-b138-fcf332042f8f": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Windows virtual machine scale sets should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "listOfWindowsImageIdToInclude": {
+            "type": "Array",
+            "metadata": {
+              "displayName": "Additional Virtual Machine Images",
+              "description": "List of virtual machine images that have supported Windows OS to add to scope. Example values: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'"
+            },
+            "defaultValue": []
+          },
+          "effect-c02729e5-e5e7-4458-97fa-2b5ad0661f28": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Windows virtual machines should have Azure Monitor Agent installed",
+              "description": "Enable or disable the execution of the policy."
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-ca88aadc-6e2b-416c-9de2-5a0f01d1693f": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost.",
+              "description": "Enable or disable the execution of this policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-3dc5edcd-002d-444c-b216-e123bbfa37c0": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost.",
+              "description": "Enable or disable the execution of this policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
           }
         },
         "policyDefinitions": [
@@ -5488,21 +5656,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/26a828e1-e88f-464e-bbb3-c134a282b9de",
-            "policyDefinitionReferenceId": "endpointProtectionSolutionShouldBeInstalledOnVirtualMachineScaleSets",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-26a828e1-e88f-464e-bbb3-c134a282b9de')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15",
             "policyDefinitionReferenceId": "PreviewMonitorOSVulnerabilitiesInAzureSecurityCenter",
             "parameters": {
@@ -5699,22 +5852,6 @@
               "U.05.1 - Cryptografische maatregelen",
               "U.11.1 - Beleid",
               "U.11.2 - Cryptografische maatregelen"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0961003e-5a0a-4549-abde-af6a37f2724d",
-            "policyDefinitionReferenceId": "PreviewMonitorUnencryptedVmDisksInAzureSecurityCenter",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-0961003e-5a0a-4549-abde-af6a37f2724d')]"
-              }
-            },
-            "groupNames": [
-              "U.05.1 - Cryptografische maatregelen",
-              "U.05.2 - Cryptografische maatregelen",
-              "U.11.1 - Beleid",
-              "U.11.2 - Cryptografische maatregelen",
-              "U.11.3 - Versleuteld"
             ]
           },
           {
@@ -6612,18 +6749,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0725b4dd-7e76-479c-a735-68e7ee23d5ca",
-            "policyDefinitionReferenceId": "CognitiveServicesAccountsShouldDisablePublicNetworkAccess",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-0725b4dd-7e76-479c-a735-68e7ee23d5ca')]"
-              }
-            },
-            "groupNames": [
-              "U.07.1 - Isolatie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08e6af2d-db70-460a-bfe9-d5bd474ba9d6",
             "policyDefinitionReferenceId": "AdaptiveNetworkHardeningRecommendationsShouldBeAppliedOnInternetFacingVirtualMachines",
             "parameters": {
@@ -7211,18 +7336,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5f0f936f-2f01-4bf5-b6be-d423792fa562",
-            "policyDefinitionReferenceId": "VulnerabilitiesInAzureContainerRegistryImagesShouldBeRemediated",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-5f0f936f-2f01-4bf5-b6be-d423792fa562')]"
-              }
-            },
-            "groupNames": [
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1b7aa243-30e4-4c9e-bca8-d0d3022b634a",
             "policyDefinitionReferenceId": "VulnerabilityAssessmentShouldBeEnabledOnSQLManagedInstance",
             "parameters": {
@@ -7261,18 +7374,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0fc39691-5a3f-4e3e-94ee-2e6447309ad9",
-            "policyDefinitionReferenceId": "VulnerabilitiesInRunningImagesShouldBeRemediated",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-0fc39691-5a3f-4e3e-94ee-2e6447309ad9')]"
-              }
-            },
-            "groupNames": [
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
             "policyDefinitionReferenceId": "AuditVMsThatDoNotUseManagedDisks",
             "parameters": {},
@@ -7291,20 +7392,6 @@
               },
               "effect": {
                 "value": "[[parameters('effect-f6ec09a3-78bf-4f8f-99dc-6c77182d0f99')]"
-              }
-            },
-            "groupNames": [
-              "U.10.2 - Beheerders",
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
-              "U.10.5 - Toegangsbeperking"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1d84d5fb-01f6-4d12-ba4f-4a26081d403d",
-            "policyDefinitionReferenceId": "AuditUseOfClassicVirtualMachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-1d84d5fb-01f6-4d12-ba4f-4a26081d403d')]"
               }
             },
             "groupNames": [
@@ -7424,18 +7511,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/475aae12-b88a-4572-8b36-9b712b2b3a17",
-            "policyDefinitionReferenceId": "AutoProvisioningOfTheLogAnalyticsAgentShouldBeEnabledOnYourSubscription",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-475aae12-b88a-4572-8b36-9b712b2b3a17')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f9be5368-9bf5-4b84-9e0a-7850da98bb46",
             "policyDefinitionReferenceId": "ResourceLogsInAzureStreamAnalyticsShouldBeEnabled",
             "parameters": {
@@ -7466,18 +7541,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/842c54e8-c2f9-4d79-ae8d-38d8b8019373",
-            "policyDefinitionReferenceId": "PreviewLogAnalyticsExtensionShouldBeInstalledOnYourLinuxAzureArcMachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-842c54e8-c2f9-4d79-ae8d-38d8b8019373')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f8d36e2f-389b-4ee4-898d-21aeb69a0f45",
             "policyDefinitionReferenceId": "ResourceLogsInServiceBusShouldBeEnabled",
             "parameters": {
@@ -7486,18 +7549,6 @@
               },
               "requiredRetentionDays": {
                 "value": "[[parameters('requiredRetentionDays')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d69b1763-b96d-40b8-a2d9-ca31e9fd0d3e",
-            "policyDefinitionReferenceId": "PreviewLogAnalyticsExtensionShouldBeInstalledOnYourWindowsAzureArcMachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-d69b1763-b96d-40b8-a2d9-ca31e9fd0d3e')]"
               }
             },
             "groupNames": [
@@ -7644,25 +7695,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/32133ab0-ee4b-4b44-98d6-042180979d50",
-            "policyDefinitionReferenceId": "PreviewAuditLogAnalyticsAgentDeploymentVmImageOSUnlisted",
-            "parameters": {
-              "listOfImageIdToInclude_windows": {
-                "value": "[[parameters('listOfImageIdToInclude_windows')]"
-              },
-              "listOfImageIdToInclude_linux": {
-                "value": "[[parameters('listOfImageIdToInclude_linux')]"
-              },
-              "effect": {
-                "value": "[[parameters('effect-32133ab0-ee4b-4b44-98d6-042180979d50')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie",
-              "U.15.3 - Registratie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9",
             "policyDefinitionReferenceId": "AuditSQLServerLevelAuditingSettings",
             "parameters": {
@@ -7690,25 +7722,6 @@
               },
               "effect": {
                 "value": "[[parameters('effect-e2dd799a-a932-4e9d-ac17-d473bc3c6c10')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie",
-              "U.15.3 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5c3bc7b8-a64c-4e08-a9cd-7ff0f31e1138",
-            "policyDefinitionReferenceId": "PreviewAuditLogAnalyticsAgentDeploymentInVMSSVmImageOSUnlisted",
-            "parameters": {
-              "listOfImageIdToInclude_windows": {
-                "value": "[[parameters('listOfImageIdToInclude_windows')]"
-              },
-              "listOfImageIdToInclude_linux": {
-                "value": "[[parameters('listOfImageIdToInclude_linux')]"
-              },
-              "effect": {
-                "value": "[[parameters('effect-5c3bc7b8-a64c-4e08-a9cd-7ff0f31e1138')]"
               }
             },
             "groupNames": [
@@ -8122,6 +8135,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/febd0533-8e55-448f-b837-bd0e06f16469",
             "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldonlyuseallowedimages",
             "parameters": {
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-febd0533-8e55-448f-b837-bd0e06f16469')]"
               },
@@ -8200,6 +8216,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e345eecc-fa47-480f-9e88-67dcc122b164",
             "policyDefinitionReferenceId": "KubernetesclustercontainersCPUandmemoryresourcelimitsshouldnotexceedthespecifiedlimits",
             "parameters": {
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-e345eecc-fa47-480f-9e88-67dcc122b164')]"
               },
@@ -8335,6 +8354,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/df49d893-a74c-421d-bc95-c663042e5b80",
             "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldrunwithareadonlyrootfilesystem",
             "parameters": {
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-df49d893-a74c-421d-bc95-c663042e5b80')]"
               },
@@ -8877,6 +8899,297 @@
             },
             "groupNames": [
               "U.05.1 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/090c7b07-b4ed-4561-ad20-e9075f3ccaff",
+            "policyDefinitionReferenceId": "AzureregistrycontainerimagesshouldhavevulnerabilitiesresolvedpoweredbyMicrosoftDefenderVulnerabilityManagement",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-090c7b07-b4ed-4561-ad20-e9075f3ccaff')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/17f4b1cc-c55c-4d94-b1f9-2978f6ac2957",
+            "policyDefinitionReferenceId": "AzurerunningcontainerimagesshouldhavevulnerabilitiesresolvedpoweredbyMicrosoftDefenderVulnerabilityManagement2",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-17f4b1cc-c55c-4d94-b1f9-2978f6ac2957')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc",
+            "policyDefinitionReferenceId": "Adaptiveapplicationcontrolsfordefiningsafeapplicationsshouldbeenabledonyourmachines",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-47a6b606-51aa-4496-8bb7-64b11cf66adc')]"
+              }
+            },
+            "groupNames": [
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/123a3936-f020-408a-ba0c-47873faf1534",
+            "policyDefinitionReferenceId": "Allowlistrulesinyouradaptiveapplicationcontrolpolicyshouldbeupdated",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-123a3936-f020-408a-ba0c-47873faf1534')]"
+              }
+            },
+            "groupNames": [
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d31e5c31-63b2-4f12-887b-e49456834fa1",
+            "policyDefinitionReferenceId": "MicrosoftDefenderforSQLshouldbeenabledforunprotectedSynapseworkspaces",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-d31e5c31-63b2-4f12-887b-e49456834fa1')]"
+              }
+            },
+            "groupNames": [
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d38668f5-d155-42c7-ab3d-9b57b50f8fbf",
+            "policyDefinitionReferenceId": "AzureDefenderforSQLshouldbeenabledforunprotectedPostgreSQLflexibleservers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-d38668f5-d155-42c7-ab3d-9b57b50f8fbf')]"
+              }
+            },
+            "groupNames": [
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b4dec045-250a-48c2-b5cc-e0c4eec8b5b4",
+            "policyDefinitionReferenceId": "AMicrosoftEntraadministratorshouldbeprovisionedforPostgreSQLservers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-b4dec045-250a-48c2-b5cc-e0c4eec8b5b4')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/abda6d70-9778-44e7-84a8-06713e6db027",
+            "policyDefinitionReferenceId": "AzureSQLDatabaseshouldhaveMicrosoftEntra-onlyauthenticationenabledduringcreation",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-abda6d70-9778-44e7-84a8-06713e6db027')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b3a22bc9-66de-45fb-98fa-00f5df42f41a",
+            "policyDefinitionReferenceId": "AzureSQLDatabaseshouldhaveMicrosoftEntra-onlyauthenticationenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-b3a22bc9-66de-45fb-98fa-00f5df42f41a')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/78215662-041e-49ed-a9dd-5385911b3a1f",
+            "policyDefinitionReferenceId": "AzureSQLManagedInstancesshouldhaveMicrosoftEntra-onlyauthenticationenabledduringcreation",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-78215662-041e-49ed-a9dd-5385911b3a1f')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0c28c3fb-c244-42d5-a9bf-f35f2999577b",
+            "policyDefinitionReferenceId": "AzureSQLManagedInstanceshouldhaveMicrosoftEntra-onlyauthenticationenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-0c28c3fb-c244-42d5-a9bf-f35f2999577b')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2158ddbe-fefa-408e-b43f-d4faef8ff3b8",
+            "policyDefinitionReferenceId": "SynapseWorkspacesshoulduseonlyMicrosoftEntraidentitiesforauthenticationduringworkspacecreation",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-2158ddbe-fefa-408e-b43f-d4faef8ff3b8')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6ea81a52-5ca7-4575-9669-eaa910b7edf8",
+            "policyDefinitionReferenceId": "SynapseWorkspacesshouldhaveMicrosoftEntra-onlyauthenticationenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-6ea81a52-5ca7-4575-9669-eaa910b7edf8')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f17d891d-ff20-46f2-bad3-9e0a5403a4d3",
+            "policyDefinitionReferenceId": "Linux Arc-enabled machines should have Azure Monitor Agent installed",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-f17d891d-ff20-46f2-bad3-9e0a5403a4d3')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/32ade945-311e-4249-b8a4-a549924234d7",
+            "policyDefinitionReferenceId": "Linux virtual machine scale sets should have Azure Monitor Agent installed",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-32ade945-311e-4249-b8a4-a549924234d7')]"
+              },
+              "scopeToSupportedImages": {
+                "value": "[[parameters('scopeToSupportedImages')]"
+              },
+              "listOfLinuxImageIdToInclude": {
+                "value": "[[parameters('listOfLinuxImageIdToInclude')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1afdc4b6-581a-45fb-b630-f1e6051e3e7a",
+            "policyDefinitionReferenceId": "Linux virtual machines should have Azure Monitor Agent installed",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-1afdc4b6-581a-45fb-b630-f1e6051e3e7a')]"
+              },
+              "scopeToSupportedImages": {
+                "value": "[[parameters('scopeToSupportedImages')]"
+              },
+              "listOfLinuxImageIdToInclude": {
+                "value": "[[parameters('listOfLinuxImageIdToInclude')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ec621e21-8b48-403d-a549-fc9023d4747f",
+            "policyDefinitionReferenceId": "Windows Arc-enabled machines should have Azure Monitor Agent installed",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-ec621e21-8b48-403d-a549-fc9023d4747f')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3672e6f7-a74d-4763-b138-fcf332042f8f",
+            "policyDefinitionReferenceId": "Windows virtual machine scale sets should have Azure Monitor Agent installed",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-3672e6f7-a74d-4763-b138-fcf332042f8f')]"
+              },
+              "scopeToSupportedImages": {
+                "value": "[[parameters('scopeToSupportedImages')]"
+              },
+              "listOfWindowsImageIdToInclude": {
+                "value": "[[parameters('listOfWindowsImageIdToInclude')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c02729e5-e5e7-4458-97fa-2b5ad0661f28",
+            "policyDefinitionReferenceId": "WindowsvirtualmachinesshouldhaveAzureMonitorAgentinstalled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-c02729e5-e5e7-4458-97fa-2b5ad0661f28')]"
+              },
+              "scopeToSupportedImages": {
+                "value": "[[parameters('scopeToSupportedImages')]"
+              },
+              "listOfWindowsImageIdToInclude": {
+                "value": "[[parameters('listOfWindowsImageIdToInclude')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ca88aadc-6e2b-416c-9de2-5a0f01d1693f",
+            "policyDefinitionReferenceId": "LinuxvirtualmachinesshouldenableAzureDiskEncryptionorEncryptionAtHost",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-ca88aadc-6e2b-416c-9de2-5a0f01d1693f')]"
+              }
+            },
+            "groupNames": [
+              "U.05.2 - Cryptografische maatregelen",
+              "U.11.3 - Versleuteld"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3dc5edcd-002d-444c-b216-e123bbfa37c0",
+            "policyDefinitionReferenceId": "WindowsvirtualmachinesshouldenableAzureDiskEncryptionorEncryptionAtHost",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-3dc5edcd-002d-444c-b216-e123bbfa37c0')]"
+              }
+            },
+            "groupNames": [
+              "U.05.2 - Cryptografische maatregelen",
+              "U.11.3 - Versleuteld"
             ]
           }
         ]

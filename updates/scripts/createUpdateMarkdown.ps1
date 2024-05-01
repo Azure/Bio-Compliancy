@@ -31,7 +31,7 @@ Param (
 
     #parameter for tab in excel file
     [Parameter(Mandatory = $false)]
-    [string]$inputExcelTab = "v2.2.2",
+    [string]$inputExcelTab = "v2.2.3",
 
     #parameter for the output json file
     [Parameter(Mandatory = $false)]
@@ -79,7 +79,7 @@ if (!(Get-Module -ListAvailable -Name PSExcel)) {
     Write-Host "PSExcel is not installed, installing PSExcel" -ForegroundColor Yellow
     Install-Module -Name PSExcel -Force
 }
-
+Install-Module -Name PSExcel -Force
 
 
 $root = $PSScriptRoot

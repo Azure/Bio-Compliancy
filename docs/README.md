@@ -2,7 +2,7 @@
 
 De template is opgebouwd door controls uit het Cloud thema BIO te mappen naar Azure policies aanwezig in het Microsoft Azure platform. Door deze opzet zullen toekomstige updates die op bestaande Azure policies plaatsvinden automatisch doorgevoerd worden.
 
-De mapping van de Azure policies die gebruikt voor deze template zijn beschikbaar in [BIO Control Policy mapping excel](./Data-policy-mapping%20v2.2.1.xlsx)
+De mapping van de Azure policies die gebruikt voor deze template zijn beschikbaar in [BIO Control Policy mapping excel](./Data-policy-mapping%20v2.2.3.xlsx)
 
 Deze template is gebaseerd op BIO Thema-uitwerking Clouddiensten versie 2.2 en het KPMG BIO coverage - Final report document number A2000019790 report.
 Meer informatie hierover vind u op: [CIP overheid Cloud thema](https://cip-overheid.nl/productcategorieen-en-workshops/producten?product=Clouddiensten) of op verzoek bij u Microsoft contact persoon.
@@ -19,8 +19,8 @@ Meer informatie hierover vind u op: [Toegang verhogen](https://docs.microsoft.co
 
 | Versie | Doel | Implementeer | Update bestaande policy |
 |---|---|---|---|
-| 2.2.2 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-update.json) |
-| 2.2.2 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription-update.json) |
+| 2.2.3 | Management group level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy.json) | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-update.json) |
+| 2.2.3 | Subscription level | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription.json) |  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FBio-Compliancy%2Fmain%2FARM%2FBIO-azuredeploy-subscription-update.json) |
 
 Gebruik de eerste button onder `Implementeer` voor de eerste keer deployments en de `Update bestaande policy` button om reeds deployde oudere versies te updaten. De laatste is ivm met bestaande vervallen parameters te kunnen updaten.
 Zie voor updates de [release notes](./updates.md)
@@ -56,7 +56,7 @@ Meer informatie hierover vind u op: [Uw regelnaleving verbeteren](https://docs.m
 
 ## Andere topics
 
-De BIO policy is ook build beschikbaar deze is het engels en kan afwijken van deze repository. Het de planning dat de build policy deze repository gaat vervangen, nu is de keuze nog tussen de NL versie deze repository en de Engelse nuild in versie.
+De BIO-beleidsregel is ook beschikbaar in het Engelse als build-in policy. Deze kan tijdelijk verschillen van deze repository. Er is een plan om de Engelse build-in initiative te laten vervangen door deze repository, maar momenteel kan er nog gekozen worden tussen de Nederlandse versie van deze repository en de Engelse build-in versie.
 
 Voor het maken van rapportages kijk naar bijv [azure-compliance-workbooks](https://github.com/Eurofiber-CloudInfra/azure-compliance-workbooks/) gemaakt door een partner.
 
