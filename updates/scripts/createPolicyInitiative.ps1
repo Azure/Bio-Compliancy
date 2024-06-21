@@ -11,6 +11,9 @@
 
     Remark: When having issues with createing output. Run the script in debug mode. Direct starting result in not correct working PSExcel module that reads not the data on my machine.
 
+    Make sure you use Az Powershell 12.0.0 or higher changes in get-AzPolicyDefinition result in change of output property ResourceId is now Id. Use the BackwardCompatible that will be depriciated in the future.
+    
+
 
 
 	.EXAMPLE
@@ -216,7 +219,7 @@ $policyParUpdate = $policyParameters |  ConvertFrom-Json
 # Select only the unique PolicyID's
 $policyDefinitionReferenceId = $inputExcelFile  | Select-Object @{Label = "policyRefId"; Expression = { "$($_.'PolicyId')" } }, policyDefinitionReferenceId , deprecated -Unique
 Write-Host "Excel first  $($inputExcelFile[0]) "
-$PolicyInfoAll = Get-AzPolicyDefinition
+$PolicyInfoAll = Get-AzPolicyDefinition -Builtin -BackwardCompatible
 
 foreach ($policy in $policyDefinitionReferenceId) {
     # check if $policy.policyRefId is not empty
@@ -235,7 +238,7 @@ foreach ($policy in $policyDefinitionReferenceId) {
         $id = $policy.policyRefId.Split("/")[-1]
 
         
-        $policyInfo = $PolicyInfoAll | Where-Object { $_.'ResourceId' -like $Policy.policyRefId }
+        $policyInfo = $PolicyInfoAll | Where-Object { $_.'Id' -like $Policy.policyRefId }
 
         $NewPolicyDefinition = @()
         $NewPolicyDefinition = $policyDefinitionjson |  ConvertFrom-Json 
