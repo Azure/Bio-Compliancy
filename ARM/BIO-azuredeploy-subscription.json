@@ -6,7 +6,7 @@
   "resources": [
     {
       "type": "Microsoft.Authorization/policySetDefinitions",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2023-04-01",
       "name": "BIO",
       "properties": {
         "displayName": "NL BIO Thema Clouddiensten",
@@ -1215,18 +1215,6 @@
             },
             "defaultValue": ""
           },
-          "effect-c3f317a7-a95c-4547-b7e7-11017ebdf2fe": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:System updates on virtual machine scale sets should be installed",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4": {
             "type": "String",
             "metadata": {
@@ -1449,18 +1437,6 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Azure Defender for Key Vault should be enabled",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-86b3d65f-7626-441e-b690-81a8b71cff60": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:System updates should be installed on your machines",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -3374,54 +3350,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-a3a6ea0c-e018-4933-9ef0-5aaa1501449b": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-d26f7642-7545-4e18-9b75-8c9bbdee3a9a": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-a4fe33eb-e377-4efb-ab31-0784311bc499": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-ae89ebca-1c92-4898-ac2c-9f63decb045c": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Guest Configuration extension should be installed on your machines",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-cf820ca0-f99e-4f3e-84fb-66e913812d21": {
             "type": "String",
             "metadata": {
@@ -4993,30 +4921,6 @@
             ],
             "defaultValue": "AuditIfNotExists"
           },
-          "effect-47a6b606-51aa-4496-8bb7-64b11cf66adc": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Adaptive application controls for defining safe applications should be enabled on your machines",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
-          "effect-123a3936-f020-408a-ba0c-47873faf1534": {
-            "type": "String",
-            "metadata": {
-              "displayName": "Effect for policy:Allowlist rules in your adaptive application control policy should be updated",
-              "description": "Enable or disable the execution of the policy"
-            },
-            "allowedValues": [
-              "AuditIfNotExists",
-              "Disabled"
-            ],
-            "defaultValue": "AuditIfNotExists"
-          },
           "effect-d31e5c31-63b2-4f12-887b-e49456834fa1": {
             "type": "String",
             "metadata": {
@@ -5254,6 +5158,31 @@
               "Disabled"
             ],
             "defaultValue": "AuditIfNotExists"
+          },
+          "effect-bd876905-5b84-4f73-ab2d-2e7a7c4568d9": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Machines should be configured to periodically check for missing system updates",
+              "description": "The desired effect of the policy."
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-a1840de2-8088-4ea8-b153-b4c723e9cb01": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Kubernetes Service clusters should have Defender profile enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
           }
         },
         "policyDefinitions": [
@@ -5430,21 +5359,6 @@
               "C.04.3 - Tijdslijnen",
               "C.04.6 - Patchmanagement",
               "C.04.7 - Evaluatie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c3f317a7-a95c-4547-b7e7-11017ebdf2fe",
-            "policyDefinitionReferenceId": "SystemUpdatesOnVirtualMachineScaleSetsShouldBeInstalled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-c3f317a7-a95c-4547-b7e7-11017ebdf2fe')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
             ]
           },
           {
@@ -5701,22 +5615,6 @@
               "C.04.7 - Evaluatie",
               "U.09.3 - Detectie, preventie en herstel",
               "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/86b3d65f-7626-441e-b690-81a8b71cff60",
-            "policyDefinitionReferenceId": "PreviewMonitorMissingSystemUpdatesInAzureSecurityCenter",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-86b3d65f-7626-441e-b690-81a8b71cff60')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "C.04.8 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
             ]
           },
           {
@@ -7556,54 +7454,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a3a6ea0c-e018-4933-9ef0-5aaa1501449b",
-            "policyDefinitionReferenceId": "LogAnalyticsAgentShouldBeInstalledOnYourVirtualMachineScaleSetsForAzureSecurityCenterMonitoring",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-a3a6ea0c-e018-4933-9ef0-5aaa1501449b')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d26f7642-7545-4e18-9b75-8c9bbdee3a9a",
-            "policyDefinitionReferenceId": "VirtualMachinesGuestConfigurationExtensionShouldBeDeployedWithSystemAssignedManagedIdentity",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-d26f7642-7545-4e18-9b75-8c9bbdee3a9a')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a4fe33eb-e377-4efb-ab31-0784311bc499",
-            "policyDefinitionReferenceId": "LogAnalyticsAgentShouldBeInstalledOnYourVirtualMachineForAzureSecurityCenterMonitoring",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-a4fe33eb-e377-4efb-ab31-0784311bc499')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ae89ebca-1c92-4898-ac2c-9f63decb045c",
-            "policyDefinitionReferenceId": "GuestConfigurationExtensionShouldBeInstalledOnYourMachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-ae89ebca-1c92-4898-ac2c-9f63decb045c')]"
-              }
-            },
-            "groupNames": [
-              "U.15.1 - Registratie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cf820ca0-f99e-4f3e-84fb-66e913812d21",
             "policyDefinitionReferenceId": "ResourceLogsInKeyVaultShouldBeEnabled",
             "parameters": {
@@ -8932,30 +8782,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a6b606-51aa-4496-8bb7-64b11cf66adc",
-            "policyDefinitionReferenceId": "Adaptiveapplicationcontrolsfordefiningsafeapplicationsshouldbeenabledonyourmachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-47a6b606-51aa-4496-8bb7-64b11cf66adc')]"
-              }
-            },
-            "groupNames": [
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/123a3936-f020-408a-ba0c-47873faf1534",
-            "policyDefinitionReferenceId": "Allowlistrulesinyouradaptiveapplicationcontrolpolicyshouldbeupdated",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-123a3936-f020-408a-ba0c-47873faf1534')]"
-              }
-            },
-            "groupNames": [
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d31e5c31-63b2-4f12-887b-e49456834fa1",
             "policyDefinitionReferenceId": "MicrosoftDefenderforSQLshouldbeenabledforunprotectedSynapseworkspaces",
             "parameters": {
@@ -9190,6 +9016,33 @@
             "groupNames": [
               "U.05.2 - Cryptografische maatregelen",
               "U.11.3 - Versleuteld"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bd876905-5b84-4f73-ab2d-2e7a7c4568d9",
+            "policyDefinitionReferenceId": "Machinesshouldbeconfiguredtoperiodicallycheckformissingsystemupdates",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-bd876905-5b84-4f73-ab2d-2e7a7c4568d9')]"
+              }
+            },
+            "groupNames": [
+              "C.04.3 - Tijdslijnen",
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1840de2-8088-4ea8-b153-b4c723e9cb01",
+            "policyDefinitionReferenceId": "AzureKubernetesServiceclustersshouldhaveDefenderprofileenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-a1840de2-8088-4ea8-b153-b4c723e9cb01')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie"
             ]
           }
         ]
