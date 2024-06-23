@@ -176,6 +176,9 @@
       "defaultValue": [
         "europe",
         "global",
+        "swedencentral",
+        "germanynorth",
+        "germanywestcentral",
         "westeurope",
         "northeurope"
       ],
@@ -193,6 +196,7 @@
         "norwayeast",
         "norwaywest",
         "swedencentral",
+        "swedensouth",
         "switzerland",
         "switzerlandnorth",
         "switzerlandwest",

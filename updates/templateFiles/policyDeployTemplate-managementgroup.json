@@ -6,14 +6,14 @@
     "resources": [
         {
             "type": "Microsoft.Authorization/policySetDefinitions",
-            "apiVersion": "2021-06-01",
+            "apiVersion": "2023-04-01",
             "name": "BIO",
             "properties": {
                 "displayName": "NL BIO Thema Clouddiensten",
                 "policyType": "Custom",
                 "description": "This initiative includes policies that address the Dutch Baseline Informatiebeveiliging (BIO) controls specifically for the 'thema-uitwerking Clouddiensten' and include policies covered under the SOC2 and ISO 27001:2013 controls.",
                 "metadata": {
-                    "version": "2.2.2",
+                    "version": "2.2.3",
                     "category": "Regulatory Compliance",
                     "ASC": "true"
                 },
@@ -21,6 +21,7 @@
                 "parameters": {},
                 "policyDefinitions": []
             }
+            
         }
     ]
 }

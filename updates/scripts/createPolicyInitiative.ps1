@@ -9,6 +9,11 @@
     Use Excel to modify the next version of the policy definition.
     The script will create a new policy definition based on the excel file.
 
+    Remark: When having issues with createing output. Run the script in debug mode. Direct starting result in not correct working PSExcel module that reads not the data on my machine.
+
+    Make sure you use Az Powershell 12.0.0 or higher changes in get-AzPolicyDefinition result in change of output property ResourceId is now Id. Use the BackwardCompatible that will be depriciated in the future.
+    
+
 
 
 	.EXAMPLE
@@ -31,7 +36,7 @@ Param (
 
     #parameter for tab in excel file
     [Parameter(Mandatory = $false)]
-    [string]$inputExcelTab = "v2.2.2",
+    [string]$inputExcelTab = "v2.2.3",
 
     #parameter for the output json file
     [Parameter(Mandatory = $false)]
@@ -128,6 +133,8 @@ if (!(Get-Module -ListAvailable -Name PSExcel)) {
     Write-Host "PSExcel is not installed, installing PSExcel" -ForegroundColor Yellow
     Install-Module -Name PSExcel -Force
 }
+# force loading the module
+Install-Module -Name PSExcel -Force
 
 $root = $PSScriptRoot
 
@@ -180,7 +187,7 @@ $TemplateFileContentMngUpdate = Get-Content $TemplateFileMng  | ConvertFrom-Json
 $ParameterOverRide = Get-Content $parameterOverRideFile  | ConvertFrom-Json 
 
 
-
+Write-Host "Reading Excel $($policyInfoFile) with tab $($inputExcelTab)"
 # Read the Excel file and create a object with the data
 $inputExcelFile = Import-XLSX -Path $policyInfoFile -sheet $inputExcelTab -RowStart 1
 
@@ -211,8 +218,8 @@ $policyParUpdate = $policyParameters |  ConvertFrom-Json
 
 # Select only the unique PolicyID's
 $policyDefinitionReferenceId = $inputExcelFile  | Select-Object @{Label = "policyRefId"; Expression = { "$($_.'PolicyId')" } }, policyDefinitionReferenceId , deprecated -Unique
-
-$PolicyInfoAll = Get-AzPolicyDefinition
+Write-Host "Excel first  $($inputExcelFile[0]) "
+$PolicyInfoAll = Get-AzPolicyDefinition -Builtin -BackwardCompatible
 
 foreach ($policy in $policyDefinitionReferenceId) {
     # check if $policy.policyRefId is not empty
@@ -231,7 +238,7 @@ foreach ($policy in $policyDefinitionReferenceId) {
         $id = $policy.policyRefId.Split("/")[-1]
 
         
-        $policyInfo = $PolicyInfoAll | Where-Object { $_.'ResourceId' -like $Policy.policyRefId }
+        $policyInfo = $PolicyInfoAll | Where-Object { $_.'Id' -like $Policy.policyRefId }
 
         $NewPolicyDefinition = @()
         $NewPolicyDefinition = $policyDefinitionjson |  ConvertFrom-Json 
