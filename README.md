@@ -42,11 +42,7 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 Het policy-initiatief houdt ook bij welke policies zijn verwijderd door hun parameters nog steeds op te nemen in het initiatief, maar met de aanduiding 'deprecated'. Hierdoor is het mogelijk om het policy-set bij te werken zonder dat de toewijzingen veranderen, waardoor er geen extra actie nodig is dan het implementeren van dit policy-initiatief op dezelfde managementgroep of abonnement waar het oude policy-initiatief ook was geïmplementeerd.
 
 > [!IMPORTANT]
-> DISLAIMER: Deze BIO template is gericht op het beoordelen van de technische configuratie van Azure workloads en zal niet alle proces controls omvatten die nodig zijn om BIO compliant te zijn.
-
-## Disclaimer
-
-Deze template dient te worden gezien als hulpmiddel om BIO compliancy te bereiken. Onder geen enkele voorwaarde garandeert Microsoft dat deze template direct leidt tot een volledige BIO compliancy ten aanzien van resources in de Microsoft Azure omgeving.
+> DISLAIMER: Deze BIO template dient te worden gezien als hulpmiddel om BIO compliancy te bereiken en is gericht op het beoordelen van de technische configuratie van Azure workloads. Onder geen enkele voorwaarde garandeert Microsoft dat deze template direct leidt tot een volledige BIO compliancy ten aanzien van resources in de Microsoft Azure omgeving. Ook dienen processen ingericht te zijn binnen de organisatie om administratieve processen te borgen ten aanzien van de BIO.
 
 ## Handelsmerken
 
