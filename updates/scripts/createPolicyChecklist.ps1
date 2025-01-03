@@ -93,7 +93,7 @@ foreach ( $Groups in $PolicyGroupsJsonObject ) {
         }
     )
 }
-$PolicyInfoAll = Get-AzPolicyDefinition
+$PolicyInfoAll = Get-AzPolicyDefinition -BackwardCompatible 
 
 $PolicyObject = @()
 $PolicyDefinitionsObject = $BioPolicyJson.properties.policyDefinitions

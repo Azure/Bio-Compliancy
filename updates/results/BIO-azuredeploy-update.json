@@ -13,7 +13,7 @@
         "policyType": "Custom",
         "description": "This initiative includes policies that address the Dutch Baseline Informatiebeveiliging (BIO) controls specifically for the 'thema-uitwerking Clouddiensten' and include policies covered under the SOC2 and ISO 27001:2013 controls.",
         "metadata": {
-          "version": "2.2.3",
+          "version": "2.2.4",
           "category": "Regulatory Compliance",
           "ASC": "true"
         },
@@ -1039,7 +1039,10 @@
             "defaultValue": [
               "europe",
               "global",
+              "sweden",
+              "germany",
               "swedencentral",
+              "swedensouth",
               "germanynorth",
               "germanywestcentral",
               "westeurope",
@@ -1048,6 +1051,7 @@
             "allowedValues": [
               "europe",
               "france",
+              "sweden",
               "francecentral",
               "francesouth",
               "germany",
@@ -1055,15 +1059,13 @@
               "germanywestcentral",
               "global",
               "northeurope",
-              "norway",
-              "norwayeast",
-              "norwaywest",
               "swedencentral",
               "swedensouth",
               "switzerland",
-              "switzerlandnorth",
-              "switzerlandwest",
-              "westeurope"
+              "westeurope",
+              "spaincentral",
+              "polandcentral",
+              "italynorth"
             ],
             "metadata": {
               "displayName": "Allowed locations",
@@ -1296,7 +1298,7 @@
           "effect-c3f317a7-a95c-4547-b7e7-11017ebdf2fe": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:System updates on virtual machine scale sets should be installed",
+              "displayName": "Effect for policy:[Deprecated]: System updates on virtual machine scale sets should be installed",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -1304,19 +1306,20 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Vulnerabilities in security configuration on your virtual machine scale sets should be remediated",
-              "description": "Enable or disable the execution of the policy"
+              "displayName": "Effect for policy:[Deprecated]: Vulnerabilities in security configuration on your virtual machine scale sets should be remediated",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-e2c1c086-2d84-4019-bff3-c44ccd95113c": {
             "type": "String",
@@ -1463,7 +1466,7 @@
               "true",
               "false"
             ],
-            "defaultValue": "false"
+            "defaultValue": "true"
           },
           "NotAvailableMachineState": {
             "type": "String",
@@ -1516,7 +1519,7 @@
           "effect-26a828e1-e88f-464e-bbb3-c134a282b9de": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Endpoint protection solution should be installed on virtual machine scale sets",
+              "displayName": "Effect for policy:[Deprecated]: Endpoint protection solution should be installed on virtual machine scale sets",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -1524,7 +1527,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-e1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15": {
             "type": "String",
@@ -1541,14 +1544,15 @@
           "effect-af6cd1bd-1635-48cb-bde7-5b15693900b9": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Monitor missing Endpoint Protection in Azure Security Center",
-              "description": "Enable or disable the execution of the policy"
+              "displayName": "Effect for policy:[Deprecated]: Monitor missing Endpoint Protection in Azure Security Center",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-0e6763cc-5078-4e64-889d-ff4d9a839047": {
             "type": "String",
@@ -1565,7 +1569,7 @@
           "effect-86b3d65f-7626-441e-b690-81a8b71cff60": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:System updates should be installed on your machines",
+              "displayName": "Effect for policy:[Deprecated]: System updates should be installed on your machines",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -1573,7 +1577,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-7fe3b40f-802b-4cdd-8bd4-fd799c948cc2": {
             "type": "String",
@@ -1710,6 +1714,27 @@
               "Disabled"
             ],
             "defaultValue": "Disabled"
+          },
+          "source": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Source",
+              "description": "The source k8s object for constraint evaluation. 'Original' means only evaluate against the specific GroupVersionKind specified in the policy definition. 'Generated' means only evaluate against k8s objects generated by Gatekeeper ExpansionTemplates. 'All' means evaluate against both the original object and any generated ones."
+            },
+            "allowedValues": [
+              "All",
+              "Generated",
+              "Original"
+            ],
+            "defaultValue": "Original"
+          },
+          "warn": {
+            "type": "Boolean",
+            "metadata": {
+              "displayName": "Warn",
+              "description": "Whether or not to return warnings back to the user in the kubectl cli"
+            },
+            "defaultValue": false
           },
           "effect-1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d": {
             "type": "String",
@@ -2198,7 +2223,7 @@
           "effect-67121cc7-ff39-4ab8-b7e3-95b84dab487d": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Cognitive Services accounts should enable data encryption with a customer-managed key",
+              "displayName": "Effect for policy:Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)",
               "description": "The effect determines what happens when the policy rule is evaluated to match"
             },
             "allowedValues": [
@@ -2216,13 +2241,21 @@
             },
             "defaultValue": [
               "CognitiveServices",
-              "Knowledge",
+              "ContentSafety",
+              "ImmersiveReader",
+              "HealthInsights",
+              "LUIS.Authoring",
               "LUIS",
               "QnAMaker",
-              "TextAnalytics",
-              "ComputerVision",
-              "HealthDecisionSupport",
-              "ImmersiveReader"
+              "QnAMaker.V2",
+              "AIServices",
+              "MetricsAdvisor",
+              "SpeechTranslation",
+              "Internal.AllInOne",
+              "ConversationalLanguageUnderstanding",
+              "knowledge",
+              "TranscriptionIntelligence",
+              "HealthDecisionSupport"
             ]
           },
           "effect-83cef61d-dbd1-4b20-a4fc-5fbc7da10833": {
@@ -2785,14 +2818,15 @@
           "effect-08e6af2d-db70-460a-bfe9-d5bd474ba9d6": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Adaptive network hardening recommendations should be applied on internet facing virtual machines",
-              "description": "Enable or disable the execution of the policy"
+              "displayName": "Effect for policy:[Deprecated]: Adaptive network hardening recommendations should be applied on internet facing virtual machines",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-0a1302fb-a631-4106-9753-f3d494733990": {
             "type": "String",
@@ -2821,8 +2855,9 @@
           "effect-0fda3595-9f2b-4592-8675-4231d6fa82fe": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Azure Cognitive Search services should use private link",
-              "description": "Enable or disable the execution of the policy"
+              "displayName": "Effect for policy:[Deprecated]: Azure Cognitive Search services should use private link",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "Audit",
@@ -3157,8 +3192,9 @@
           "effect-cddd188c-4b82-4c48-a19d-ddf74ee66a01": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Cognitive Services should use private link",
-              "description": "Enable or disable the execution of the policy"
+              "displayName": "Effect for policy:[Deprecated]: Cognitive Services should use private link",
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "Audit",
@@ -3726,7 +3762,7 @@
           "effect-475aae12-b88a-4572-8b36-9b712b2b3a17": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Auto provisioning of the Log Analytics agent should be enabled on your subscription",
+              "displayName": "Effect for policy:[Deprecated]: Auto provisioning of the Log Analytics agent should be enabled on your subscription",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -3734,7 +3770,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-7c1b1214-f927-48bf-8882-84f0af6588b1": {
             "type": "String",
@@ -3747,7 +3783,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "includeAKSClusters": {
             "type": "Boolean",
@@ -3823,7 +3859,7 @@
           "effect-a3a6ea0c-e018-4933-9ef0-5aaa1501449b": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring",
+              "displayName": "Effect for policy:[Deprecated]: Log Analytics agent should be installed on your virtual machine scale sets for Azure Security Center monitoring",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -3831,14 +3867,13 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-d26f7642-7545-4e18-9b75-8c9bbdee3a9a": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity",
-              "description": "Enable or disable the execution of the policy",
-              "deprecated": true
+              "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -3849,7 +3884,7 @@
           "effect-a4fe33eb-e377-4efb-ab31-0784311bc499": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring",
+              "displayName": "Effect for policy:[Deprecated]: Log Analytics agent should be installed on your virtual machine for Azure Security Center monitoring",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -3857,14 +3892,13 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-ae89ebca-1c92-4898-ac2c-9f63decb045c": {
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Guest Configuration extension should be installed on your machines",
-              "description": "Enable or disable the execution of the policy",
-              "deprecated": true
+              "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -4175,7 +4209,8 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Accounts with owner permissions on Azure resources should be MFA enabled",
-              "description": "Enable or disable the execution of the policy"
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -4187,7 +4222,8 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Accounts with write permissions on Azure resources should be MFA enabled",
-              "description": "Enable or disable the execution of the policy"
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -4199,7 +4235,8 @@
             "type": "String",
             "metadata": {
               "displayName": "Effect for policy:Accounts with read permissions on Azure resources should be MFA enabled",
-              "description": "Enable or disable the execution of the policy"
+              "description": "Enable or disable the execution of the policy",
+              "deprecated": true
             },
             "allowedValues": [
               "AuditIfNotExists",
@@ -4523,18 +4560,6 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
-          },
-          "warn": {
-            "type": "Boolean",
-            "metadata": {
-              "displayName": "Warn",
-              "description": "Whether or not to return warnings back to the user in the kubectl cli"
-            },
-            "allowedValues": [
-              true,
-              false
-            ],
-            "defaultValue": false
           },
           "effect-febd0533-8e55-448f-b837-bd0e06f16469": {
             "type": "String",
@@ -5152,7 +5177,7 @@
           "effect-ac4a19c2-fa67-49b4-8ae5-0b2e78c49457": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Azure Role-Based Access Control (RBAC) should be used on Kubernetes Services",
+              "displayName": "Effect for policy:Role-Based Access Control (RBAC) should be used on Kubernetes Services",
               "description": "Enable or disable the execution of the policy"
             },
             "allowedValues": [
@@ -5238,7 +5263,7 @@
           "effect-e8cbc669-f12d-49eb-93e7-9273119e9933": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Vulnerabilities in container security configurations should be remediated",
+              "displayName": "Effect for policy:[Deprecated]: Vulnerabilities in container security configurations should be remediated",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -5246,7 +5271,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7": {
             "type": "String",
@@ -5537,7 +5562,7 @@
           "effect-47a6b606-51aa-4496-8bb7-64b11cf66adc": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Adaptive application controls for defining safe applications should be enabled on your machines",
+              "displayName": "Effect for policy:[Deprecated]: Adaptive application controls for defining safe applications should be enabled on your machines",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -5545,12 +5570,12 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-123a3936-f020-408a-ba0c-47873faf1534": {
             "type": "String",
             "metadata": {
-              "displayName": "Effect for policy:Allowlist rules in your adaptive application control policy should be updated",
+              "displayName": "Effect for policy:[Deprecated]: Allowlist rules in your adaptive application control policy should be updated",
               "description": "Enable or disable the execution of the policy",
               "deprecated": true
             },
@@ -5558,7 +5583,7 @@
               "AuditIfNotExists",
               "Disabled"
             ],
-            "defaultValue": "AuditIfNotExists"
+            "defaultValue": "Disabled"
           },
           "effect-d31e5c31-63b2-4f12-887b-e49456834fa1": {
             "type": "String",
@@ -5822,6 +5847,454 @@
               "Disabled"
             ],
             "defaultValue": "Audit"
+          },
+          "effect-f85bf3e0-d513-442e-89c3-1784ad63382b": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:System updates should be installed on your machines (powered by Update Center)",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-3bc8a0d5-38e0-4a3d-a657-2cb64468fc34": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Defender for SQL should be enabled for unprotected MySQL flexible servers",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-1b4d1c4e-934c-4703-944c-27c82c06bebb": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Diagnostic logs in Azure AI services resources should be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-d6759c02-b87f-42b7-892e-71b3f471d782": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure AI Services resources should use Azure Private Link",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-fa498b91-8a7e-4710-9578-da944c68d1fe": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Preview]: Azure PostgreSQL flexible server should have Microsoft Entra Only Authentication enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "maximumValidityInMonths": {
+            "type": "Integer",
+            "metadata": {
+              "displayName": "The maximum validity in months",
+              "description": "The limit to how long a certificate may be valid for. Certificates with lengthy validity periods aren't best practice."
+            },
+            "defaultValue": 12
+          },
+          "effect-0a075868-4c26-42ef-914c-5bc007359560": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Certificates should have the specified maximum validity period",
+              "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant. 'Deny' blocks the resource creation. 'Disable' turns off the policy."
+            },
+            "allowedValues": [
+              "audit",
+              "Audit",
+              "deny",
+              "Deny",
+              "disabled",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-98728c90-32c7-4049-8429-847dc0f4fe37": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Key Vault secrets should have an expiration date",
+              "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant. 'Deny' blocks the resource creation. 'Disable' turns off the policy."
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Key Vault keys should have an expiration date",
+              "description": "'Audit' allows a non-compliant resource to be created, but flags it as non-compliant. 'Deny' blocks the resource creation. 'Disable' turns off the policy."
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-72650e9f-97bc-4b2a-ab5f-9781a9fcecbc": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Windows machines should meet requirements of the Azure compute security baseline",
+              "description": "Enable or disable the execution of this policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-fc9b3da7-8347-4380-8e70-0a0361d8dedd": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Linux machines should meet requirements for the Azure compute security baseline",
+              "description": "Enable or disable the execution of this policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-938c4981-c2c9-4168-9cd6-972b8675f906": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Microsoft Defender for SQL status should be protected for Arc-enabled SQL Servers",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-c6283572-73bb-4deb-bf2c-7a2b8f7462cb": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:SQL server-targeted autoprovisioning should be enabled for SQL servers on machines plan",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-7926a6d1-b268-4586-8197-e8ae90c877d7": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Microsoft Defender for APIs should be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-6b2122c1-8120-4ff5-801b-17625a355590": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Arc enabled Kubernetes clusters should have the Azure Policy extension installed",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-5450f5bd-9c72-4390-a9c4-a7aba4edfdd2": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Cosmos DB database accounts should have local authentication methods disabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-630c64f9-8b6b-4c64-b511-6544ceff6fd6": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Authentication to Linux machines should require SSH keys",
+              "description": "Enable or disable the execution of this policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-0a9fbe0d-c5c4-4da8-87d8-f4fd77338835": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure Defender for open-source relational databases should be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-1f90fc71-a595-4066-8974-d4d0802e8ef0": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Microsoft Defender CSPM should be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-146412e9-005c-472b-9e48-c87b72ac229e": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:A Microsoft Entra administrator should be provisioned for MySQL servers",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-3aa03346-d8c5-4994-a5bc-7652c2a2aef1": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management subscriptions should not be scoped to all APIs",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-92bb331d-ac71-416a-8c91-02f2cb734ce4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management calls to API backends should not bypass certificate thumbprint or name validation",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-ee7495e7-3ba7-40b6-bfee-c29e22cc75d4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management APIs should use only encrypted protocols",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-f1cc7827-022c-473e-836e-5a51cae0b249": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management secret named values should be stored in Azure Key Vault",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-b741306c-968e-4b67-b916-5675e5c709f4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management direct management endpoint should not be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-df73bd95-24da-4a4f-96b9-4e8b94b402bd": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management should disable public network access to the service configuration endpoints",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "endpointType": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Public Endpoint Type",
+              "description": "Public Endpoint Type for which to enforce the access check"
+            },
+            "allowedValues": [
+              "Management",
+              "Git",
+              "Gateway Configuration"
+            ],
+            "defaultValue": "Management"
+          },
+          "effect-549814b6-3212-4203-bdc8-1548d342fb67": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management minimum API version should be set to 2019-12-01 or higher",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-c15dcc82-b93c-4dcb-9332-fbf121685b54": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:API Management calls to API backends should be authenticated",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "Deny"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-40e85574-ef33-47e8-a854-7a65c7500560": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure MySQL flexible server should have Microsoft Entra Only Authentication enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-640d2586-54d2-465f-877f-9ffc1d2109f4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Microsoft Defender for Storage should be enabled",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "AuditIfNotExists",
+              "Disabled"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-1dc2fc00-2245-4143-99f4-874c937f13ef": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:Azure API Management platform version should be stv2",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Deny",
+              "Disabled"
+            ],
+            "defaultValue": "Audit"
+          },
+          "effect-5e6bf724-0154-49bc-985f-27b2e07e636b": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Preview]: Azure Stack HCI servers should meet Secured-core requirements",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "AuditIfNotExists"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-dad3a6b9-4451-492f-a95c-69efc6f3fada": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Preview]: Azure Stack HCI servers should have consistently enforced application control policies",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "AuditIfNotExists"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-ee8ca833-1583-4d24-837e-96c2af9488a4": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Preview]: Azure Stack HCI systems should have encrypted volumes",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "AuditIfNotExists"
+            ],
+            "defaultValue": "AuditIfNotExists"
+          },
+          "effect-36f0d6bc-a253-4df8-b25b-c3a5023ff443": {
+            "type": "String",
+            "metadata": {
+              "displayName": "Effect for policy:[Preview]: Host and VM networking should be protected on Azure Stack HCI systems",
+              "description": "Enable or disable the execution of the policy"
+            },
+            "allowedValues": [
+              "Audit",
+              "Disabled",
+              "AuditIfNotExists"
+            ],
+            "defaultValue": "AuditIfNotExists"
           }
         },
         "policyDefinitions": [
@@ -5998,21 +6471,6 @@
               "C.04.3 - Tijdslijnen",
               "C.04.6 - Patchmanagement",
               "C.04.7 - Evaluatie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4",
-            "policyDefinitionReferenceId": "VulnerabilitiesInSecurityConfigurationOnYourVirtualMachineScaleSetsShouldBeRemediated",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
             ]
           },
           {
@@ -6225,22 +6683,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af6cd1bd-1635-48cb-bde7-5b15693900b9",
-            "policyDefinitionReferenceId": "PreviewMonitorMissingEndpointProtectionInAzureSecurityCenter",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-af6cd1bd-1635-48cb-bde7-5b15693900b9')]"
-              }
-            },
-            "groupNames": [
-              "C.04.3 - Tijdslijnen",
-              "C.04.6 - Patchmanagement",
-              "C.04.7 - Evaluatie",
-              "C.04.8 - Evaluatie",
-              "U.09.3 - Detectie, preventie en herstel"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0e6763cc-5078-4e64-889d-ff4d9a839047",
             "policyDefinitionReferenceId": "AzureDefenderForKeyVaultShouldBeEnabled",
             "parameters": {
@@ -6395,6 +6837,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d",
             "policyDefinitionReferenceId": "KubernetesClustersShouldBeAccessibleOnlyOverHTTPS",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d')]"
               },
@@ -7286,18 +7734,6 @@
             ]
           },
           {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/08e6af2d-db70-460a-bfe9-d5bd474ba9d6",
-            "policyDefinitionReferenceId": "AdaptiveNetworkHardeningRecommendationsShouldBeAppliedOnInternetFacingVirtualMachines",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-08e6af2d-db70-460a-bfe9-d5bd474ba9d6')]"
-              }
-            },
-            "groupNames": [
-              "U.07.1 - Isolatie"
-            ]
-          },
-          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a1302fb-a631-4106-9753-f3d494733990",
             "policyDefinitionReferenceId": "PrivateEndpointShouldBeEnabledForMariadbServers",
             "parameters": {
@@ -7315,18 +7751,6 @@
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-0e246bcf-5f6f-4f87-bc6f-775d4712c7ea')]"
-              }
-            },
-            "groupNames": [
-              "U.07.1 - Isolatie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0fda3595-9f2b-4592-8675-4231d6fa82fe",
-            "policyDefinitionReferenceId": "AzureCognitiveSearchServicesShouldUsePrivateLink",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-0fda3595-9f2b-4592-8675-4231d6fa82fe')]"
               }
             },
             "groupNames": [
@@ -7611,18 +8035,6 @@
             "parameters": {
               "effect": {
                 "value": "[[parameters('effect-ca610c1d-041c-4332-9d88-7ed3094967c7')]"
-              }
-            },
-            "groupNames": [
-              "U.07.1 - Isolatie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cddd188c-4b82-4c48-a19d-ddf74ee66a01",
-            "policyDefinitionReferenceId": "CognitiveServicesShouldUsePrivateLink",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-cddd188c-4b82-4c48-a19d-ddf74ee66a01')]"
               }
             },
             "groupNames": [
@@ -8093,6 +8505,30 @@
             ]
           },
           {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d26f7642-7545-4e18-9b75-8c9bbdee3a9a",
+            "policyDefinitionReferenceId": "VirtualMachinesGuestConfigurationExtensionShouldBeDeployedWithSystemAssignedManagedIdentity",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-d26f7642-7545-4e18-9b75-8c9bbdee3a9a')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ae89ebca-1c92-4898-ac2c-9f63decb045c",
+            "policyDefinitionReferenceId": "GuestConfigurationExtensionShouldBeInstalledOnYourMachines",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-ae89ebca-1c92-4898-ac2c-9f63decb045c')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cf820ca0-f99e-4f3e-84fb-66e913812d21",
             "policyDefinitionReferenceId": "ResourceLogsInKeyVaultShouldBeEnabled",
             "parameters": {
@@ -8247,50 +8683,6 @@
             },
             "groupNames": [
               "U.15.1 - Registratie"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e3e008c3-56b9-4133-8fd7-d3347377402a",
-            "policyDefinitionReferenceId": "AccountsWithOwnerPermissionsOnAzureResourcesShouldBeMfaEnabled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-e3e008c3-56b9-4133-8fd7-d3347377402a')]"
-              }
-            },
-            "groupNames": [
-              "U.10.2 - Beheerders",
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
-              "U.10.5 - Toegangsbeperking"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/931e118d-50a1-4457-a5e4-78550e086c52",
-            "policyDefinitionReferenceId": "AccountsWithWritePermissionsOnAzureResourcesShouldBeMfaEnabled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-931e118d-50a1-4457-a5e4-78550e086c52')]"
-              }
-            },
-            "groupNames": [
-              "U.10.2 - Beheerders",
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
-              "U.10.5 - Toegangsbeperking",
-              "U.11.1 - Beleid",
-              "U.11.2 - Cryptografische maatregelen"
-            ]
-          },
-          {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/81b3ccb4-e6e8-4e4a-8d05-5df25cd29fd4",
-            "policyDefinitionReferenceId": "AccountsWithReadPermissionsOnAzureResourcesShouldBeMfaEnabled",
-            "parameters": {
-              "effect": {
-                "value": "[[parameters('effect-81b3ccb4-e6e8-4e4a-8d05-5df25cd29fd4')]"
-              }
-            },
-            "groupNames": [
-              "U.10.2 - Beheerders",
-              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
-              "U.10.5 - Toegangsbeperking"
             ]
           },
           {
@@ -8624,6 +9016,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/febd0533-8e55-448f-b837-bd0e06f16469",
             "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldonlyuseallowedimages",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
               "warn": {
                 "value": "[[parameters('warn')]"
               },
@@ -8654,6 +9049,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/95edb821-ddaf-4404-9732-666045e056b4",
             "policyDefinitionReferenceId": "Kubernetesclustershouldnotallowprivilegedcontainers",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-95edb821-ddaf-4404-9732-666045e056b4')]"
               },
@@ -8681,6 +9082,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/233a2a17-77ca-4fb1-9b6b-69223d272a44",
             "policyDefinitionReferenceId": "Kubernetesclusterservicesshouldlistenonlyonallowedports",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-233a2a17-77ca-4fb1-9b6b-69223d272a44')]"
               },
@@ -8705,6 +9112,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e345eecc-fa47-480f-9e88-67dcc122b164",
             "policyDefinitionReferenceId": "KubernetesclustercontainersCPUandmemoryresourcelimitsshouldnotexceedthespecifiedlimits",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
               "warn": {
                 "value": "[[parameters('warn')]"
               },
@@ -8741,6 +9151,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f06ddb64-5fa3-4b77-b166-acb36f7f6042",
             "policyDefinitionReferenceId": "KubernetesclusterpodsandcontainersshouldonlyrunwithapproveduserandgroupIDs",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-f06ddb64-5fa3-4b77-b166-acb36f7f6042')]"
               },
@@ -8792,6 +9208,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c6e92c9-99f0-4e55-9cf2-0c234dc48f99",
             "policyDefinitionReferenceId": "Kubernetesclustersshouldnotallowcontainerprivilegeescalation",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-1c6e92c9-99f0-4e55-9cf2-0c234dc48f99')]"
               },
@@ -8819,6 +9241,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8",
             "policyDefinitionReferenceId": "KubernetesclustercontainersshouldnotsharehostprocessIDorhostIPCnamespace",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8')]"
               },
@@ -8843,6 +9271,9 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/df49d893-a74c-421d-bc95-c663042e5b80",
             "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldrunwithareadonlyrootfilesystem",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
               "warn": {
                 "value": "[[parameters('warn')]"
               },
@@ -8873,6 +9304,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c26596ff-4d70-4e6a-9a30-c2506bd2f80c",
             "policyDefinitionReferenceId": "Kubernetesclustercontainersshouldonlyuseallowedcapabilities",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-c26596ff-4d70-4e6a-9a30-c2506bd2f80c')]"
               },
@@ -8906,6 +9343,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/511f5417-5d12-434d-ab2e-816901e72a5e",
             "policyDefinitionReferenceId": "KubernetesclustercontainersshouldonlyuseallowedAppArmorprofiles",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-511f5417-5d12-434d-ab2e-816901e72a5e')]"
               },
@@ -8936,6 +9379,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82985f06-dc18-4a48-bc1c-b9f4f0098cfe",
             "policyDefinitionReferenceId": "Kubernetesclusterpodsshouldonlyuseapprovedhostnetworkandportrange",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-82985f06-dc18-4a48-bc1c-b9f4f0098cfe')]"
               },
@@ -8972,6 +9421,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/098fc59e-46c7-4d99-9b16-64990e543d75",
             "policyDefinitionReferenceId": "KubernetesclusterpodhostPathvolumesshouldonlyuseallowedhostpaths",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-098fc59e-46c7-4d99-9b16-64990e543d75')]"
               },
@@ -9002,6 +9457,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9f061a12-e40d-4183-a00e-171812443373",
             "policyDefinitionReferenceId": "Kubernetesclustersshouldnotusethedefaultnamespace",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-9f061a12-e40d-4183-a00e-171812443373')]"
               },
@@ -9023,6 +9484,12 @@
             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/423dd1ba-798e-40e4-9c4d-b6902674b423",
             "policyDefinitionReferenceId": "KubernetesclustersshoulddisableautomountingAPIcredentials",
             "parameters": {
+              "source": {
+                "value": "[[parameters('source')]"
+              },
+              "warn": {
+                "value": "[[parameters('warn')]"
+              },
               "effect": {
                 "value": "[[parameters('effect-423dd1ba-798e-40e4-9c4d-b6902674b423')]"
               },
@@ -9682,6 +10149,466 @@
             },
             "groupNames": [
               "C.04.7 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f85bf3e0-d513-442e-89c3-1784ad63382b",
+            "policyDefinitionReferenceId": "SystemupdatesshouldbeinstalledonyourmachinespoweredbyUpdateCenter",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-f85bf3e0-d513-442e-89c3-1784ad63382b')]"
+              }
+            },
+            "groupNames": [
+              "C.04.3 - Tijdslijnen",
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3bc8a0d5-38e0-4a3d-a657-2cb64468fc34",
+            "policyDefinitionReferenceId": "AzureDefenderforSQLshouldbeenabledforunprotectedMySQLflexibleservers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-3bc8a0d5-38e0-4a3d-a657-2cb64468fc34')]"
+              }
+            },
+            "groupNames": [
+              "C.04.3 - Tijdslijnen",
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel",
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1b4d1c4e-934c-4703-944c-27c82c06bebb",
+            "policyDefinitionReferenceId": "DiagnosticlogsinAzureAIservicesresourcesshouldbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-1b4d1c4e-934c-4703-944c-27c82c06bebb')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d6759c02-b87f-42b7-892e-71b3f471d782",
+            "policyDefinitionReferenceId": "AzureAIServicesresourcesshoulduseAzurePrivateLink",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-d6759c02-b87f-42b7-892e-71b3f471d782')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fa498b91-8a7e-4710-9578-da944c68d1fe",
+            "policyDefinitionReferenceId": "PreviewAzurePostgreSQLflexibleservershouldhaveMicrosoftEntraOnlyAuthenticationenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-fa498b91-8a7e-4710-9578-da944c68d1fe')]"
+              }
+            },
+            "groupNames": [
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a075868-4c26-42ef-914c-5bc007359560",
+            "policyDefinitionReferenceId": "Certificatesshouldhavethespecifiedmaximumvalidityperiod",
+            "parameters": {
+              "maximumValidityInMonths": {
+                "value": "[[parameters('maximumValidityInMonths')]"
+              },
+              "effect": {
+                "value": "[[parameters('effect-0a075868-4c26-42ef-914c-5bc007359560')]"
+              }
+            },
+            "groupNames": [
+              "U.11.2 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98728c90-32c7-4049-8429-847dc0f4fe37",
+            "policyDefinitionReferenceId": "KeyVaultsecretsshouldhaveanexpirationdate",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-98728c90-32c7-4049-8429-847dc0f4fe37')]"
+              }
+            },
+            "groupNames": [
+              "U.11.2 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0",
+            "policyDefinitionReferenceId": "KeyVaultkeysshouldhaveanexpirationdate",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0')]"
+              }
+            },
+            "groupNames": [
+              "U.11.2 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/72650e9f-97bc-4b2a-ab5f-9781a9fcecbc",
+            "policyDefinitionReferenceId": "WindowsmachinesshouldmeetrequirementsoftheAzurecomputesecuritybaseline",
+            "parameters": {
+              "IncludeArcMachines": {
+                "value": "[[parameters('IncludeArcMachines')]"
+              },
+              "effect": {
+                "value": "[[parameters('effect-72650e9f-97bc-4b2a-ab5f-9781a9fcecbc')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie",
+              "U.15.1 - Registratie",
+              "U.15.3 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/fc9b3da7-8347-4380-8e70-0a0361d8dedd",
+            "policyDefinitionReferenceId": "LinuxmachinesshouldmeetrequirementsfortheAzurecomputesecuritybaseline",
+            "parameters": {
+              "IncludeArcMachines": {
+                "value": "[[parameters('IncludeArcMachines')]"
+              },
+              "effect": {
+                "value": "[[parameters('effect-fc9b3da7-8347-4380-8e70-0a0361d8dedd')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie",
+              "U.15.1 - Registratie",
+              "U.15.3 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/938c4981-c2c9-4168-9cd6-972b8675f906",
+            "policyDefinitionReferenceId": "MicrosoftDefenderforSQLstatusshouldbeprotectedforArc-enabledSQLServers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-938c4981-c2c9-4168-9cd6-972b8675f906')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "C.04.3 - Tijdslijnen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c6283572-73bb-4deb-bf2c-7a2b8f7462cb",
+            "policyDefinitionReferenceId": "SQLserver-targetedautoprovisioningshouldbeenabledforSQLserversonmachinesplan",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-c6283572-73bb-4deb-bf2c-7a2b8f7462cb')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7926a6d1-b268-4586-8197-e8ae90c877d7",
+            "policyDefinitionReferenceId": "MicrosoftDefenderforAPIsshouldbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-7926a6d1-b268-4586-8197-e8ae90c877d7')]"
+              }
+            },
+            "groupNames": [
+              "C.04.3 - Tijdslijnen",
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "U.09.3 - Detectie, preventie en herstel",
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6b2122c1-8120-4ff5-801b-17625a355590",
+            "policyDefinitionReferenceId": "AzureArcenabledKubernetesclustersshouldhavetheAzurePolicyextensioninstalled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-6b2122c1-8120-4ff5-801b-17625a355590')]"
+              }
+            },
+            "groupNames": [
+              "U.15.1 - Registratie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5450f5bd-9c72-4390-a9c4-a7aba4edfdd2",
+            "policyDefinitionReferenceId": "CosmosDBdatabaseaccountsshouldhavelocalauthenticationmethodsdisabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-5450f5bd-9c72-4390-a9c4-a7aba4edfdd2')]"
+              }
+            },
+            "groupNames": [
+              "U.10.2 - Beheerders",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/630c64f9-8b6b-4c64-b511-6544ceff6fd6",
+            "policyDefinitionReferenceId": "AuthenticationtoLinuxmachinesshouldrequireSSHkeys",
+            "parameters": {
+              "IncludeArcMachines": {
+                "value": "[[parameters('IncludeArcMachines')]"
+              },
+              "effect": {
+                "value": "[[parameters('effect-630c64f9-8b6b-4c64-b511-6544ceff6fd6')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a9fbe0d-c5c4-4da8-87d8-f4fd77338835",
+            "policyDefinitionReferenceId": "AzureDefenderforopen-sourcerelationaldatabasesshouldbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-0a9fbe0d-c5c4-4da8-87d8-f4fd77338835')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "C.04.3 - Tijdslijnen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f90fc71-a595-4066-8974-d4d0802e8ef0",
+            "policyDefinitionReferenceId": "MicrosoftDefenderCSPMshouldbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-1f90fc71-a595-4066-8974-d4d0802e8ef0')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "C.04.3 - Tijdslijnen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/146412e9-005c-472b-9e48-c87b72ac229e",
+            "policyDefinitionReferenceId": "AMicrosoftEntraadministratorshouldbeprovisionedforMySQLservers",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-146412e9-005c-472b-9e48-c87b72ac229e')]"
+              }
+            },
+            "groupNames": [
+              "U.07.3 - Beheerfuncties",
+              "U.10.2 - Beheerders",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3aa03346-d8c5-4994-a5bc-7652c2a2aef1",
+            "policyDefinitionReferenceId": "APIManagementsubscriptionsshouldnotbescopedtoallAPIs",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-3aa03346-d8c5-4994-a5bc-7652c2a2aef1')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/92bb331d-ac71-416a-8c91-02f2cb734ce4",
+            "policyDefinitionReferenceId": "APIManagementcallstoAPIbackendsshouldnotbypasscertificatethumbprintornamevalidation",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-92bb331d-ac71-416a-8c91-02f2cb734ce4')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ee7495e7-3ba7-40b6-bfee-c29e22cc75d4",
+            "policyDefinitionReferenceId": "APIManagementAPIsshoulduseonlyencryptedprotocols",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-ee7495e7-3ba7-40b6-bfee-c29e22cc75d4')]"
+              }
+            },
+            "groupNames": [
+              "U.05.1 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f1cc7827-022c-473e-836e-5a51cae0b249",
+            "policyDefinitionReferenceId": "APIManagementsecretnamedvaluesshouldbestoredinAzureKeyVault",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-f1cc7827-022c-473e-836e-5a51cae0b249')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b741306c-968e-4b67-b916-5675e5c709f4",
+            "policyDefinitionReferenceId": "APIManagementdirectmanagementendpointshouldnotbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-b741306c-968e-4b67-b916-5675e5c709f4')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/df73bd95-24da-4a4f-96b9-4e8b94b402bd",
+            "policyDefinitionReferenceId": "APIManagementshoulddisablepublicnetworkaccesstotheserviceconfigurationendpoints",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-df73bd95-24da-4a4f-96b9-4e8b94b402bd')]"
+              },
+              "endpointType": {
+                "value": "[[parameters('endpointType')]"
+              }
+            },
+            "groupNames": [
+              "U.07.1 - Isolatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/549814b6-3212-4203-bdc8-1548d342fb67",
+            "policyDefinitionReferenceId": "APIManagementminimumAPIversionshouldbesetto2019-12-01orhigher",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-549814b6-3212-4203-bdc8-1548d342fb67')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c15dcc82-b93c-4dcb-9332-fbf121685b54",
+            "policyDefinitionReferenceId": "APIManagementcallstoAPIbackendsshouldbeauthenticated",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-c15dcc82-b93c-4dcb-9332-fbf121685b54')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/40e85574-ef33-47e8-a854-7a65c7500560",
+            "policyDefinitionReferenceId": "AzureMySQLflexibleservershouldhaveMicrosoftEntraOnlyAuthenticationenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-40e85574-ef33-47e8-a854-7a65c7500560')]"
+              }
+            },
+            "groupNames": [
+              "U.10.2 - Beheerders",
+              "U.10.3 - Gebruik van geauthenticeerde apparatuur",
+              "U.10.5 - Toegangsbeperking"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/640d2586-54d2-465f-877f-9ffc1d2109f4",
+            "policyDefinitionReferenceId": "MicrosoftDefenderforStorageshouldbeenabled",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-640d2586-54d2-465f-877f-9ffc1d2109f4')]"
+              }
+            },
+            "groupNames": [
+              "C.04.6 - Patchmanagement",
+              "C.04.7 - Evaluatie",
+              "C.04.8 - Evaluatie",
+              "C.04.3 - Tijdslijnen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1dc2fc00-2245-4143-99f4-874c937f13ef",
+            "policyDefinitionReferenceId": "AzureAPIManagementplatformversionshouldbestv2",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-1dc2fc00-2245-4143-99f4-874c937f13ef')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5e6bf724-0154-49bc-985f-27b2e07e636b",
+            "policyDefinitionReferenceId": "PreviewAzureStackHCIserversshouldmeetSecured-corerequirements",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-5e6bf724-0154-49bc-985f-27b2e07e636b')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/dad3a6b9-4451-492f-a95c-69efc6f3fada",
+            "policyDefinitionReferenceId": "PreviewAzureStackHCIserversshouldhaveconsistentlyenforcedapplicationcontrolpolicies",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-dad3a6b9-4451-492f-a95c-69efc6f3fada')]"
+              }
+            },
+            "groupNames": [
+              "C.04.7 - Evaluatie"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ee8ca833-1583-4d24-837e-96c2af9488a4",
+            "policyDefinitionReferenceId": "PreviewAzureStackHCIsystemsshouldhaveencryptedvolumes",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-ee8ca833-1583-4d24-837e-96c2af9488a4')]"
+              }
+            },
+            "groupNames": [
+              "U.05.2 - Cryptografische maatregelen"
+            ]
+          },
+          {
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/36f0d6bc-a253-4df8-b25b-c3a5023ff443",
+            "policyDefinitionReferenceId": "PreviewHostandVMnetworkingshouldbeprotectedonAzureStackHCIsystems",
+            "parameters": {
+              "effect": {
+                "value": "[[parameters('effect-36f0d6bc-a253-4df8-b25b-c3a5023ff443')]"
+              }
+            },
+            "groupNames": [
+              "U.10.5 - Toegangsbeperking"
             ]
           }
         ]

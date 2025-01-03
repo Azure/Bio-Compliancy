@@ -1,12 +1,12 @@
 
 <#
 	.SYNOPSIS
-        1. Compare the BIO Policy with the Microsoft security baseline
+        1. Compare the BIO Policy with a secific initiative like buildin Microsoft security baseline
 
 
 	.DESCRIPTION
     
-        Compare the BIO Policy with the Microsoft security baseline         
+        Compare the BIO Policy with a secific initiative like buildin Microsoft security baseline       
  
 	.EXAMPLE
 	   .\comparePolicies.ps1
@@ -29,7 +29,7 @@ Param (
 
     #paramter for the uri Microsoft security baseline
     [Parameter(Mandatory = $false)]
-    $compareFile ="https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-policies/policySetDefinitions/Azure%20Government/Regulatory%20Compliance/FedRAMP_H_audit.json"
+    $compareDefId ="/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8"
    
 
 )
@@ -59,9 +59,7 @@ if (!(Get-Module -ListAvailable -Name PSExcel)) {
 }
 
 
-#get the name from the file name $comparePolicyDefinition
-$comparePolicyDefinitionName = $compareFile -split "\.json" | Select-Object -First 1
-$comparePolicyDefinitionName = $comparePolicyDefinitionName  -split "/" | Select-Object -Last 1
+
 
 # Get the content from the BIO policy
 $CompareContent = Invoke-WebRequest -Uri $BioPolicy
@@ -69,11 +67,21 @@ $CompareContent = Invoke-WebRequest -Uri $BioPolicy
 # Load the payload file as a JSON object
 $BioPolicyJson = ( $CompareContent.content | ConvertFrom-Json).resources.properties.policyDefinitions
 
-# Get the content from the Microsoft security baseline
-$CompareContent = Invoke-WebRequest -Uri $compareFile
+
+
+
+# Get the content from the definition ID
+$CompareContent = Get-AzPolicySetDefinition -ID $compareDefId
 
 # Load the compare file as a JSON object
-$compareJson = ($CompareContent.content| ConvertFrom-Json).properties.policyDefinitions
+$compareJson = $CompareContent.PolicyDefinition
+
+#get the name from the file name $comparePolicyDefinition
+$comparePolicyDefinitionName = $CompareContent.DisplayName
+
+#replace space with _ for $comparePolicyDefinitionName
+$comparePolicyDefinitionName = $comparePolicyDefinitionName -replace " ", "_"
+
  
 $logobjectPolicy = @()
 
@@ -152,7 +160,7 @@ foreach ($policyDefinition in $compareJson) {
             policyDescription = $policyInfo.Properties.Description
             policyDisplayName =  $policyInfo.Properties.DisplayName
             policyDefaultEffect = $policyInfo.Parameters.effect.defaultValue
-            status  = "onlyInFeRampH"
+            status  = "only$comparePolicyDefinitionName"
             Remarks = ""
         })
 
