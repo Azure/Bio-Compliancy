@@ -29,7 +29,7 @@ Param (
 
     #paramter for the uri Microsoft security baseline
     [Parameter(Mandatory = $false)]
-    $compareFile ="https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-policies/policySetDefinitions/Azure%20Government/Regulatory%20Compliance/FedRAMP_H_audit.json"
+    $compareFile ="localfile.json"
    
 
 )
@@ -70,10 +70,10 @@ $CompareContent = Invoke-WebRequest -Uri $BioPolicy
 $BioPolicyJson = ( $CompareContent.content | ConvertFrom-Json).resources.properties.policyDefinitions
 
 # Get the content from the Microsoft security baseline
-$CompareContent = Invoke-WebRequest -Uri $compareFile
+$CompareContent = Get-Content -Path $compareFile
 
 # Load the compare file as a JSON object
-$compareJson = ($CompareContent.content| ConvertFrom-Json).properties.policyDefinitions
+$compareJson = ($CompareContent| ConvertFrom-Json).PolicyDefinition
  
 $logobjectPolicy = @()
 
@@ -152,7 +152,7 @@ foreach ($policyDefinition in $compareJson) {
             policyDescription = $policyInfo.Properties.Description
             policyDisplayName =  $policyInfo.Properties.DisplayName
             policyDefaultEffect = $policyInfo.Parameters.effect.defaultValue
-            status  = "onlyInFeRampH"
+            status  = "onlylocalfile"
             Remarks = ""
         })
 

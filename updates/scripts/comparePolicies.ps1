@@ -78,7 +78,7 @@ $compareJson = ($CompareContent.content| ConvertFrom-Json).properties.policyDefi
 $logobjectPolicy = @()
 
 # Get all the policyDefinitions from the subscription
-$PolicyInfoAll = Get-AzPolicyDefinition
+$PolicyInfoAll = Get-AzPolicyDefinition -BackwardCompatible 
 
 # Go trough all the  policyDefinitions from the payloadJSON 
 foreach ($policyDefinition in $BioPolicyJson) {

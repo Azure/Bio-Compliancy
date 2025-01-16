@@ -36,7 +36,7 @@ Param (
 
     #parameter for tab in excel file
     [Parameter(Mandatory = $false)]
-    [string]$inputExcelTab = "v2.2.3",
+    [string]$inputExcelTab = "v2.2.4",
 
     #parameter for the output json file
     [Parameter(Mandatory = $false)]

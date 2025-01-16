@@ -176,7 +176,10 @@
       "defaultValue": [
         "europe",
         "global",
+        "sweden",
+        "germany",
         "swedencentral",
+        "swedensouth",
         "germanynorth",
         "germanywestcentral",
         "westeurope",
@@ -185,6 +188,7 @@
       "allowedValues": [
         "europe",
         "france",
+        "sweden",
         "francecentral",
         "francesouth",
         "germany",
@@ -192,15 +196,13 @@
         "germanywestcentral",
         "global",
         "northeurope",
-        "norway",
-        "norwayeast",
-        "norwaywest",
         "swedencentral",
         "swedensouth",
         "switzerland",
-        "switzerlandnorth",
-        "switzerlandwest",
-        "westeurope"
+        "westeurope",
+        "spaincentral",
+        "polandcentral",
+        "italynorth"
       ],
       "metadata": {
         "displayName": "Allowed locations",
@@ -218,7 +220,7 @@
         "true",
         "false"
       ],
-      "defaultValue": "false"
+      "defaultValue": "true"
     },
     "listOfResourceTypesWithDiagnosticLogsEnabled": {
       "type": "Array",
