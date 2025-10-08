@@ -12,6 +12,14 @@ policyDefinitionReferenceIds may be change as these are based on display name th
 Default parameters and allowed parameters of listOfAllowedLocations is changed added sweden south and on the allowed removed norway, switserland and added poland, italy and spain.
 Changed the parameter IncludeArcMachines to True instead of False. Is only audit and with SA benefits it has also no additional cost impact.
 
+### New policies in version 2.2.5
+
+No new policies were added in version 2.2.5.
+
+### Parameter updates in version 2.2.5
+
+Policy 82ebe5c0-3aa2-4ede-b6f4-8b99c7fe419c (Kubernetes cluster pods should only use approved host network and port range) has been updated. The parameters `minPort` and `maxPort` have been replaced with a new `allowedHostPorts` array parameter that provides more flexible host port configuration for Kubernetes pods.
+
 ### New policies in version 2.2.4
 
 | PolicyName|policyDisplayName|Category|Remarks |

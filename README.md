@@ -40,7 +40,7 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 
 | Versie | Implementeer |
 |---|---|
-| 2.2.4 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
+| 2.2.5 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
 
 ## Updates van policies definities
 

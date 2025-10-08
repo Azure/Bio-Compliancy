@@ -13,7 +13,7 @@
         "policyType": "Custom",
         "description": "This initiative includes policies that address the Dutch Baseline Informatiebeveiliging (BIO) controls specifically for the 'thema-uitwerking Clouddiensten' and include policies covered under the SOC2 and ISO 27001:2013 controls.",
         "metadata": {
-          "version": "2.2.4",
+          "version": "2.2.5",
           "category": "Regulatory Compliance",
           "ASC": "true"
         },
@@ -4410,23 +4410,14 @@
             },
             "defaultValue": false
           },
-          "minPort": {
-            "type": "Integer",
+          "allowedHostPorts": {
+            "type": "Array",
             "metadata": {
-              "displayName": "Min host port",
-              "description": "The minimum value in the allowable host port range that pods can use in the host network namespace.",
+              "displayName": "Allowed host ports",
+              "description": "The list of host ports that pods are allowed to use in the host network namespace.",
               "portalReview": true
             },
-            "defaultValue": 0
-          },
-          "maxPort": {
-            "type": "Integer",
-            "metadata": {
-              "displayName": "Max host port",
-              "description": "The maximum value in the allowable host port range that pods can use in the host network namespace.",
-              "portalReview": true
-            },
-            "defaultValue": 0
+            "defaultValue": []
           },
           "effect-098fc59e-46c7-4d99-9b16-64990e543d75": {
             "type": "String",
@@ -8683,14 +8674,8 @@
               "allowHostNetwork": {
                 "value": "[[parameters('allowHostNetwork')]"
               },
-              "minPort": {
-                "value": "[[parameters('minPort')]"
-              },
-              "maxPort": {
-                "value": "[[parameters('maxPort')]"
-              },
-              "excludedContainers": {
-                "value": "[[parameters('excludedContainers')]"
+              "allowedHostPorts": {
+                "value": "[[parameters('allowedHostPorts')]"
               },
               "excludedImages": {
                 "value": "[[parameters('excludedImages')]"
