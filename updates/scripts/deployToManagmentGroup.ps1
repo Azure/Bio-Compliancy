@@ -28,7 +28,7 @@ Param (
 
     #parameter for the output json file
     [Parameter(Mandatory = $false)]
-    [string]$outputJsonFileSub = "BIO-azuredeploy-update.json",
+    [string]$outputJsonFileSub = "BIO-azuredeploy.json",
 
 	#parameter for deploymentname
 	[Parameter(Mandatory = $false)]

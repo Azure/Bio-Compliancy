@@ -6,7 +6,8 @@
 > Voor de BIO Compliancy oplossing voor Microsoft 365, ga naar dit project: https://github.com/microsoft/Bio-Compliancy
 
 > [!NOTE]
-> Januari 2025 update 2.2.4 beschikbaar zie [Updates](./docs/updates.md)
+> October 2025 update 2.2.5 beschikbaar zie [Updates](./docs/updates.md)
+
 
 
 Dit project omvat een Initiative Policy Template, welke ingeladen kan worden in Microsoft Azure. In combinatie met Defender for Cloud kan men auditen of resources in een Azure omgeving voldoen aan de BIO (Baseline informatiebeveiliging Overheid).
@@ -40,7 +41,7 @@ Dit project heeft de [Microsoft Open Source Code of Conduct](https://opensource.
 
 | Versie | Implementeer |
 |---|---|
-| 2.2.4 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
+| 2.2.5 |[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](./docs/README.md) |
 
 ## Updates van policies definities
 
