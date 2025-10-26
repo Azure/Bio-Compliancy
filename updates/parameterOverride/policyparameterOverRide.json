@@ -222,6 +222,14 @@
       ],
       "defaultValue": "true"
     },
+    "maximumValidityInMonths": {
+      "type": "Integer",
+      "metadata": {
+        "displayName": "The maximum validity in months",
+        "description": "The limit to how long a certificate may be valid for. Certificates with lengthy validity periods aren't best practice."
+      },
+      "defaultValue": 13
+    },
     "listOfResourceTypesWithDiagnosticLogsEnabled": {
       "type": "Array",
       "metadata": {

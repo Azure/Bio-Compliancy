@@ -36,7 +36,7 @@ Param (
 
     #parameter for tab in excel file
     [Parameter(Mandatory = $false)]
-    [string]$inputExcelTab = "v2.2.4",
+    [string]$inputExcelTab = "v2.2.5",
 
     #parameter for the output json file
     [Parameter(Mandatory = $false)]
@@ -88,9 +88,11 @@ class DefinitionGroup {
 
 class PolicyDef {
     [string]$policyDefinitionReferenceId;
+    [string]$definitionVersion;
     [array]$groupsNames;
     [PSObject]$Parameters;
     [PSObject]$Definitions;
+    
 
 
 
@@ -108,6 +110,7 @@ $policyDefinitionjson = @"
 {
     "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/contoso/providers/Microsoft.Authorization/policyDefinitions/Proposeddisplayname",
     "policyDefinitionReferenceId": "nametobeaddedfromproposedfilename",
+    "definitionVersion": "1.*.*",
     "parameters": {
                        
     },
@@ -144,10 +147,8 @@ $policyInfoFile = "$resultFolder\$inputExcelFile"
 $TemplateFile = "$root\..\templateFiles\policyDeployTemplate-subscription.json"
 $parameterOverRideFile = "$root\..\parameterOverride\policyparameterOverRide.json"
 $resultfile = "$resultFolder\$outputJsonFileSub"
-$resultfileUpdate = "$resultFolder\$outputJsonFileSubUpdate"
 $TemplateFileMng = "$root\..\templateFiles\policyDeployTemplate-managementgroup.json"
 $resultfileMng = "$resultFolder\$outputJsonFileMng"
-$resultfileMngUpdate = "$resultFolder\$outputJsonFileMngUpdate"
 
 
 
@@ -179,10 +180,10 @@ if (!(Test-Path $TemplateFileMng)) {
 $policyInfo = @()
 #read the template file and convert to json
 $TemplateFileContent = Get-Content $TemplateFile  | ConvertFrom-Json 
-$TemplateFileContentUpdate = Get-Content $TemplateFile  | ConvertFrom-Json 
+
 
 $TemplateFileContentMng = Get-Content $TemplateFileMng  | ConvertFrom-Json 
-$TemplateFileContentMngUpdate = Get-Content $TemplateFileMng  | ConvertFrom-Json 
+
 #read the parameter override file and convert to json
 $ParameterOverRide = Get-Content $parameterOverRideFile  | ConvertFrom-Json 
 
@@ -217,7 +218,7 @@ $policyParUpdate = $policyParameters |  ConvertFrom-Json
 
 
 # Select only the unique PolicyID's
-$policyDefinitionReferenceId = $inputExcelFile  | Select-Object @{Label = "policyRefId"; Expression = { "$($_.'PolicyId')" } }, policyDefinitionReferenceId , deprecated -Unique
+$policyDefinitionReferenceId = $inputExcelFile  | Select-Object @{Label = "policyRefId"; Expression = { "$($_.'PolicyId')" } }, policyDefinitionReferenceId , deprecated, LastPolicyVersion  -Unique
 Write-Host "Excel first  $($inputExcelFile[0]) "
 $PolicyInfoAll = Get-AzPolicyDefinition -Builtin -BackwardCompatible
 
@@ -244,150 +245,177 @@ foreach ($policy in $policyDefinitionReferenceId) {
         $NewPolicyDefinition = $policyDefinitionjson |  ConvertFrom-Json 
         $NewPolicyDefinition.policyDefinitionId = $Policy.policyRefId 
         $NewPolicyDefinition.policyDefinitionReferenceId = $Policy.policyDefinitionReferenceId
+        # Get the version from $PolicyInfo.Properties.Metadata.version and change 1.0.1 to 1.*.*
 
-        # Build the policy definition parameters 
+        $version = $PolicyInfo.Properties.Metadata.version
+        $NewPolicyDefinition.definitionVersion = $version -replace '.\d+\.\d+', '.*.*'
+        # check if the last policy version is different from the new version and if lastpolicy is not empty
+        if ($policy.LastPolicyVersion -ne $NewPolicyDefinition.definitionVersion -and $policy.LastPolicyVersion -ne $null) {
+            # if new version does not contain deprecated
+            if ($NewPolicyDefinition.definitionVersion -notlike "*deprecated*") {
+                # if the first part of the version is different then write host
+                if ( ($policy.LastPolicyVersion -split "\.")[0] -ne ($NewPolicyDefinition.definitionVersion -split "\.")[0] ) {
+                    write-host "Policy $($Policy.policyDefinitionReferenceId) major version changed from $($policy.LastPolicyVersion) to $($NewPolicyDefinition.definitionVersion)" -ForegroundColor Yellow
+                    # Get the the list of versions
+                    $listversion = Get-AzPolicyDefinition -ListVersion -id  $Policy.policyRefId 
+                    # Get the higest version with the same major version as $policy.LastPolicyVersion
+                    $policyversion = $listversion | Where-Object { $_.Name -like "$(($policy.LastPolicyVersion -split "\.")[0]).*.*" } | Sort-Object { [version]$_.Properties.Metadata.version } -Descending | Select-Object -First 1
 
-        $PolicyInfo.Properties.Parameters.PSObject.Properties | ForEach-Object {
-            $parameterName = $_.Name
-            if ($ParameterOverRide.parametersRename.($parameterName) -ne $null) {
-                $parameterName = $ParameterOverRide.parametersRename.($parameterName)
+
+                    $PolicyInfoOld = Get-AzPolicyDefinition -Version $policyversion.name -id $Policy.policyRefId 
+
+                    # Compare if there are removed paramets from the new  $PolicyInfo.Properties.Parameters.PSObject.Properties  that where in the old $PolicyInfoOld.Parameters.PSObject.Properties both are an array of objects
+                    $removedParameters = @()
+                    foreach ($oldParameter in $PolicyInfoOld.Parameter.PSObject.Properties) {
+                        $newParameter = $PolicyInfo.Properties.Parameters.PSObject.Properties | Where-Object { $_.Name -eq $oldParameter.Name }
+                        if ($null -eq $newParameter) {
+                            $removedParameters += $oldParameter.Name
+                            write-host "Parameter $($oldParameter.Name) is removed in new version" -ForegroundColor Red
+                            $oldParameter.value.metadata | Add-Member -MemberType NoteProperty "deprecated" -Value $true -Force
+                            $policyParUpdate | Add-Member -MemberType NoteProperty $oldParameter.Name  -Value $oldParameter.value -Force        
+
+                        }
+                        else {
+                            write-host "Parameter $($oldParameter.Name) is still present in new version" -ForegroundColor Green
+                        }
+                    }   
+                    if ($removedParameters.Count -gt 0) {
+                        
+
+                        write-host "Policy $($Policy.policyDefinitionReferenceId) has removed parameters: $($removedParameters -join ", ")" -ForegroundColor Red
+                    }
+                    
+       
+                }
             }
-            if ($null -ne $_.Name) {
-                if ($parameterName -eq "effect") {
+        }
+
+            # Build the policy definition parameters 
+
+            $PolicyInfo.Properties.Parameters.PSObject.Properties | ForEach-Object {
+                $parameterName = $_.Name
+                if ($ParameterOverRide.parametersRename.($parameterName) -ne $null) {
+                    $parameterName = $ParameterOverRide.parametersRename.($parameterName)
+                }
+                if ($null -ne $_.Name) {
+                    if ($parameterName -eq "effect") {
             
+                        #append the $id to the $parameterName with a - to make it unique
+                        $parameterName = "$($parameterName)-$($id)"
+
+                    }
+                    $NewPolicyValue = @()
+                    $NewPolicyValue = $policyValue |  ConvertFrom-Json 
+                    $NewPolicyValue.value = "[[parameters('$($parameterName)')]"
+                    $NewPolicyDefinition.parameters | Add-Member -MemberType NoteProperty $_.Name -Value $NewPolicyValue -Force
+                    #   $NewPolicyDefinition.parameters.$($parameter.Name).value = "[[parameters('$($parameterName)')]"
+                }
+            }
+
+            # Build the parameters list
+
+            $PolicyInfo.Properties.Parameters.PSObject.Properties | ForEach-Object {
+      
+                $parameterName = $_.Name
+                if ($ParameterOverRide.parametersRename.($parameterName) -ne $null) {
+                    $parameterName = $ParameterOverRide.parametersRename.($parameterName)
+                }
+                if ($parameterName -eq "effect") {
+           
                     #append the $id to the $parameterName with a - to make it unique
                     $parameterName = "$($parameterName)-$($id)"
-
-                }
-                $NewPolicyValue = @()
-                $NewPolicyValue = $policyValue |  ConvertFrom-Json 
-                $NewPolicyValue.value = "[[parameters('$($parameterName)')]"
-                $NewPolicyDefinition.parameters | Add-Member -MemberType NoteProperty $_.Name -Value $NewPolicyValue -Force
-                #   $NewPolicyDefinition.parameters.$($parameter.Name).value = "[[parameters('$($parameterName)')]"
-            }
-        }
-
-        # Build the parameters list
-
-        $PolicyInfo.Properties.Parameters.PSObject.Properties | ForEach-Object {
       
-            $parameterName = $_.Name
-            if ($ParameterOverRide.parametersRename.($parameterName) -ne $null) {
-                $parameterName = $ParameterOverRide.parametersRename.($parameterName)
-            }
-            if ($parameterName -eq "effect") {
-           
-                #append the $id to the $parameterName with a - to make it unique
-                $parameterName = "$($parameterName)-$($id)"
-      
-                $_.Value.metadata.displayName = "Effect for policy:$($PolicyInfo.Properties.DisplayName)"
+                    $_.Value.metadata.displayName = "Effect for policy:$($PolicyInfo.Properties.DisplayName)"
             
-            }
+                }
 
-            # if the policy is deprecated then add a deprecated property to the metadata
+                # if the policy is deprecated then add a deprecated property to the metadata
 
-            if ($policy.deprecated -eq "TRUE") {
-                $_.Value.metadata | Add-Member -MemberType NoteProperty "deprecated" -Value $true -Force
-            }
+                if ($policy.deprecated -eq "TRUE") {
+                    $_.Value.metadata | Add-Member -MemberType NoteProperty "deprecated" -Value $true -Force
+                }
      
-            # if the  $_.Value.metadata.displayName starts with an [ then add [ to at the start of the string
-            if ($null -ne $_.Value.metadata.displayName) {
-                if ($_.Value.metadata.displayName.StartsWith("[")) {
-                    $_.Value.metadata.displayName = "[" + $_.Value.metadata.displayName
+                # if the  $_.Value.metadata.displayName starts with an [ then add [ to at the start of the string
+                if ($null -ne $_.Value.metadata.displayName) {
+                    if ($_.Value.metadata.displayName.StartsWith("[")) {
+                        $_.Value.metadata.displayName = "[" + $_.Value.metadata.displayName
+                    }
                 }
-            }
 
 
-            if ($policy.deprecated -eq "TRUE") {
-                if ($policyParUpdate.($parameterName) -eq $null) {
-
-                    if ($null -ne $parameterName ) {
-                        if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
-                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force            
+                if ($policy.deprecated -eq "TRUE") {
+                    if ($policyParUpdate.($parameterName) -eq $null) {
+                        
+                        if ($null -ne $parameterName ) {
+                            if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
+                                $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force            
+                            }
+                            else {
+                                $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                            }
                         }
-                        else {
-                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                    }
+                }
+                else {
+                    if ($policyPar.($parameterName) -eq $null) {
+
+                        if ($null -ne $parameterName ) {
+                            if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
+                                $policyPar | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force         
+                                $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force               
+                            }
+                            else {
+                                $policyPar | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                                $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
+                            }
                         }
                     }
                 }
             }
-            else {
-                if ($policyPar.($parameterName) -eq $null) {
-
-                    if ($null -ne $parameterName ) {
-                        if ($ParameterOverRide.parameters.($parameterName) -eq $null) {
-                            $policyPar | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force         
-                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName  -Value $_.value -Force               
-                        }
-                        else {
-                            $policyPar | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
-                            $policyParUpdate | Add-Member -MemberType NoteProperty $parameterName -Value $ParameterOverRide.parameters.($parameterName) -Force
-                        }
-                    }
-                }
-            }
-        }
         
  
-        [array]$policyGroupsArray = $policyGroups.GroupNames | ForEach-Object { $(if ($_.length -gt 64) { $_.substring(0, 64) } else { $_ } ) }
+            [array]$policyGroupsArray = $policyGroups.GroupNames | ForEach-Object { $(if ($_.length -gt 64) { $_.substring(0, 64) } else { $_ } ) }
 
 
-        $NewPolicyDefinition.groupNames = [array]$policyGroupsArray
+            $NewPolicyDefinition.groupNames = [array]$policyGroupsArray
   
 
-        # if the policy is deprecated then skip
+            # if the policy is deprecated then skip
     
-        if ($policy.deprecated -ne "TRUE") {
+            if ($policy.deprecated -ne "TRUE") {
          
-            $PolicyRefs += @([PolicyDef]@{
-                    policyDefinitionReferenceId = $policy.policyRefId
-                    Definitions                 = $NewPolicyDefinition
+                $PolicyRefs += @([PolicyDef]@{
+                        policyDefinitionReferenceId = $policy.policyRefId
+                        Definitions                 = $NewPolicyDefinition
       
 
-                }
-            )
+                    }
+                )
+            }
         }
-    }
         
        
-}
+    }
 
 
-# Add to the template file the policyDefinitionGroups, policyDefinitions and parameters
+    # Add to the template file the policyDefinitionGroups, policyDefinitions and parameters
           
-$TemplateFileContent.resources.properties.policyDefinitionGroups = $definitionGroupObject  | Sort-Object -Property name
-$TemplateFileContent.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
-$TemplateFileContent.resources.properties.parameters = $policyPar 
+    $TemplateFileContent.resources.properties.policyDefinitionGroups = $definitionGroupObject  | Sort-Object -Property name
+    $TemplateFileContent.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
+    $TemplateFileContent.resources.properties.parameters = $policyPar 
 
-#create outputfile for subscription
+    #create outputfile for subscription
 
-$TemplateFileContent |  ConvertTo-Json  -Depth 100 | out-file $resultfile 
-
-# Add to the template file the policyDefinitionGroups, policyDefinitions and parameters for Updates with Pararameters
-          
-$TemplateFileContentUpdate.resources.properties.policyDefinitionGroups = $definitionGroupObject  | Sort-Object -Property name
-$TemplateFileContentUpdate.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
-$TemplateFileContentUpdate.resources.properties.parameters = $policyParUpdate 
-
-#create outputfile for subscription
-
-$TemplateFileContentUpdate |  ConvertTo-Json  -Depth 100 | out-file $resultfileUpdate 
+    $TemplateFileContent |  ConvertTo-Json  -Depth 100 | out-file $resultfile 
 
 
-#create outputfile for Managementgroup
-
-$TemplateFileContentMng.resources.properties.policyDefinitionGroups = $definitionGroupObject 
-$TemplateFileContentMng.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
-$TemplateFileContentMng.resources.properties.parameters = $policyPar
 
 
-$TemplateFileContentMng |  ConvertTo-Json  -Depth 100 | out-file $resultfileMng
+    #create outputfile for Managementgroup
 
-#create outputfile for ManagementgroupUpdate
-
-$TemplateFileContentMngUpdate.resources.properties.policyDefinitionGroups = $definitionGroupObject 
-$TemplateFileContentMngUpdate.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
-$TemplateFileContentMngUpdate.resources.properties.parameters = $policyParUpdate
+    $TemplateFileContentMng.resources.properties.policyDefinitionGroups = $definitionGroupObject 
+    $TemplateFileContentMng.resources.properties.policyDefinitions = $PolicyRefs | ForEach-Object { $_.Definitions }
+    $TemplateFileContentMng.resources.properties.parameters = $policyPar
 
 
-$TemplateFileContentMngUpdate |  ConvertTo-Json  -Depth 100 | out-file $resultfileMngUpdate
+    $TemplateFileContentMng |  ConvertTo-Json  -Depth 100 | out-file $resultfileMng
